@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03系统弹窗（了解）</title>
+	<script>
+		/*
+			03系统弹窗（了解）
+				* alert(msg)//弹出对话框(确定)
+				* confirm(msg)//弹出警告框，返回布尔值（确定&取消）
+				* prompt(msg,default)//弹出输入框，返回消息或null
+				
+				**以上三个方法都会暂停代码的执行
+
+				* open(url,name,[options]) : 打开一个新窗口并返回新 window 对象
+					name:不命名会每次打开新窗口，命名的第一次打开新窗口,之后在这个窗口中加载
+					options为字符串：'width=400,height=400,top=200,left=200'
+					opener父窗口对象，通过open方法打开的窗口才有opener对象
+				* close(): 关闭窗口
+				* print(): 调出打印对话框
+		 */
+		
+		// var res1 = alert('laoxie 最帅');
+		// console.log(res1);
+		
+		// var res2 = confirm('你真的忍心离我而去吗？');
+		// console.log(res2);
+
+		// var res3 = prompt('这位好汉，请留下你的大名');
+		// console.log(res3);
+
+		// var res4 = open('http://www.qq.com','qq','width=400,height=400,top=200,left=200');
+		// console.log(res4);
+
+		// setTimeout(function(){
+		// 	// window.close(res4);
+		// 	res4.close();
+
+		// },2000);
+
+		for(var i=0;i<5;i++){
+			var w = parseInt(Math.random()*window.innerWidth);
+			var h = parseInt(Math.random()*window.innerHeight);
+			var t = parseInt(Math.random()*window.innerHeight);
+			var l = parseInt(Math.random()*window.innerWidth);
+			open('http://www.qq.com','qq'+i,'width='+w+',height='+h+',top='+t+',left='+l)
+		}
+	</script>
+</head>
+<body>
+	<h1>03系统弹窗（了解）</h1>
+</body>
+</html>

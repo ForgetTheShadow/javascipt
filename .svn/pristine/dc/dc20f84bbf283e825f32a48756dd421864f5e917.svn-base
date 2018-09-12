@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件监听器</title>
+	<style>
+		#box{padding:20px;background-color: #ffc;border:4px solid #fc0;}
+	</style>
+	<script>
+		/*
+			事件监听器
+				格式：元素.addEventListener(type,handler,isCapture);
+					* type ： 事件类型,如click,mouseover,keydown
+					* handler：事件处理函数
+					* isCpture：是否捕获（默认：false）
+						捕获：是否把事件处理函数提前到捕获阶段执行
+		 */
+		
+		window.onload = function(){
+			var box = document.getElementById('box');
+			var btn = box.children[0];
+
+
+			// 传统事件绑定方式:同名事件会被覆盖
+			// btn.onclick = function(){
+			// 	console.log('laoxie click')
+			// }
+
+			// btn.onclick = function(){
+			// 	console.log('lemon dblclick');
+			// }
+
+			// 事件监听器:同名事件共存
+			// box.addEventListener('click',function(){
+			// 	console.log('tiantian in the house');
+			// });
+
+			// box.addEventListener('click',function(){
+			// 	console.log('dk in your house');
+			// });
+
+			// box.onclick = function(){
+			// 	console.log('yy in my house');
+			// }
+
+
+			// 节点绑定方式：只能冒泡
+			// btn.onclick = function(){
+			// 	console.log('btn')
+			// }
+			// box.onclick = function(){
+			// 	console.log('box')
+			// }
+			// document.body.onclick = function(){
+			// 	console.log('body')
+			// }
+			// document.onclick = function(){
+			// 	console.log('document')
+			// }
+			// window.onclick = function(){
+			// 	console.log('window')
+			// }
+
+
+			// 事件监听器：
+			// * 默认：冒泡
+			btn.addEventListener('click',function(){
+				console.log('btn')
+			});
+
+			// 捕获
+			box.addEventListener('click',function(){
+				console.log('box')
+			},true);
+			document.body.addEventListener('click',function(){
+				console.log('body')
+			});
+			document.addEventListener('click',function(){
+				console.log('document')
+			},true);
+			window.addEventListener('click',function(){
+				console.log('window')
+			},true);
+		}
+	</script>
+</head>
+<body>
+	<h1>事件监听器</h1>
+	<div id="box">
+		<button>点我有惊喜</button>
+	</div>
+</body>
+</html>

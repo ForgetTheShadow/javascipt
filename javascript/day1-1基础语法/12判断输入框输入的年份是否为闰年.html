@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>判断输入框输入的年份是否为闰年</title>
+	<style>
+		.red{color:#f00;}
+	</style>
+</head>
+<body>
+	<h1>判断输入框输入的年份是否为闰年</h1>
+	<input type="text" id="year"><button onclick="isRunNian()">闰年判断</button>
+	<div id="output"></div>
+	<script>
+		/*
+			闰年：2月份多1天（29天）
+			平衡时间差
+				* 四年一润，百年不润（能被4整除但不能被100整除）
+				* 400年再润	（能被400整除的才叫闰年）
+		 */
+		
+		// 获取页面已经存在的元素
+		var year = document.getElementById('year');
+		var output = document.getElementById('output');
+
+		// 声明一个函数，用于判断是否为闰年
+		function isRunNian(){
+			// 获取输入的年份
+			var _year = year.value;
+
+			// 判断是否为闰年
+			if((_year%4===0 && _year%100!=0) || _year%400===0){
+				// 条件成立：执行这里的代码
+				output.innerHTML = '<strong class="red">' + _year + '</strong>是闰年';
+			}else{
+				// 条件不成立：执行这里的代码
+				output.innerHTML = _year + '是平年';
+			}
+		}
+	</script>
+</body>
+</html>

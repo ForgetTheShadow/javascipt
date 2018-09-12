@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12立体3D效果</title>
+	<style>
+	/*
+		perspective:设置透视点(眼睛所在的位置),以3D的效果呈现
+	 */
+		.container{padding:100px;}
+		.box img{width:200px;transform: rotateX(10deg)}
+		.show3d{perspective:1000px;}
+	</style>
+</head>
+<body>
+	<h1>12立体3D效果</h1>
+	<div class="container">
+		<div class="box show2d">
+			<img src="img/g3.jpg">
+		</div>
+		<div class="box show3d">
+			<img src="img/g3.jpg">
+		</div>
+	</div>
+</body>
+</html>

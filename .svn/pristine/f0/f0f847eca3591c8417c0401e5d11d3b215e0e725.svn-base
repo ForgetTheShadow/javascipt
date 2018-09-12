@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品详细信息展示效果</title>
+    <style>
+    ul{list-style: none;padding:0;margin:0;}
+        .goodslist ul{overflow:hidden;}
+        .goodslist li{
+            position:relative;float:left;padding:10px 20px 10px 10px;margin-right:10px;border-right:1px dashed #ddd;background-color: #fff;overflow:hidden;
+        }
+        .goodslist li img{width:200px;}
+        .goodslist li p{position:absolute;left:0;right:0;bottom:-41px;margin:0;padding:10px;background-color:#fc0;color:#fff;transition:bottom 1s;}
+
+        .goodslist li:hover p{bottom:0;}
+    </style>
+</head>
+<body>
+    <h1>商品详细信息展示效果</h1>
+    <div class="goodslist">
+        <ul>
+            <li>
+                <img src="img/g1.jpg" alt="">
+                <p>01XX商品详情</p>
+            </li>
+            <li>
+                <img src="img/g2.jpg" alt="">
+                <p>02XX商品详情</p>
+            </li>
+            <li>
+                <img src="img/g3.jpg" alt="">
+                <p>03XX商品详情</p>
+            </li>
+            <li>
+                <img src="img/g4.jpg" alt="">
+                <p>04XX商品详情</p>
+            </li>
+            <li>
+                <img src="img/g5.jpg" alt="">
+                <p>05XX商品详情</p>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

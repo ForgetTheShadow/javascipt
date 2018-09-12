@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04节点关系</title>
+	<script src="../common.js"></script>
+	<script>
+		window.onload = function(){
+			/*
+				04节点关系							元素关系
+					* 父节点
+						* ele.parentNode			ele.parentElement
+					* 子节点
+						* ele.childNodes			ele.children
+							得到ele元素的全部子节点列表（类数组,可能得到文本节点）
+						* ele.firstChild			ele.firstElementChild
+							获得ele元素的第一个子节点（可能得到文本节点）
+						* ele.lastChild				ele.lastElementChild
+							获得ele元素的最后一个子节点（可能得到文本节点）
+					* 兄弟节点
+						* ele.previousSibling 		ele.previousElementSibling
+							得到ele元素的前一个兄弟节点（可能得到文本节点）
+						* ele.nextSibling 			ele.nextElementSibling
+							获得ele元素的下一个兄弟节点（可能得到文本节点）
+
+
+					封装函数过滤非元素节点：
+						* Element.filter()
+						* Element.children()
+						* Element.prev()
+						* Element.next()
+			 */
+			
+			var goodslist = document.getElementById('goodslist');//null
+			
+			//  @利用节点关系获取其他元素
+			//  1.获取父节点：body
+			var body = goodslist.parentNode;
+
+			// 2.获取子节点：li
+			//  1)获取所有子节点（3个li)
+			var lis = goodslist.childNodes;
+
+			console.log(Element.filter(lis));
+		}
+	</script>
+</head>
+<body>
+	<h1>04节点关系</h1>
+	<ul id="goodslist">
+		<li><img src="img/g1.jpg" alt=""></li>
+		<li><img src="img/g2.jpg" alt=""></li>
+		<li><img src="img/g3.jpg" alt=""></li>
+	</ul>
+	<div class="page">
+		<span>1</span>
+		<span>2</span>
+		<span>3</span>
+	</div>
+</body>
+</html>

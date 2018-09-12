@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>嵌套循环</title>
+	<script>
+		/*
+			嵌套循环
+				* 嵌套循环的执行过程
+				
+				* break跳出当前循环（默认）
+				* 循环标识：给循环起名字
+		 */
+		
+		outer:for(var x=0;x<5;x++){
+
+			inner:for(var y=0;y<5;y++){
+				// 跳出循环
+				if(x === 2){
+					// break;//跳出内循环（y所在的循环）
+					break outer;
+				}
+				console.log(x,y);
+
+
+			}
+		}
+
+		/*
+			嵌套循环执行过程
+			x=0
+				y=0
+				y=1
+				y=2
+				y=3
+				y=4
+			x=1
+				y=0
+				y=1
+				y=2
+				y=3
+				y=4
+			x=2
+				y=0
+				y=1
+				y=2
+				y=3
+				y=4
+			x=3
+				y=0
+				y=1
+				y=2
+				y=3
+				y=4
+			x=4
+				y=0
+				y=1
+				y=2
+				y=3
+				y=4
+		 */
+	</script>
+</head>
+<body>
+	<h1>嵌套循环</h1>
+</body>
+</html>

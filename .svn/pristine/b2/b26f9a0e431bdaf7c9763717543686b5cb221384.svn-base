@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10多维数组(了解)</title>
+	<script>
+		/*
+			10多维数组
+
+				* 如何获取多维数组中的值
+		 */
+		
+		var arr = [5,10,15,[16,17,18]];
+
+		arr[2];//15
+		arr[3][1];//[16,17,18]->17
+
+		// console.log(arr[2][1][0])
+		// Cannot read property '0' of undefined
+		// 推导出：0前面的东西为undefined
+
+
+		// 生成5x5的二维数组，分别赋予1-25的自然数
+
+		// 定义一个空数组，用于存放结果
+		var arr = [];
+
+		for(var num=1;num<=25;num++){
+
+			if(num%5 === 1){
+				// 创建一个数组，用于存放数字
+				var a = [];
+				
+				arr.push(a);
+			}
+
+			a.push(num);
+		}
+
+		console.log(arr)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

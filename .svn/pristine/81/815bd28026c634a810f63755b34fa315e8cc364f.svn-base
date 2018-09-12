@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>05生命周期</title>
+	
+</head>
+<body>
+	<h1>05生命周期</h1>
+	<div id="app">
+		{{msg}}
+	</div>
+	<script src="lib/vue.js"></script>
+	<script>
+		/*
+			05生命周期
+				* Vue实例从创建到销毁的过程
+		 */
+		
+		let vm = new Vue({
+			el:'#app',
+			data:{
+				msg:'hello tiantian'
+			},
+
+			// 声明周期函数（钩子函数）
+			beforeCreate(){
+				console.log('beforeCreate============》');
+				console.log('el',this.$el);
+				console.log('data',this.$data);
+			},
+
+			created(){
+				console.log('created============》');
+				console.log('el',this.$el);
+				console.log('data',this.$data);
+			},
+
+			// 挂载前
+			beforeMount(){
+				console.log('beforeMount============》');
+				console.log('el',this.$el);
+				console.log('data',this.$data);
+			},
+
+			// 挂载成功
+			mounted(){
+				console.log('mounted============》');
+				console.log('el',this.$el);
+				console.log('data',this.$data);
+			},
+
+			// 更新数据前
+			beforeUpdate(){
+				console.log('beforeUpdate============》');
+				console.log('el',this.$el);
+				console.log('data',this.$data);
+			},
+
+			// 更新数据后
+			updated(){
+				console.log('updated============》');
+				console.log('el',this.$el);
+				console.log('data',this.$data);
+			},
+
+			// 销毁前
+			beforeDestroy(){
+				console.log('beforeDestroy============》');
+				console.log('el',this.$el);
+				console.log('data',this.$data);
+			},
+
+			// 销毁后
+			destroyed(){
+				console.log('destroyed============》');
+				console.log('el',this.$el);
+				console.log('data',this.$data);
+			}
+		});
+		
+		console.log(vm)
+		
+	</script>
+</body>
+</html>

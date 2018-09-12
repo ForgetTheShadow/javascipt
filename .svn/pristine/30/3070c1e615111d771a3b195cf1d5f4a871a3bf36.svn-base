@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文本属性</title>
+	<style>
+		/*
+			* 文本阴影：text-shadow：xOffset yOffset 模糊半径(Blur) 颜色
+			* 文字描边：text-stroke
+			* 文字排版：direction
+				* 要配合unicode-bidi:bidi-override（重新排版） 一块使用
+			* 溢出省略：text-overflow
+				* clip 无省略号
+				* ellipsis 省略号
+					* 配合overflow:hidden和white-space:nowrap一块使用
+		 */
+		.content{
+			font-size:30px;font-weight:bold;color:#999;
+			text-shadow: 1px 2px  #0ff;
+
+			/*描边*/
+			-webkit-text-stroke:2px #000;
+			-o-text-stroke:2px #000;
+			-moz-text-stroke:2px #000;
+			-ms-text-stroke:2px #000;
+			text-stroke:2px #000;
+
+
+			/*文字方向*/
+			direction: rtl;
+			unicode-bidi:bidi-override
+		}
+
+		.box{width:200px;border:1px solid #f00;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;}
+	</style>
+</head>
+<body>
+	<h1>文本属性</h1>
+	<div class="content">
+		来啊，快活啊~~
+	</div>
+
+	<div class="box" title="来啊，快活啊~~ 反正有大把时光">
+		来啊，快活啊~~ 反正有大把时光
+	</div>
+</body>
+</html>

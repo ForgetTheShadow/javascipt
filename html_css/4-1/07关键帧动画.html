@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07关键帧动画</title>
+    <style>
+        /*
+            关键帧动画animation
+                1) 定义
+                    * @keyfrems
+                    * 格式
+                        @keyframes 动画名称 {
+                            from | to | <percentage>{ css样式 }
+                        }
+                2) 使用
+                    格式: animation: <name> <duration> [timing-function] [delay] [iteration-count] [direction];
+         */
+        
+        /*定义关键帧*/
+        @keyframes show{
+            /*from{opacity:1;}
+            to{opacity: 0}*/
+            0%{opacity: 1}
+            50%{opacity: 0}
+            100%{opacity: 1}
+        }
+
+        @keyframes change{
+            0%{}
+            50%{width:500px;}
+            100%{width:300px;background-color: #58bc58;}
+        }
+
+        /*使用关键帧动画*/
+        .meinv{
+            animation:show 1s infinite alternate;
+        }
+
+        .box{width:100px;height:20px;background-color: #f00;animation:change 10s infinite alternate;}
+    </style>
+</head>
+<body>
+    <h1>07关键帧动画</h1>
+    <img src="img/g3.jpg" class="meinv">
+    <div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04继承方式之原型链继承法</title>
+	<script>
+		/*
+			04继承方式之原型链继承法
+				* 核心：拿父类实例来充当子类原型对象
+				* 缺点：
+					* 无法继承构造函数中的属性
+					* 创建子类实例时，无法向父类构造函数传参
+					* 原型对象中存在多余的属性
+		 */
+		
+		
+		var Person = function(name,age,gender){
+			this.name = name;
+			this.age = age;
+			this.gender = gender;
+		}
+
+		Person.prototype = {
+			constructor:Person,
+			init(){
+
+			},
+			say(){
+				console.log('我超能说');
+			},
+			eat(){
+				console.log('我超能吃');
+			},
+			sleep(){
+				console.log('我超能睡');
+			}
+		}
+
+
+		var lx = new Person('laoxie',18,'男');
+
+
+		var Man = function(name,age){
+			this.name = name;
+			this.age = age;
+			this.gender = '男';
+		}
+
+		// 拿父类实例来充当子类原型对象
+		Man.prototype = new Person();
+
+		// 实例化对象
+		var tiantian = new Man('甜甜',23);
+
+	</script>
+</head>
+<body>
+	<h1>04继承方式之原型链继承法</h1>
+</body>
+</html>

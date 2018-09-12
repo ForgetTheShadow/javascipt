@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>不定宽高图片容器居中</title>
+    <style>
+    /*
+        不定宽高图片容器居中
+            * 定位
+            * 弹性盒
+     */
+        /*.box{height:300px;width:400px;border:1px solid #ddd;position: relative;}
+        .box img{width:200px;position:absolute;left:50%;top:50%;transform: translate(-50%,-50%);}*/
+
+         .box{height:300px;width:400px;border:1px solid #ddd;
+            display: flex;justify-content: center;align-items:center;
+        }
+        .box img{width:200px;}
+    </style>
+</head>
+<body>
+    <h1>不定宽高图片容器居中</h1>
+    <div class="box">
+        <img src="img/mm003.jpg">
+    </div>
+    <div class="box">
+        <img src="img/1.png" alt="">
+    </div>
+</body>
+</html>

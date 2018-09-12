@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Set集合</title>
+	<script>
+		/*
+			Set集合
+				Set集合，类似于数组，但是成员的值都是唯一的，可自动去重。
+
+				特性：自动去重（恒等数据）
+
+				方法：
+					* add(value)：添加某个值，返回Set结构本身。
+					* delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。
+					* has(value)：返回一个布尔值，表示Set集合中是否存在该值。
+					* clear()：清除所有成员，没有返回值。
+		 */
+		
+		 var arr = [10,20,10,11,100,20,10,30];
+
+		 var res = [];
+		 for(let item of arr){
+		 	// 当前数字是否存在res中
+		 	if(!res.includes(item)){
+		 		res.push(item);
+		 	}
+		 }
+
+		 console.log(res);
+
+
+		 // 定义
+		 var mySet = new Set(arr);//得到set集合
+
+		 // set -> array
+		 // Array.from()
+		 var myArr = Array.from(mySet);
+		 console.log(myArr);
+
+
+		 var yourSet = new Set();
+		 yourSet.add(10);
+		 yourSet.add(11);
+		 yourSet.add(10);
+		 yourSet.add('10');
+		 // yourSet.add([1,2,3]);
+		 // yourSet.add([1,2,3]);
+		 yourSet.add(arr);
+		 yourSet.add(arr);
+		 console.log(yourSet)
+	</script>
+</head>
+<body>
+	<h1>Set集合</h1>
+</body>
+</html>

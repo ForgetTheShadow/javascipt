@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03倾斜skew</title>
+	<style>
+		.meinv{
+			/*transform:skew(30deg,0);*/
+			transform:skewY(30deg);
+		}
+	</style>
+</head>
+<body>
+	<h1>03倾斜skew</h1>
+	<img src="img/g2.jpg" class="meinv">
+</body>
+</html>

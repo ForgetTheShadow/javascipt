@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01jQuery的原理</title>
+	<style>
+		img{width:100px;}
+	</style>
+	<!-- 引入 -->
+	<script src="js/jquery-3.2.1.js"></script>
+
+</head>
+<body>
+	<h1>01jQuery的原理</h1>
+	<div class="goodslist">
+		<ul>
+			<li>
+				<img src="img/g1.jpg">
+			</li>
+			<li>
+				<img src="img/g2.jpg">
+			</li>
+			<li>
+				<img src="img/g3.jpg">
+			</li>
+		</ul>
+	</div>
+	<script>
+		/*
+			jQuery是一个构造函数
+				* 原型对象
+				* 实例
+
+			结论：jQuery就是一个面对相对的框架
+
+			选择器：
+				* 支持css选择
+		 */
+		
+		// 实例
+		var h1 = jQuery('h1');
+		
+
+		h1.css('color','#58bc58');
+
+
+		console.log(h1)
+	</script>
+</body>
+</html>

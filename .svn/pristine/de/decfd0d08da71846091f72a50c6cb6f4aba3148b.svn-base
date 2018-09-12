@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>09赋值运算</title>
+	<script>
+		/*
+			09赋值运算
+				* =
+				* +=
+				* -=
+				* *=
+				* /=
+				* %=
+		 */
+		
+		// 把数字10赋值给num变量
+		var num = 10;
+
+		// 计算num+5后，把值赋值给num
+		// 结果：num在原来的基础上+5
+		num = num + 5;
+
+		// 简写
+		num += 5;//等效于:num = num + 5;
+
+
+		var name = 'laoxie';
+		name += 666;//'laoxie666'
+
+		// html结构拼接
+		var content = '<ul>';
+			content += '<li>';//<ul><li>
+			content += '<img src="img/g01.jpg"/>';//<ul><li><img src="img/g01.jpg">
+			content += '</li>';//<ul><li><img src="img/g01.jpg"></li>
+			content += '</ul>';//<ul><li><img src="img/g01.jpg"></li></ul>
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

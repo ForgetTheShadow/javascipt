@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03扩展内置原型方法</title>
+	<script>
+		/*
+			03扩展内置原型方法
+				* 去除首尾空格
+				* String.prototype.trim			： ES5的方法
+		 */
+		
+		function trim(){
+
+		}
+
+		// 判断是否有trim方法
+		if(String.prototype.trim === undefined){
+			String.prototype.trim = function(){
+				// 如何在这里获取字符串：this
+				return this.replace(/^\s+|\s+$/g,'');
+			}
+		}
+		
+		
+		var str = '  lao xie   ';
+
+		str.trim();//得到：laox xie
+
+		' lemon ye'.trim();//得到：lemon ye
+
+
+		// 扩展内置原型方法
+		if(Element.prototype.animate === undefined){
+			Element.prototype.animate = function(opt){
+
+			}
+			
+		}
+
+		document.querySelector('h1').animate({width:200});
+
+		
+	</script>
+</head>
+<body>
+	<h1>03扩展内置原型方法</h1>
+</body>
+</html>

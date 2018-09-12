@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>分别计算出以上数组的最大值，最小值和平均值，并输出他们的索引 </title>
+	<script>
+		/*
+			分别计算出以上数组的最大值，最小值和平均值，并输出他们的索引 [10,2,8,55,32,18,9,11,30,16,19,20]
+
+			思路：
+				* 假设第一个为最大值max
+				* 假设第一个为最小值min
+				* 遍历所有数字，判断
+					* 如果有大于max，重新赋值，更新索引值
+					* 如果有小于min，重新赋值，更新索引值
+		 */
+		
+		var arr = [10,8,55,32,18,9,11,30,16,2,19,20];
+
+		// 假设
+		var minIdx = 0;
+		var maxIdx = 0;
+		var max = arr[maxIdx];
+		var min = arr[minIdx];
+
+		// 声明变量，用于计算所有数字的和
+		// 目的：计算平均值
+		var total = arr[0];
+
+		// 遍历，并判断
+		for(var i=1;i<arr.length;i++){
+			// 判断最大值
+			if(arr[i] > max){
+				max = arr[i];
+
+				// 更新索引值
+				maxIdx = i;
+			}
+
+			// 判断最小值
+			if(arr[i] < min){
+				min = arr[i];
+
+				// 更新索引值
+				minIdx = i;
+			}
+
+			// 计算和
+			total += arr[i];
+		}
+
+		// 循环结束：得到最大值，最小值和他们对应索引值
+		document.write('最大值：' + max + ', 索引值：' + maxIdx + '<br/>');
+		document.write('最小值：' + min + ', 索引值：' + minIdx + '<br/>');
+		document.write('平均值：' + total/arr.length);
+	</script>
+</head>
+<body>
+	<h1>分别计算出以上数组的最大值，最小值和平均值，并输出他们的索引 </h1>
+</body>
+</html>

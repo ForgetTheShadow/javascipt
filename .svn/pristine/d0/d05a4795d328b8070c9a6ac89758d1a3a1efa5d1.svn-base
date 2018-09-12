@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01css颜色</title>
+	<style>
+		/*
+			颜色：
+				* 英文单词：red,yellow...
+				* 十六进制：#58 bc 58
+							0-f
+						   #ff0000	#f00
+						   #00ff00	#0f0
+						   #0000ff	#00f
+						   #ffff00
+						   #ff00ff
+						   #cccccc	#ccc
+				* rgb(255,0,0)
+
+
+				
+				* rgba()
+					* r: red 	0-255
+					* g: green 	0-255
+					* b: blue 	0-255
+					* a: alpha  透明度（0-1）
+
+				* hsl&hsla(了解)
+					* h: Hue(色调)：取值为：0–360;
+					* s: Saturation(饱和度)：取值为：0.0% - 100.0%;
+					* l: Lightness(亮度)：取值为：0.0% - 100.0%;
+					* a: alpha  透明度（0-1）
+		 */
+		body{background-color:#58bc58; }
+		.box{/*position:absolute;left:0;top:0;*/width:200px;height:100px;background-color:rgba(255,0,0,0.1);}
+		.box2{width:200px;height:100px;background-color:hsl(240,80%,20%);border:20px solid #f00;border-right-color:transparent;}
+	</style>
+</head>
+<body>
+	<h1>CSS颜色</h1>
+	<div class="box"></div>
+	<div class="box2">	</div>
+</body>
+</html>

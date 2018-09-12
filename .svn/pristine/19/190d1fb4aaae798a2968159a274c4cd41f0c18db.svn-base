@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>02vue中的响应属性</title>
+	
+</head>
+<body>
+	<h1>02vue中的响应属性</h1>
+	<div id="app">
+		{{username}}
+	</div>
+	<script src="lib/vue.js"></script>
+	<script>
+		/*
+			02vue中的响应属性
+				* Vue在实例化时，会遍历data中的所有属性，把他们设置成“存储器属性”(get,set)，并写入vm实例
+
+
+			存储器属性
+				* getter
+				* setter
+		 */
+		
+		
+		let model = {
+			username:'laoxie',
+			age:18,
+			gender:'男'
+		}
+
+	
+		let vm = new Vue({
+			el:'#app',
+			data:model
+		});
+
+		// 实例化后model中的属性被Vue转成存储器属性
+		console.log(model);
+
+		// 并把属性写入vm实例
+		console.log(vm);
+
+		// 修改实例的属性，model数据与视图都做出响应
+		// vm.username = 'lemon';
+
+
+
+		let person = {
+			name:'lemon',
+			age:32
+		}
+
+		let student = {
+			username: 'laoxie',
+			age:18
+		}
+
+
+		// 修改属性特性
+		Object.defineProperty(student,'myage',{
+			enumberable:true,
+			get:function(){
+				let res = person.age * 2 / 10
+				return res;
+			},
+			set:function(val){
+				person.age = val;
+			}
+		});
+
+
+		// student.myage;//得到什么，调用getter
+		// student.myage = 20;//设置属性，调用setter
+		
+	</script>
+</body>
+</html>

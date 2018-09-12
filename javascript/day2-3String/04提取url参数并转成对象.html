@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04提取url参数并转成对象</title>
+	<script>
+		/*
+			https://www.baidu.com/s?name=laoxie&age=18&sex=male&, 
+			取出name, age和sex的值，并组成对象{name:'laoxie',age:18,sex:'male'}
+		 */
+		
+		var url = 'https://www.baidu.com/s?name=laoxie&age=18&sex=male&wen=wu&';
+
+		// 查找?所在的索引值
+		var idx = url.indexOf('?');
+
+		// 截取url参数部分
+		var params = url.slice(idx+1,-1);//name=laoxie&age=18&sex=male
+
+
+		// String->Object
+		// 拆分属性
+		params = params.split('&');//['name=laoxie','age=18','sex=male']
+
+		// 用于存放属性：属性值
+		var obj = {};
+
+		params.forEach(function(item){
+			// 拆分属性名/属性值
+			var arr = item.split('=');//['name','laoxie']
+
+			// 写入对象
+			obj[arr[0]] = arr[1];
+		});
+
+		console.log(obj);
+
+
+	</script>
+</head>
+<body>
+	<h1>04提取url参数并转成对象</h1>
+</body>
+</html>

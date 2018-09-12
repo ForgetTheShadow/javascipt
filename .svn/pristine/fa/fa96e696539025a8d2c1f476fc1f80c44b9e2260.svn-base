@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>09在js中操作html属性</title>
+	<script>
+		window.onload = function(){
+			/*
+				09在js中操作html属性
+					* 标准属性：点语法直接修改
+					* 非标准属性：setAttribute(attr,val)
+
+
+					* setAttribute(attr,val) : 操作html属性
+					* 符合标准的自定义属性
+			 */
+			
+			// 获取节点
+			var username = document.getElementById('username');
+
+			// 标准属性：点语法直接修改
+			username.value = 'lemon 666';
+			username.name = 'username';
+
+			// 非标准属性
+			// * setAttribute(attr,val)
+
+			username.setAttribute('nickname','儿歌王');
+
+
+			username.setAttribute('data-money',1008600)
+		}
+
+	</script>
+</head>
+<body>
+	<h1>09在js中操作html属性</h1>
+	<input type="text" id="username">
+</body>
+</html>

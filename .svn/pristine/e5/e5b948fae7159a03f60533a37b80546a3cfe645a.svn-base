@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象扩展</title>
+	<script>
+		/*
+			对象扩展
+
+				* Object.assign(target,obj1,obj2…objN); 合并(扩展)对象
+					* 类似于css层叠特性，越后面优先级越高
+
+
+				用途：
+					* 扩展对象
+					* 复制对象（浅复制）
+
+
+				对象的复制方式：
+					* for..in遍历（浅复制）
+					* Object.assign静态方法（浅复制）
+					* JSON.parse(JSON.stringify())（深复制）
+		 */
+		
+		var person = {
+			name:'lemon',
+			age:32,
+			gender:'女',
+			score:{
+				english:58,
+				music:88,
+				math:30
+			}
+		}
+
+		// 扩展person,最终值为：{name:'lemon',age:36,gender:'female',nickname:'king of erge'}
+		Object.assign(person,{age:30,nickname:'king of erge'},{age:36,gender:'female'});
+
+		console.log(person);
+
+
+		// 复制person
+		var newObj = Object.assign({},person);
+		newObj.hobby = '开着玛莎唱儿歌';
+		newObj.score.math = 36;
+
+		var newObj2 = JSON.parse(JSON.stringify(person));
+		newObj2.score.math = 46;
+	</script>
+</head>
+<body>
+	<h1>对象扩展</h1>
+</body>
+</html>

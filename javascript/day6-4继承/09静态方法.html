@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>09静态方法</title>
+	<script>
+		/*
+			09静态方法
+				* Array
+					* Array.isArray()
+				* Date
+					* Date.now()
+					* Date.parse()
+				* Object
+					* Object.create()
+					* Object.defineProperty()
+					* Object.defineProperties()
+					* Object.getOwnPropertyDescriptor()
+		 */
+		
+
+		var Person = function(){
+
+		}
+
+		// 静态方法
+		Person.say = function(){
+
+		}
+
+		Person.say();
+
+
+		class Popover{
+			constructor(width,height){
+				this.width = width;
+				this.height = height;
+			}
+
+			// 静态方法
+			static close(){
+				console.log('static',this);
+			}
+
+			show(){
+				console.log('原型方法',this);
+			}
+		}
+
+
+		var p = new Popover(200,100)
+		p.show();
+
+		Popover.close();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

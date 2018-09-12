@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03字符串扩展</title>
+	<script>
+		/*
+			03字符串扩展
+
+				* 方法：
+					* includes() 判断是否包含某个字符，返回布尔值
+					* startsWith()/endsWith() 是否以某一字符开头/结尾
+					* repeat(n) 得到字符串重复n次后的结果，n可以为小数，但不能为负数
+
+				* 字符串模板
+					* 使用反引号：``
+					* 在字符串模板中使用变量：${}
+		 */
+		
+		var str = 'I love 街舞！';
+
+		// str.indexOf('love')>=0
+		str.includes('love');//true
+
+		str.startsWith('i');
+		str.endsWith('街舞');
+
+
+		// 字符串模板
+		var content1 = '<ul>' + 
+			'<li>'+str+'<li>' + 
+			'<li>'+str+'<li>' + 
+		'</ul>';
+
+		let content2 = `<ul>
+			<li>${str.includes('love') ? '爱' : '恨'}</li>
+			<li>${str.slice(1,6)}</li>
+		</ul>`;
+
+		console.log(content1);
+		console.log(content2);
+	</script>
+</head>
+<body>
+	<h1>03字符串扩展</h1>
+</body>
+</html>

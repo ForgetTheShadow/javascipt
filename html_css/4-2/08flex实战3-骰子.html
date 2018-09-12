@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08flex实战3-骰子</title>
+	<style>
+		.box{width:1000px;border:5px solid #ddd;margin:0 auto;
+			display: flex;justify-content:center;
+		}
+		.box div{width:100px;height:100px;border:2px solid #ccc;margin:10px;padding:5px;border-radius: 5px;
+			display:flex;flex-wrap:wrap;
+		}
+		.box span{display:block;width:25px;height:25px;border-radius: 50%;background-color: #00c;box-shadow:1px 3px 0 rgba(0,0,0,0.3) inset,-1px -3px 0 rgba(0,0,0,0.3) inset;
+
+			flex:none;
+		}
+
+	/*1点*/
+		.one{justify-content: center;align-items:center;}
+		.one span{width:40px;height:40px;background-color:#c00 }
+
+		/*2点*/
+		.two{justify-content: space-between;}
+		.two span:last-child{align-self:flex-end;}
+
+		/*3点*/
+		.three{justify-content: space-between;}
+		.three span:nth-child(2){align-self:center;}
+		.three span:last-child{align-self:flex-end;}
+
+		/*4点*/
+		.four{justify-content: space-between;}
+		.four span{background-color: #c00}
+		.four span:nth-child(1){margin-right:50px;}
+		.four span:nth-child(3){align-self:flex-end;}
+		.four span:nth-child(4){align-self:flex-end;}
+
+		/*5点*/
+		.five{justify-content: space-between;align-content:space-between;}
+		.five span:nth-child(1){margin-right:30px;}
+		.five span:nth-child(3){margin:0 37px;background-color: #c00;}
+		.five span:nth-child(4){align-self:flex-end;}
+		.five span:nth-child(5){align-self:flex-end;}
+
+
+		/*6点*/
+		.six{justify-content: space-between;align-content:space-between;flex-direction: column;}
+		.six span{margin:2px;}
+	</style>
+</head>
+<body>
+	<h1>08flex实战3-骰子</h1>
+	<div class="box">
+		<div class="one">
+			<span></span>
+		</div>
+		<div class="two">
+			<span></span>
+			<span></span>
+		</div>
+		<div class="three">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div class="four">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div class="five">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div class="six">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+</body>
+</html>

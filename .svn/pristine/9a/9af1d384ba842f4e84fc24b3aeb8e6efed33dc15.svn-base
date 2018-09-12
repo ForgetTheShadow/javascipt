@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数返回值</title>
+	<script src="../common.js"></script>
+	<script>
+		/*
+			函数返回值：运算后得到的值
+				* 函数内->函数外
+				* return
+					* 终止函数的执行(return后的代码不会被执行)
+					* 返回值：
+						* 默认：返回undefined
+						* 后面带值（return 10）：把值(10)返回到函数执行的地方
+
+			函数的参数：
+				* 函数外->函数内
+		 */
+		
+		 // 算术运算
+		 var res1 = 10-3;//返回值为：7
+
+		 // 一元运算
+		 var num2=5;
+		 var res2 = num2++;//返回值为：5
+
+		 // 关系运算
+		 var res3 = 10>3;//返回值为：true
+
+		 // 函数执行
+		 var output = document.getElementById('output');//返回值为：元素
+		 var num4 = parseInt(10.634);//返回值：10
+
+
+		 // 自定义函数返回值
+		 function sum(a,b){
+		 	// 把值返回到函数执行的地方
+		 	return a+b;
+		 	console.log('laoxie and lemon')
+		 }
+
+		 function show(){
+		 	console.log('show')
+		 	return 10;
+		 }
+
+		 var res5 = sum(10,5);//15
+		 console.log(res5);
+	</script>
+</head>
+<body>
+	<h1>函数返回值</h1>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>09动画函数封装</title>
+	<style>
+		.box{width:200px;height:50px;background-color: #f60;}
+	</style>
+	<script src="../common.js"></script>
+	<script>
+		/*
+			09动画函数封装
+
+				* 实现对象传入（解决）
+				* 动画完成后做某些操作
+		 */
+		
+		document.addEventListener('DOMContentLoaded',function(){
+			let box = document.querySelector('.box');
+
+			box.onmouseover = function(){
+				// animate(this,'opacity',0.5);
+				// animate(this,'width',500);
+				// animate(this,'height',100);
+
+				animate(this,{opacity:0.5,width:500,height:100});
+			}
+
+			box.onmouseout = function(){
+				// animate(this,'opacity',1);
+				// animate(this,'width',200);
+				// animate(this,'height',50);
+
+				animate(this,{opacity:1,width:200,height:50});
+			}
+		})
+	</script>
+</head>
+<body>
+	<h1>09动画函数封装</h1>
+	<div class="box"></div>
+</body>
+</html>

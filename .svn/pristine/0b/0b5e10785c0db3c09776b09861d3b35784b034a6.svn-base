@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>01了解Vue</title>
+	
+</head>
+<body>
+	<h1>01了解Vue</h1>
+	<!-- View层 -->
+	<div id="app">
+		<!-- 这个HTML标签在VUE实例化后已经被Vue接管，在此处的所有操作都跟Vue的实例相关 -->
+		{{username.split('')}} - {{age}} - {{gender=='男' ? 'male' : 'female'}}
+	</div>
+	<script src="lib/vue.js"></script>
+	<script>
+		/*
+			01了解Vue
+				* Vue是一个构造函数，要使用View必须先实例化，得到一个实例
+
+				* vue是一个MVVM框架
+					* M: Model  		数据
+					* V: View 			html结构
+					* VM：ViewModel		Vue的实例
+
+
+			绑定数据
+				* 插值表达式（表达式：得到一个值的式子）
+		 */
+		
+		
+		// Model层
+		let model = {
+			username:'laoxie',
+			age:18,
+			gender:'男'
+		}
+
+		// ViewModel层
+		// 是一个Vue的实例，在实例化过程中，Vue会遍历data参数中的数据，并写入实例的属性
+		let vm = new Vue({
+			//利用Vue来管理#app这个标签，把div#app这个标签作用根节点
+			// Vue会重新生成这个元素的所有内容
+			el:'#app',
+			data:model
+		});
+
+		// vm.username;
+		
+		
+	</script>
+</body>
+</html>

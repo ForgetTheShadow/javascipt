@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽效果</title>
+	<style>
+		.box{padding:50px;position:absolute;left:0;top:100px;width:200px;height:100px;background-color: #fc0;}
+		.box span{display: inline-block;padding:10px;background-color: #f00;}
+	</style>
+	<script>
+		/*
+			拖拽效果
+				* 改变top,left属性
+				* 事件
+					* mousedown
+					* mousemove
+					* onmouseup
+						鼠标松开，意味着拖拽结束（清除mousemove事件）
+		 */
+		window.onload = function(){
+			var box = document.getElementsByClassName('box')[0];
+
+			box.onmousedown = function(e){
+				var ox = e.offsetX;
+				var oy = e.offsetY;
+
+				// 嵌套onmousemove事件
+				// * 获取按下时的鼠标偏移量
+				// * 实现按下并移动时拖拽效果
+				document.onmousemove = function(e){
+					box.style.left = e.clientX - ox + 'px';
+					box.style.top = e.clientY - oy + 'px';
+				}
+			}
+
+			// 鼠标松开，意味着拖拽结束（清除mousemove事件）
+			document.onmouseup = function(){
+				document.onmousemove = null;
+			}
+
+			
+		}
+	</script>
+</head>
+<body>
+	<h1>拖拽效果</h1>
+	<div class="box"><span>abc</span></div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02解构</title>
+	<script>
+		/*
+			02解构
+
+				对数组和对象中提取值，对变量进行赋值
+
+			解构失败：得到undefined
+
+			解构用途：
+		 */
+		
+		 let person = {
+		 	name:'lemon',
+		 	age:32,
+		 	gender:'女',
+		 	mysex:'female'
+		 }
+
+		 // 提取对象中的属性
+		 let name = person.name;
+		 let age = person.age;
+		 let gender = person.gender;
+
+		 // 对象解构
+		 {
+		 	// 等效于以上代码
+		 	// 声明name,age,gender三个变量，并赋值对象中的同名属性
+		 	let {name,age,gender} = person;
+		 	console.log(name,age,gender);
+
+		 	//默认解构失败:没有同名属性
+		 	//let {username,sex} = person;
+
+		 	// 非同名变量解构
+		 	// 声明username,sex属性
+		 	let {name:username,gender:sex} = person;
+
+		 	console.log(username,sex)
+
+		 	// 指定默认值
+		 	// 解构失败时cai使用默认值
+		 	let {name:myname,mysex='男'} = person;
+
+		 	console.log(myname,mysex);
+
+
+		 	/*
+		 		用途：
+		 	 */
+		 	// 交换变量值 
+		 	var x=10,y=20;
+		 	// 声明x变量并赋值y的值，
+		 	// 声明y变量并复制x的值
+		 	var [x,y] = [y,x];//[20,10]
+		 	console.log('交换变量:',x,y);
+
+
+		 	// 函数返回多个值
+		 	function example(){
+			     return [1,2,3]
+			}
+
+			//接收
+			//声明x,y,z三个变量并分别赋值1,2,3
+			var [x,y,z] = example();
+			console.log(x,y,z);
+
+
+			// 定义函数形参(重点)
+			function test({x,y,z}){
+				// 相当于：var {x,y,z} = {x:10,y:20,z:30}
+			}
+
+			//传参
+			test({x:10,y:20,z:30});
+
+
+			//参数可以设置默认值
+			function test({x=1,y=2,z}){
+				// x:10
+				// y:2
+				// z:30
+			}
+
+			test({x:10,z:30})
+
+		 }
+
+	</script>
+</head>
+<body>
+	<h1>02解构</h1>
+</body>
+</html>

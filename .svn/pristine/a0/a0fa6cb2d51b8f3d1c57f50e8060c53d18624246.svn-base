@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta charset='utf-8'/>
+<style type="text/css">
+body, ul, li, ol {
+	list-style: none;
+	padding: 10px;
+	margin: 20px;
+	font-size: 12px;
+	font-family: 微软雅黑;
+}
+img {
+	border: 0px;
+}
+.picList {
+	width: 100%;
+	float: left;
+}
+.picList .col {
+	width: 300px;
+	height: 200px;
+	position: relative;
+	overflow: hidden;
+	float: left;
+	margin: 10px 0 0 10px;
+}
+.picList .col img, .col a {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+.picList .col img {
+	width: 100%;
+}
+.picList .col a {
+	display: block;
+	width: 280px;
+	height: 180px;
+	top: 160px;
+	background:#000;
+	color: white;
+	font-style: normal;
+	line-height: 25px;
+	padding: 10px;
+	opacity: 0.8;
+	text-decoration: none;
+}
+
+</style>
+<script>
+	/*
+		图片展示上移效果
+			* 改变每个div.col中a标签的top值
+				* mouseover: 160->0
+				* mouseout:  0-160
+	 */
+	
+	 document.addEventListener('DOMContentLoaded',function(){
+	 	let picList = document.querySelector('#picList');
+
+	 	let items = picList.children;
+
+	 	// 定时器建议与节点关联
+	 	// let timer
+
+	 	// 遍历实现鼠标移入移出效果
+	 	for(var i=0;i<items.length;i++){
+	 		items[i].onmouseover = function(){
+	 			clearInterval(this.timer);
+
+	 			// 获取对应a标签
+	 			let link = this.children[1];
+
+	 			// 目标值
+	 			let target = 5;
+
+	 			this.timer = setInterval(()=>{
+	 				// 获取当前值
+	 				let top = link.offsetTop;
+
+	 				// 计算缓冲速度
+	 				let speed = Math.floor((target - top)/10);
+
+	 				top += speed;
+
+	 				if(top <= target){
+	 					clearInterval(this.timer);
+
+	 					// 重置目标值
+	 					top = target;
+	 				}
+
+	 				link.style.top = top + 'px';
+	 			},30)
+	 		}
+
+
+	 		items[i].onmouseout = function(){
+	 			clearInterval(this.timer);
+
+	 			// 获取对应a标签
+	 			let link = this.children[1];
+
+	 			// 目标值
+	 			let target = 160;
+
+	 			this.timer = setInterval(()=>{
+	 				// 获取当前值
+	 				let top = link.offsetTop;
+
+	 				// 计算缓冲速度
+	 				let speed = Math.ceil((target - top)/10);
+
+	 				top += speed;
+
+	 				if(top >= target){
+	 					clearInterval(this.timer);
+
+	 					// 重置目标值
+	 					top = target;
+	 				}
+
+	 				link.style.top = top + 'px';
+	 			},30)
+	 		}
+	 	}
+	 });
+	
+</script>
+</head>
+<body>
+<div class='picList' id="picList">
+	<div class='col' id="pic1" > 
+	   <img src="img/b1.jpg" />
+	   <a href='#'>学会html5 <br/>
+	 本课程由浅入深，逐步推进，以示例为主线，详细完整地介绍HTML5的新功能与新特征
+	   </a> 
+	</div>
+	<div class='col' id="pic2"> 
+	   <img src="img/b2.jpg" />
+	   <a href='#'>圆角水晶按钮制作<br/>
+	网页中的圆角按钮和宽度自适应按钮就这么轻松制作！
+	   </a> 
+	</div>
+	<div class='col' id="pic3"> 
+	   <img src="img/b3.jpg" />
+	   <a href='#'>导航条菜单的制作<br/>
+	30分钟教你轻松制作出各种形式的网站导航条菜单
+	   </a> 
+	</div>
+</div>
+</body>
+</html>
+

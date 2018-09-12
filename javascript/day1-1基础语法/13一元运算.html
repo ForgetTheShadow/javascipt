@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>13一元运算</title>
+	<script>
+		/*
+			一元运算：
+				* ++ 	（不管前置后置，n得值都+1，返回值不一样）
+					* 后置	得到+1前的值
+					* 前置	得到+1后的值
+				* -- （不管前置后置：变量都-1,返回值不一样）
+					* 后置	返回-1前的值
+					* 前置	返回-1后的值
+		 */
+		var num = 10;
+
+		// 简写
+		// num += 1;//num = num + 1;
+
+		// 简写：一元运算
+		num++;
+
+		console.log('num:',num);
+
+
+		var k=0; 
+		var res = k++ + ++k +k +k++;
+		// res	  0	  + 2   +2 + 2
+		// k	  1		2		 3
+
+		// 计算k和res的值
+		// k:3
+		// res:6
+		console.log(k,res);
+
+
+		var n=0;
+		var res2 = n++ - n-- + n + ++n + n++ - --n;
+		// res2  = 0   - 1	 + 0 + 1   + 1	 - 1
+		// n     = 1	 0		   1     2     1
+
+		// 计算n和res2的值
+		// n: 1
+		// res2：0
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

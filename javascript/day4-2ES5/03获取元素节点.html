@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03获取元素节点</title>
+	<script>
+		/*
+			03获取元素节点
+				* document.getElementById();//node
+				* getElementsByClassName()//[node]
+				* getElementsByTagName()//[node,node,...]
+				* document.getElementsByName();//[node,node]
+				* 节点关系
+
+
+				* querySelector(cssSelector) //获取匹配选择器的第一个元素节点，返回节点
+				* querySelectorAll(css选择器) //获取匹配选择器的所有元素，返回类数组Nodelist
+		 */
+		
+		document.addEventListener('DOMContentLoaded',function(){
+			var datalist = document.querySelector('.datalist');
+
+			// 获取ul
+			var ul = datalist.querySelector('ul');
+
+
+			// 获取所有li
+			var lis = datalist.querySelectorAll('li');//Nodelist
+			var old_lis = datalist.getElementsByTagName('li');//HTMLCollection
+
+			console.log(datalist,ul);
+			console.log(lis);
+			console.log(old_lis);
+
+			lis.forEach(function(li){
+				console.log(li);
+			})
+		});
+	</script>
+</head>
+<body>
+	<h1>03获取元素节点</h1>
+	<div class="datalist">
+		<ul>
+			<li>
+				<img src="">
+				<h4>xxx</h4>
+			</li>
+			<li>
+				<img src="">
+				<h4>xxx</h4>
+			</li>
+			<li>
+				<img src="">
+				<h4>xxx</h4>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04滚动动轮播图</title>
+	<style>
+		ul{list-style: none;padding:0;margin:0;}
+		.banner img{display: block;}
+		.banner{position:relative;width:810px;height:320px;overflow:hidden;}
+		.banner ul{position:absolute;overflow:hidden;}
+		.banner ul li{float:left;}
+		.banner .page{position:absolute;right:0;bottom:0;padding:10px;}
+		.banner .page span{display:inline-block;margin:0 5px;width:30px;height:30px;line-height:30px;background-color:rgba(0,0,0,.6);text-align:center;color:#fff;border-radius: 50%;box-shadow:0 0 10px rgba(0,0,0,.5);}
+		.banner .page span.active{background-color: rgba(255,0,0,.8)}
+	</style>
+	<script src="../common.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded',()=>{
+			/*
+				1）设置ul宽度，达到水平排列的效果
+				2）水平轮播效果
+				3）移入移出，清除轮播效果
+				4）添加分页效果
+					* 点击分页切换
+				5）无缝滚动
+					* 把第一张复制到最后
+					* 当滚动到复制那张图片时，瞬间重置回初始状态，并把index改成1
+
+				6）添加前后按钮，实现上一张、下一张的效果（待完成...）
+
+
+				公式：left = index*banner.clientWidth
+			 */
+			
+			let banner = document.getElementsByClassName('banner')[0];
+			let ul = banner.children[0];
+
+			// 初始化
+			let index = 0;
+
+			// 无缝滚动关键1：把第一张复制到最后
+			ul.appendChild(ul.children[0].cloneNode(true));
+
+			let len = ul.children.length;
+
+			// 设置ul宽度，实现水平排列效果
+			ul.style.width = banner.clientWidth * len + 'px';
+
+			// 添加分页
+			let page = document.createElement('div');
+			page.className = 'page';
+			for(let i=0;i<len-1;i++){
+				let span = document.createElement('span');
+				span.innerText = i+1;
+				if(i===index){
+					span.className = 'active';
+				}
+
+				page.appendChild(span);
+			}
+			banner.appendChild(page);
+
+
+			let timer = setInterval(autoPlay,3000);
+
+
+			// 鼠标移入移除
+			banner.onmouseover = ()=>{
+				clearInterval(timer);
+			}
+
+			banner.onmouseout = ()=>{
+				timer = setInterval(autoPlay,3000);
+
+			}
+
+
+			function autoPlay(){
+				index++;
+
+				if(index>=len){
+					// 无缝滚动关键2：当滚动到复制那张图片时，瞬间重置回初始状态，并把index改成1
+					ul.style.left = 0;
+					index = 1;
+				}
+
+				animate(ul,{left:-index*banner.clientWidth});
+
+				for(let i=0;i<len-1;i++){
+					page.children[i].className = ''
+				}
+
+				if(index===len-1){
+					page.children[0].className = 'active';
+				}else{
+					page.children[index].className = 'active';
+					
+				}
+			}
+		})
+			
+	</script>
+</head>
+<body>
+	<div class="banner">
+		<ul>
+			<li><img src="img/001.jpg"></li>
+			<li><img src="img/002.jpg"></li>
+			<li><img src="img/003.jpg"></li>
+			<li><img src="img/004.jpg"></li>
+		</ul>
+	</div>
+</body>
+</html>

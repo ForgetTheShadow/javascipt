@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>实时显示光标位置</title>
+	<style>
+		#pos{position: fixed;left:0;bottom:0;padding:10px;font-size:10px;color:#999;}
+		body{padding-bottom:2000px;}
+	</style>
+	<script>
+		/*
+			实时显示光标位置
+				* clientX/clientY	光标相对于浏览器可视区域的位置，也就是浏览器坐标
+				* screenX/screenY	光标指针相对于电脑屏幕的水平/垂直坐标。
+				* pageX/pageY		鼠标相对于文档的位置（IE9+）
+					* IE8-：
+		 */
+		
+		window.onload = function(){
+			var pos = document.getElementById('pos');
+
+			document.onmousemove = function(e){
+				// 兼容event对象
+				// if(!e){
+				// 	e = window.event;
+				// }
+
+				e = e || window.event;//e有值则使用e，无值则使用window.event
+
+				// pageX，pageY兼容写法
+				// ：没有就手动添加
+				if(!e.pageX){
+					e.pageX = e.clientX + document.body.scrollLeft
+				}
+				if(!e.pageY){
+					e.pageY = e.clientY + document.body.scrollTop;
+				}
+
+				pos.innerHTML = '<p>' + e.clientX + ',' + e.clientY + '</p>' + 
+								'<p>' + e.screenX + ',' + e.screenY + '</p>' +
+								'<p>' + e.pageX + ',' + e.pageY + '</p>'
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>实时显示光标位置</h1>
+	<div id="pos"></div>
+</body>
+</html>

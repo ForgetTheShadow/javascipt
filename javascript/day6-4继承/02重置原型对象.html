@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>重置原型对象</title>
+	<script>
+		/*
+			重置原型对象
+
+		 */
+		
+		function Popover(width,height,position){
+			// 属性
+			this.width = width;
+			this.height = height;
+			this.position = position;
+		}
+
+		// Popover.prototype.init = function(){}
+		// Popover.prototype.show = function(){}
+		// Popover.prototype.hide = function(){}
+		// Popover.prototype.drag = function(){}
+
+		var a = new Popover(200,100,'center');
+
+		// 重置原型对象
+		Popover.prototype = {
+			constructor:Popover,
+			init(){
+
+			},
+			show(){
+
+			},
+			hide(){
+
+			},
+			drag(){
+
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<h1>重置原型对象</h1>
+</body>
+</html>

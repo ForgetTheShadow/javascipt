@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>17放大镜插件</title>
+	<style>
+		/*body{padding:300px 0 0 300px;}*/
+	</style>
+	<!-- 3.引入相关文件：样式 -->
+	<link rel="stylesheet" href="lib/jquery-lxzoom/jquery.lxzoom.css">
+
+	<!-- 1.引入jquery -->
+	<script src="js/jquery-3.2.1.js"></script>
+
+	<!-- 2.引入插入 -->
+	<script src="lib/jquery-lxzoom/jquery.lxzoom.js"></script>
+
+	<!-- 4.编写js代码 -->
+	<script>
+		jQuery(function($){
+			$('.goods').lxzoom({width:500,height:200});
+		});
+	</script>
+</head>
+<body>
+	<div class="goods">
+		<img src="img/car_min.png" data-big="img/car.jpg">
+	</div>
+</body>
+</html>

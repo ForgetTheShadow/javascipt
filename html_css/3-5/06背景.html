@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06背景</title>
+	<style>
+	/*
+		06背景
+			* background-size：
+				格式background-size: auto|| number || percentage || cover || contain
+
+				* auto：默认值，保持背景图片的原始高度和宽度;
+				* number：可以改变背景图片的大小，有可能让图片变形
+				* percentage：此值只能应用在块元素上，所设置百分值将使用背景图片大小根据所在元素的宽度的百分比来计算。
+				* cover：容器被图片完全覆盖，但图片可能不能完全显示（常配合background-position：center使用）;
+				* contain：将图片完全包裹在容器内，可能容器导致出现空白区域。
+					注意：只设置一个值时，第二个值相当于auto，会参照第一个参数值进行等比例缩放。
+
+
+			* background-origin:规定 background-position 属性相对于什么位置来定定位。
+				* border-box 背景图像边界框的相对位置
+				* padding-box 背景图像填充框的相对位置(默认)
+				* content-box 背景图像的相对位置的内容框
+			* background-clip:
+				指定背景绘制区域
+
+				* border-box 默认值。背景绘制在边框方框内（剪切成边框方框）。
+				* padding-box 背景绘制在衬距方框内（剪切成衬距方框）。
+				* content-box 背景绘制在内容方框内（剪切成内容方框）。
+	*/
+		.box{
+			margin:5px;padding:20px;width:600px;height:400px;background:url(img/g2.jpg) no-repeat;border:20px solid rgba(255,0,0,0.5);color:#ff0;
+
+			
+		}
+
+		.box1{background-size: cover;}
+		.box2{background-origin:content-box;}
+		.box3{width:300px;height:200px;background-size:cover;background-clip:content-box;}
+	</style>
+</head>
+<body>
+	<h1>06背景</h1>
+	<div class="box box1">lemon</div>
+	<div class="box box2">laoxie</div>
+	<div class="box box3">tiantian</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js实现居中弹窗</title>
+	<style>
+		#box{position:absolute;width:500px;height:200px;background-color: #ffc;border:2px solid #f60;}
+	</style>
+	<script>
+		window.onload = function(){
+			/*
+				js实现居中弹窗
+					* 通过计算实现居中
+						* 元素.offsetWidth：自边框内所有宽度（border+padding+content）
+						* 元素.offsetHeight：自边框内所有高度（border+padding+content）
+					* 改变窗口大小实现自动计算
+						* onresize :窗口大小改变时触发
+			 */
+			
+			var box = document.getElementById('box');
+
+			box.style.left = (window.innerWidth-box.offsetWidth)/2 + 'px';
+			box.style.top = (window.innerHeight-box.offsetHeight)/2 + 'px';
+
+
+			// 改变窗口大小自动居中
+			window.onresize = function(){
+				box.style.left = (window.innerWidth-box.offsetWidth)/2 + 'px';
+				box.style.top = (window.innerHeight-box.offsetHeight)/2 + 'px';
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<h1>js实现居中弹窗</h1>
+
+	<div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>生成任意表格</title>
+	<style>
+		#output{margin-top:20px;}
+		table{border:1px solid #ddd;border-collapse: collapse;width:100%;}
+		td{border:1px solid #ddd;padding:3px 5px;}
+	</style>
+</head>
+<body>
+	<h1>生成任意表格</h1>
+	<label for="row">行：</label><input type="text" id="row">
+	<label for="col">列：</label><input type="text" id="col">
+	<button onclick="createTable()">生成表格</button>
+	<div id="output"></div>
+	<script>
+		/*
+			生成任意表格
+				table
+					thead
+						tr
+							td
+					tbody
+					tfoot
+		 */
+		
+		// 获取元素
+		var row = document.getElementById('row');
+		var col = document.getElementById('col');
+		var output = document.getElementById('output');
+
+
+		// 声明一个函数，用于生成表格
+		function createTable(){
+			// 获取输入的值
+			var _row = row.value;
+			var _col = col.value;
+
+			// if(_row === '' || _col === ''){
+			// 	alert('请输入行或列')
+			// }else{
+
+			// }
+
+			// 声明一个变量，用于保存表格的html结构
+			var content = '<table><tbody>';
+
+			// 外层循环控制行
+			for(var x=1;x<=_row;x++){
+				// 拼接tr
+				content += '<tr><td>'+x+'</td>';
+
+				// 内层循环控制列
+				for(var y=1;y<=_col;y++){
+					// 拼接td
+					content += '<td>单元格'+x+y+'</td>';
+				}
+
+				// 闭合tr
+				content += '</tr>';
+			}
+
+			// 闭合tbody,table
+			content += '</tbody></table>';
+
+
+			// 把表格写入页面#output
+			output.innerHTML = content;
+		}
+	</script>
+</body>
+</html>

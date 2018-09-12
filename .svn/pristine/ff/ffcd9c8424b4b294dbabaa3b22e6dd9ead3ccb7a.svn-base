@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04声明提前</title>
+	<script>
+		// function show(){
+		// 	console.log('show time');
+		// }
+		// var say
+		// var a
+		/*
+			04声明提前：
+
+			函数定义方式：
+				* 声明式
+				* 赋值式
+
+			浏览器如何执行js代码
+				1）声明提前（保存声明：把变量声明，函数声明保存起来）
+					* 提前当前作用域
+				2）顺序：上->下
+		 */
+		
+		// 函数执行
+		show();
+		// say();
+		
+		// 函数定义
+		function show(){
+			// var num
+			console.log('show time',num);
+			var num = 100;
+		}
+
+		var say = function(){
+			console.log('say time');
+		}
+
+
+		// 声明提前案例
+		console.log(a);//undefined
+		var a = 10;
+		function test(){
+			// var a
+		    console.log(a);//ndefined
+		    var a=20;
+		}
+		test() ///==> 会得到什么信息？
+		console.log(a);//10
+	</script>
+</head>
+<body>
+	<h1>04声明提前</h1>
+</body>
+</html>

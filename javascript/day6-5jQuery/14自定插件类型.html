@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>14自定插件</title>
+	<!-- 第3步：引入相关文件（样式、语言包） -->
+
+	<!-- 第1步：引入jquery -->
+	<script src="js/jquery-3.2.1.js"></script>
+	<!-- 第2步：引入插件 -->
+
+	<!-- 第4步：编写jquery代码 -->
+	<script>
+		jQuery(function($){
+			/*
+				怎么写插件：
+					* 对象方法插件（最常见）：给jQuery的原型对象添加一个方法
+					* 全局函数插件（静态方法）：扩展jQuery本身
+					* 选择器插件（较少使用）
+			 */
+			// $('.box').draggable();
+			// $('.box').popover();
+
+			// 对象方法插件
+			jQuery.prototype.test = function(){
+				console.log('我是自定义插件')
+			}
+
+			// 全局函数插件：
+			jQuery.test = function(){
+				console.log('全局插件')
+			}
+
+			// 选择器插件
+			// $('a').color('red');
+			
+
+			$('h1').test();
+
+			$.test();
+
+		});
+	</script>
+</head>
+<body>
+	<h1>14自定插件</h1>
+</body>
+</html>

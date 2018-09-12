@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11数据类型判断之终极版</title>
+	<script>
+		/*
+			11数据类型判断之终极版
+				1) typeof	弱爆了
+				2)	终极方法	Object.prototype.toString
+		 */
+		
+		function type(data){
+			return Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
+		}
+		
+
+		typeof 10;//number
+		typeof true;//boolean
+
+		typeof null;//object
+
+
+		type(null)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

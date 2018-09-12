@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>09函数的参数</title>
+	<script>
+		/*
+			09函数的参数
+				* 形参：函数定义时的参数
+					* 形参就是局部变量
+				* 实参：函数执行时的参数
+				
+				PS:形参与实参的数量可以不同
+
+			要让函数的功能更加强大，必须利用
+				* 参数
+				* 返回值
+		 */
+		
+		function sum(a,b,c){
+			// a为形参
+			// 内部自动声明a变量：
+			// var a=5,b=10,c=15
+			// var a=10,b=20,c
+
+			console.log(a,b,c);
+		}
+
+		//5为实参
+		sum(5,10,15);
+
+		// 实参数量<形参：多余的形参为undefined
+		sum(10,20);
+
+		// 实参数量>形参：多余的实参被忽略
+		sum(1,2,3,4,5,6,7,8);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

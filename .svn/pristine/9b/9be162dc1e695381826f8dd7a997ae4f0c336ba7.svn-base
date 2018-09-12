@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12内容操作</title>
+	<style>
+		#box1{color:#58bc58;}
+	</style>
+	<script>
+		window.onload = function(){
+			/*
+				12内容操作
+					* innerHTML			outerHTML（了解）
+					* innerText			outerText（了解）
+			 */
+			
+			var box1 = document.getElementById('box1');
+			var box2 = document.getElementById('box2');
+
+			// innerHTML与innerText的区别
+			// box1.innerHTML = '来啊，<strong>快活</strong>啊！'
+			// box2.innerText = '来啊，<strong>快活</strong>啊！'
+
+			// inner与outer的区别
+			box1.innerHTML = '来是come,去是go'
+			box2.outerHTML = '来是come,去是go'
+		}
+	</script>
+</head>
+<body>
+	<h1>12内容操作</h1>
+	<div id="box1"></div>
+	<div id="box2"></div>
+</body>
+</html>

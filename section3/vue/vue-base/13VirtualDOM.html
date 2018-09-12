@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>13理解VirtualDOM</title>
+	
+</head>
+<body>
+	<h1>13理解VirtualDOM</h1>
+	<div class="box">
+		<h1>Virtual DOM</h1>
+		<ul id="list">
+			<li>虚拟DOM</li>
+		</ul>
+	</div>
+	<script>
+		/*
+			13理解VirtualDOM
+				* 类似html结构的对象
+				* 算法
+
+
+			影响页面性能几大因素
+				* DOM节点的频繁操作
+		 */
+		
+		
+		
+		// 把.box下真实DOM解析成结构类似于它的虚拟DOM
+		var vBox = {
+			tag:'div',
+			className:'box',
+			children:[
+				{
+					tag:'h1',
+					content:'Virtual DOM',
+					children:[],
+
+					render(){}
+				},
+				{
+					tag:'ul',
+					className:'',
+					id:'list',
+					children:[
+						{
+							tag:'li',
+							content:'虚拟DOM',
+
+							render(){}
+						}
+					],
+
+					render(){}
+				}
+			],
+
+			// 渲染方法
+			render(){
+
+			}
+		}
+
+
+		// 真实DOM节点操作(4次)
+		// 初始值：class="box"
+		// $('.box').addClass('test');//class="box test"
+		// $('.box').removeClass('test');//class="box"
+
+		// 重点：以上操作在Vue中认为类名没有修改
+
+		// 在虚拟DOM中做出同样的操作
+		// Vue会利用diff算法对比初始值和最终只两者的区别
+		// * 有区别：重新渲染对应节点
+		// * 没区别：忽略修改
+		// 这样才能把DOM节点操作的数量减到最少
+		、
+	</script>
+</body>
+</html>

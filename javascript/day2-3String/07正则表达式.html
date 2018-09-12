@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07正则表达式</title>
+	<script>
+		/*
+			07正则表达式
+				* 定义
+					* 字面量
+						* 格式：/fuck/
+						* 参数：写在第二个斜杠后 /fuck/ig
+						* 注意：字面量中不能为变量
+					* 构造函数
+						* 格式：new RegExp(item)
+						* 参数：以字符串的形式写在第二个位置new RegExp(item,'gi')
+				* 参数
+					* i：忽略大小写
+					* g: 全部匹配
+
+
+				* 支持正则表达式的方法
+					* search()
+					* split()
+					* replace()
+		 */
+		
+		// 字面量
+		var reg = /fuck/gi;
+
+		var str = 'fuck,Fuck FUCK'
+		str.replace(reg,'**')
+	</script>
+</head>
+<body>
+	<h1>07正则表达式</h1>
+</body>
+</html>

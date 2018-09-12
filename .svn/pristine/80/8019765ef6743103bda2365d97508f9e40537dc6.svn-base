@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D导航</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: '微软雅黑';
+			background-color: #F7F7F7;
+		}
+		ul{list-style: none;padding:0;margin:0;}
+
+		.nav{margin:0 auto;overflow:hidden;}
+		.nav li{position:relative;float:left;border-right:1px solid #090;border-left:1px solid #ccc;width:106px;height:40px;
+			transform-style:preserve-3d;
+			transition:transform 1s;
+		}
+		.nav li span{display: block;padding:0 20px;height:40px;line-height:40px;background-color: #ff0;}
+		.nav li span:first-child{position:absolute;left:0;top:0;right:0;transform: rotateX(-90deg) translateZ(20px)}
+		.nav li span:last-child{background-color: #58bc58;transform: translateZ(20px)}
+
+		/*鼠标移入旋转*/
+		.nav:hover li{transform: rotateX(90deg)}
+
+		/*设置延迟*/
+		.nav li:nth-child(1){transition-delay:0;}
+		.nav li:nth-child(2){transition-delay:0.2s;}
+		.nav li:nth-child(3){transition-delay:0.4s;}
+		.nav li:nth-child(4){transition-delay:0.6s;}
+		.nav li:nth-child(5){transition-delay:0.8s;}
+		
+	</style>
+</head>
+<body>
+	<h1>3D导航</h1>
+	<ul class="nav">
+		<li>
+			<span>大前端</span>
+			<span>千锋教育</span>
+		</li>
+		<li>
+			<span>laoxie</span>
+			<span>千锋教育</span>
+		</li>
+		<li>
+			<span>lemon</span>
+			<span>千锋教育</span>
+		</li>
+		<li>
+			<span>tiantian</span>
+			<span>千锋教育</span>
+		</li>
+		<li>
+			<span>dk</span>
+			<span>千锋教育</span>
+		</li>
+	</ul>
+</body>
+</html>

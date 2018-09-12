@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+         body{padding:50px;}
+        ul{list-style: none;padding:0;margin:0;}/*reset*/
+        .datalist{border:1px solid #ddd;padding:15px;}
+        .datalist li{padding:15px 5px;border-bottom:1px dotted #ccc;}
+        .datalist li h4{margin:0;}
+        .page span{display:inline-block;margin:5px;width:40px;line-height:1.8;text-align: center;background-color:#dfdfdf;color:#666;}
+        .page span.active{background-color:#fc0;color:#fff;}
+    </style>
+
+    <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded',()=>{
+        let datalist = document.querySelector('.datalist');
+        let qty = document.querySelector('#qty');
+
+        var _pageNo = 1;
+        var _qty = 5;
+
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+            let res = JSON.parse(xhr.responseText);
+
+            datalist.innerHTML = '';
+
+            let ul = document.createElement('ul');
+            ul.innerHTML = res.data.map(item=>{
+                return `
+                    <li>
+                    <strong>${item.name}</strong>
+                    <div class="content">${item.content}</div>
+                    </li>
+                `
+            }).join('');
+
+            datalist.appendChild(ul);
+
+            let pageLen = Math.ceil(res.total/res.qty);
+
+            let page = document.createElement('div');
+            page.className = 'page';
+            for(var i=0;i<pageLen;i++){
+                var span = document.createElement('span');
+                span.innerText = i+1;
+
+                if(i===res.pageNo-1){
+                    span.className = 'active';
+                }
+                page.appendChild(span);
+            }
+            datalist.appendChild(page);
+        }
+
+        xhr.open('get','../api/football.php?qty='+_qty+'&pageNo='+_pageNo);
+        xhr.send();
+
+        datalist.onclick = function(e){
+            if(e.target.parentNode.className === 'page'){
+                _pageNo = e.target.innerText;
+
+                xhr.open('get','../api/football.php?qty='+_qty+'&pageNo'+_pageNo);
+                xhr.send();
+            }
+        }
+
+        qty.onchange = function(){
+            _qty = qty.value;
+            xhr.open('get','../api/football.php?qty='+_qty+'&pageNo='+_pageNo);
+            xhr.send();
+        }
+    })
+
+    </script>
+</head>
+<body>
+    <select name="" id="qty">
+        <option value="3">3</option>
+        <option value="5" selected>5</option>
+        <option value="10">10</option>
+        <option value="13">13</option>
+    </select>
+    <div class="datalist">
+        
+    </div>
+</body>
+</html>

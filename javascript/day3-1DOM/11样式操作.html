@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11样式操作.html</title>
+	<style>
+		.box{width:300px;height:200px;background-color: #fc0;font-size:20px;}
+		div.box{font-size:25px;}
+	</style>
+	<script>
+		window.onload = function(){
+			/*
+				11样式操作
+					* style：设置/获取内联样式
+					* getComputedStyle(ele,pseudo) ：获取非内联样式(只读)
+						* 得到ele的所有计算后样式
+						* getComputedStyle(ele,'::after');
+			 */
+			
+
+			// var box = document.getElementsByClassName('box')[0];
+			var box = document.getElementById('box');
+
+			// 设置：内联样式
+			box.style.color = '#f00';
+
+			// 获取：获取内联样式
+			console.log(box.style.fontSize,box.style.color);//'',#f00   
+
+			var fontSize;
+			if(window.getComputedStyle === undefined){
+				fontSize = box.currentStyle.fontSize;
+			}else{
+				fontSize = getComputedStyle(box).fontSize;
+			}
+
+			console.log(fontSize)
+		}
+		
+
+	</script>
+</head>
+<body>
+	<h1>11样式操作</h1>
+	<div class="box" id="box">
+		吃在广州，h5在千锋
+	</div>
+</body>
+</html>

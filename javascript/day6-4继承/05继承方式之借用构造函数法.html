@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04继承方式之借用构造函数法</title>
+	<script>
+		/*
+			原型链继承法
+				* 核心：拿父类实例来充当子类原型对象
+				* 缺点：
+					* 无法继承构造函数中的属性
+					* 创建子类实例时，无法向父类构造函数传参
+					* 原型对象中存在多余的属性
+
+			借用构造函数法
+				* 核心：借父类的构造函数来增强子类实例，相当于把父类的实例属性复制一份给子类实例
+					* call： 格式：父类构造函数.call(子类实例,参数1,参数2,参数3...)
+					* apply： 格式：父类构造函数.apply(子类实例,[参数1,参数2,参数3...])
+
+
+			组合继承方法（实际工作解决方案）
+				* 原型链继承法（方法）
+				* 借用构造函数法（属性）
+				* 缺点
+					* 原型对象中存在多余的属性
+
+			
+		 */
+		
+		
+		var Person = function(name,age,gender){console.log(666)
+			this.name = name;
+			this.age = age;
+			this.gender = gender;
+		}
+
+		Person.prototype = {
+			constructor:Person,
+			init(){
+
+			},
+			say(){
+				console.log('我超能说');
+			},
+			eat(){
+				console.log('我超能吃');
+			},
+			sleep(){
+				console.log('我超能睡');
+			}
+		}
+
+
+		// var lx = new Person('laoxie',18,'男');
+
+
+		var Man = function(name,age){
+			// 借父类的构造函数来增强子类实例
+			Person.call(this,name,age,'男');
+		}
+
+		// 拿父类实例来充当子类原型对象
+		Man.prototype = new Person();
+
+		// 实例化对象
+		var tiantian = new Man('甜甜',23);
+
+	</script>
+</head>
+<body>
+	<h1>04继承方式之借用构造函数法</h1>
+</body>
+</html>

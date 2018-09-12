@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01数组的定义</title>
+	<script>
+		/*
+			数据定义方式：
+				* 字面量（简单，直观）
+				* 构造函数（new 数据类型）
+
+			数组的属性：
+				* length：保存数组元素的数量(根据数组元素的数量自动改变)
+		 */
+		//一个变量自能存一个值
+		var num = 10;
+		var username = 'lemon';
+
+		// 数组：一系列数据的集合
+		// 定义1：字面量
+		var arr1 = [10,20,'lemon','laoxie'];
+
+		// 定义2：构造函数
+		var arr2 = new Array(10,20,30,40,50);
+
+		console.log('arr1的数量：',arr1.length);
+		console.log('arr2的数量：',arr2.length);
+	</script>
+</head>
+<body>
+	<h1>01数组的定义</h1>
+	
+</body>
+</html>

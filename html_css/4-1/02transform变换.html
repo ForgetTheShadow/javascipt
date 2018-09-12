@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2D变换transform</title>
+	<style>
+		/*
+			2D变换transform
+				* translate(x,y) 定义 2D 偏移量(移动)。
+					* 居中
+				* scale(x,y)
+				* rotate(angel,angle)
+
+
+			* 练习: 制作唱片效果
+		 */
+		
+		.box{position:absolute;left:50%;top:50%;width:300px;height:100px;background-color: #f00;
+			/*水平移动200px*/
+			transform:translate(-50%,-50%) scale(0.5,1);
+		}
+
+		.meinv{
+			border-radius: 50%;
+			transform: scale(0.5) rotate(80deg);
+		}
+	</style>
+</head>
+<body>
+	<h1>2D变换transform</h1>
+	<div class="box"></div>
+	<div>我是谁,我在哪,我在干什么? www</div>
+	<img src="img/g2.jpg" class="meinv">
+</body>
+</html>

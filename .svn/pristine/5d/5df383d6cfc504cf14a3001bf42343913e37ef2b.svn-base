@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01Math的属性与方法</title>
+	<script>
+		/*
+			01Math的属性与方法
+				* 属性
+					* Math.PI
+				* 方法
+					* 取整
+						* Math.round()  四舍五入取整
+						* Math.ceil()	向上取整(得到一个比当前数大的最小整数)
+						* Math.floor()  向下取整（得到一个比当前数小的最大整数）
+							* 类似parseInt()
+					* 随机数：Math.random() //返回0-1之间的随机数（不包括1）
+					* 最大最小数
+						* Math.max(num1, num2) //返回较大的数
+						* Math.min(num1, num2) //返回较小的数
+					* 其他
+						* Math.abs(num) //绝对值
+						* Math.pow(x,y) //x的y次方
+						* Math.sqrt(num) //开平方根
+
+					* 三角函数
+						* Math.sin(radian)
+						* Math.cos(radian)
+						* Math.tan(radian)
+
+						* 弧度
+			* 勾股定理：c = Math.sqrt(Math.pow(a,2) + Math.pow(b,2));
+			
+
+		 */
+		
+		Math.round(3.14);//3
+		Math.round(3.84);//4
+		Math.round(-3.84);// -4
+
+
+		Math.ceil(3.14);//=>4
+		Math.ceil(-3.14);//=>-3
+
+		Math.floor(3.84);//=>3
+		Math.floor(-3.84);//=>-4
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

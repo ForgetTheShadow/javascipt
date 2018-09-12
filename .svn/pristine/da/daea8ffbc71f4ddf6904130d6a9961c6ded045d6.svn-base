@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03event对象</title>
+	<style>
+		#box{width:200px;height:100px;background-color: #f00;}
+	</style>
+	<script>
+		/*
+			03event对象
+				* 保存事件发生时详细信息的对象
+				* 获取event对象：事件处理函数的第一个参数
+		 */
+		
+		window.onload = function(){
+			var box = document.getElementById('box');
+
+			box.onclick = function(event){
+				console.log(event);
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>03event对象</h1>
+
+	<div id="box"></div>
+</body>
+</html>

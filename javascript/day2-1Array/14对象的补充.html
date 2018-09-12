@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>14对象的补充</title>
+	<script>
+		/*
+			14对象的补充
+				* 方法
+					* 方法中的this
+				* 判断对象中是否包含某个属性
+					* 不存在得到undefined
+
+
+			this指向：
+				* 手动执行：window
+				* 事件驱动：绑定事件的元素
+				* 对象方法：指向对象
+		 */
+		
+		var obj = {
+			// 对象的属性
+		    name:'lemon',
+		    age:32,
+		    hobby:['儿歌','很多'],
+
+		    // 对象的方法
+		    say:function(){
+		    	console.log(this.name);//点前面的对象
+		    }
+		 }
+
+		 // 方法的执行
+		 obj.say();
+
+		 console.log();//推导出：console为对象
+		 document.write()//推导出：document为对象
+		 Math.random();//推导出：Math为对象
+
+
+		 // 判断对象中是否存在某个属性
+		 // 属性不存在时得到undefined
+		 if(obj.age){
+
+		 }
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

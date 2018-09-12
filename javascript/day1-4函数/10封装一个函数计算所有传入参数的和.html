@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封装一个函数，计算所有传入参数的和</title>
+	<script>
+		/*
+			封装一个函数，计算所有传入参数的和
+
+				* 形参与实参数量可以不相等
+				* arguments
+					* 格式(数组)：[10,5]		[2,4,6]		[10,20,30,40,50]
+						* 索引值index: 从0开始的正整数
+						* length：实参数量
+						* 获取其中某一个：arguments[index]
+					* 保存实参信息
+					* 只能在函数内使用
+
+
+					   [10,20,30,40,50]
+				索引值：[0 ,1 ,2 ,3 ,4]
+		 */
+		
+		function sum(){
+			// 求和结果，默认为0
+			var res = 0;
+
+			for(var i=0;i<arguments.length;i++){
+				//0,1,2,3,4
+				res += arguments[i];
+			}
+
+			console.log(res)
+		}
+
+		sum(10,5);//15;
+		sum(2,4,6);//12
+		sum(10,20,30,40,50);//150
+	</script>
+</head>
+<body>
+	<h1>封装一个函数，计算所有传入参数的和</h1>
+</body>
+</html>

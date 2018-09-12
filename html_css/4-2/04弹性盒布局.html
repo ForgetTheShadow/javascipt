@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04弹性盒布局</title>
+    <style>
+    /*
+        使用弹性盒
+            * display:flex;
+
+        容器属性
+            * justify-content
+        元素属性
+            * flex-grow     有额外空间,子元素自动放大，(默认0)
+            * flex-shrink   空间不足，该子元素自动缩小,(默认1)
+            * flex-basis    等效于width,默认auto
+
+            以上三个属性的综合属性：
+            * flex：flex-grow flex-shrink flex-basis
+                * none  等效于：0 0 auto
+                * auto  等效于：1 1 auto
+        主轴
+        交叉轴
+     */
+        .flex-box{width:400px;height:200px;border:5px solid #ddd;
+            display: flex;
+            justify-content:space-around;
+        }
+        .flex-box div{flex-shrink:0;}
+
+        .flex-box div:nth-child(1){width:100px;}
+        .flex-box div:nth-child(2){width:300px;flex:1;}
+        .flex-box div:nth-child(3){flex-basis: 150px;}
+        .flex-box div:nth-child(odd){background-color: #f00;}
+        .flex-box div:nth-child(even){background-color: #ccc;}
+    </style>
+</head>
+<body>
+    <h1>04弹性盒布局</h1>
+    <div class="flex-box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+</html>

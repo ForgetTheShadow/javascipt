@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11对象Object</title>
+	<script>
+		/*
+			11对象Object
+				* 对象和数组有很多类似的地方
+				* 经常配合使用达到完美的效果
+
+
+			定义：
+				* 字面量
+				* 构造函数
+			结构：
+					* 属性值(任意数据类型)
+			操作
+				* 增：添加属性和属性值
+				* 删：删除已有属性
+				* 改：修改已有属性的属性值
+				* 查：根据属性名读取属性值
+					* 遍历：for...in
+						* 搞懂执行过程
+
+			.与[]：能用点语法的肯定能用方括号，反之不成立
+		 */
+		
+
+		 // 字面量
+		 var obj1 = {};//空对象
+
+		 // 构造函数
+		 var obj2 = new Object();//空对象
+
+		 // 创建对象时添加
+		 var obj = {name:'laoxie',age:18};
+
+		 // 创建对象后添加
+		 obj['isDanshen'] = false;
+		 obj.isMarry = true;
+		 obj.hobby = ['写代码','大保健','一边写代码一边大保健']
+
+		 console.log(obj);
+
+
+		 // 删掉isDanshen属性
+		 // delete
+		 delete obj.isDanshen;
+
+
+		 // 修改isMarray属性为false
+		 obj.isMarry = false;
+
+		 console.log(obj);
+
+		 // 读取
+		 obj.name;
+		 obj['name'];
+
+		 // 遍历对象属性
+		 // for...in
+		 for(var key in obj){
+		 	// 遍历所有属性，并把属性名分别赋值给key变量
+		 	//有几个属性，就遍历几次
+			//var key = 'name'
+			//var key = 'gender'
+			//var key = 'age'
+			//var key = 'nickname'
+
+			//根据key获取属性值：obj[key]
+		      
+		 	console.log(key,obj[key])
+		 }
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

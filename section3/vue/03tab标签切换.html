@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>03tab标签切换</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<style>
+		.collapse{display: block;}
+	</style>
+</head>
+<body>
+	<h1>03tab标签切换</h1>
+	<div id="app" class="container">
+
+		<ul class="nav nav-tabs">
+		  <li class="nav-item" v-for="(tab,idx) in tabs">
+		    <a class="nav-link" href="#" :class="{active:idx===currentIdx}" @mouseover="change(idx)">{{tab}}</a>
+		  </li>
+		</ul>
+		<div class="collapse">
+		  <div class="card card-body" v-for="(con,idx) in contents" v-show="idx===currentIdx">
+		   {{con}}
+		  </div>
+		</div>
+	</div>
+	<script src="lib/vue.js"></script>
+	<script>
+		// 利用Vue开发，不需要我们过多关注DOM节点操作，而是把精力放大数据和业务逻辑上来
+
+		/*
+			指令
+				* v-for
+				* v-bind
+					* 简写
+				* v-show
+
+				* v-on 事件绑定
+					* 简写
+
+		 */
+
+		let vm = new Vue({
+			el:'#app',
+
+			// 数据
+			data:{
+				tabs:['laoxie','lemon','tiantian'],
+				contents:['laoxie最爱写代码','lemon最爱唱儿歌','tiantian最爱大保健'],
+				currentIdx:0
+			},
+
+			// 方法
+			methods:{
+				change(idx){
+					this.currentIdx = idx;
+				}
+			}
+		})
+		
+	</script>
+</body>
+</html>

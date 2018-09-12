@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>16函数中的this</title>
+	
+</head>
+<body>
+	<h1>16函数中的this</h1>
+	<button id="btn">点我有惊喜</button>
+	<script>
+		/*
+			16函数中的this
+				* 函数中的this是一个关键字，表示当前对象（而当前对象是谁，取决于这个函数的执行环境）
+				
+				* 指向
+					* 手动执行：window(全局作用域)
+					* 事件驱动：绑定是事件的元素
+		 */
+		
+		function show(){
+			// arguments
+			// return
+			// this
+			console.log(this);
+
+			this.style.color = "#f00"
+		}
+
+		// 手动执行
+		// show();
+
+
+		var btn = document.getElementById('btn');
+
+		btn.onclick = show;
+
+	</script>
+</body>
+</html>

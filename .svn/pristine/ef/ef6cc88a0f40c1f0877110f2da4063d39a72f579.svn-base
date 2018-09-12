@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03键盘事件</title>
+	<script>
+		/*
+			03键盘事件：一般键盘事件都是绑定给
+				* onkeydown 按键被按下时触发，可以连续触发。
+				* onkeyup 	按键被松开时触发。
+				* onkeypress 按键<字符键>被按下时触发，可以连续触发。
+
+				字符键：按下能输入字符的键
+		 */
+		
+
+		document.onkeydown = function(){
+			console.log('keydown')
+		}
+
+		// document.onkeyup = function(){
+		// 	console.log('keyup')
+		// }
+
+		document.onkeypress = function(){
+			console.log('keypress')
+		}
+
+	</script>
+</head>
+<body>
+	<h1>03键盘事件</h1>
+</body>
+</html>

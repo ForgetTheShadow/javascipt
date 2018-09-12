@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片淡入淡出</title>
+	<style>
+		/*
+			1.无缝滚动问题
+				1）复制第一张图片到最后
+				2）keyfrems的85~100%位置为复制图片的top值
+				3）分页动画80%后立即回到0%的left位置（可设置80.1%）
+			2.停顿问题
+			3.鼠标移入暂停问题
+		 */
+		ul{list-style: none;margin:0;padding:0;}
+		
+		.carousel{position:relative;width:320px;height:320px;overflow: hidden;}
+		.carousel ul{
+			position: absolute;
+			/*图片动画*/
+			animation:showPic 15s infinite;
+		}
+		.carousel img{display: block}
+
+		.carousel nav{position: absolute;right:10px;bottom:10px;overflow:hidden;}
+		.carousel nav span{float:left;width:30px;height:5px;margin:0 5px;overflow:hidden;background-color: #ccc;border:1px solid #999;box-sizing: border-box;}
+		.carousel nav .active{position:absolute;left:0;top:0px;background-color: #f90;border-color:#f60;
+		animation: showPage 15s infinite;
+		}
+
+
+		/*鼠标移入暂停*/
+		.carousel:hover ul,.carousel:hover .active{animation-play-state:paused;}
+
+
+		/*关键帧动画定义*/
+		@keyframes showPic{
+			0%{top:0;}
+			16%{top:0;}
+
+			21%{top:-320px;}
+			37%{top:-320px;}
+
+			42%{top:-640px;}
+			58%{top:-640px;}
+
+			63%{top:-960px;}
+			79%{top:-960px;}
+
+			84%{top:-1280px;}
+			95%{top:-1280px;}
+			
+			100%{top:-1600px;}
+		}
+
+
+		@keyframes showPage{
+			0%{left:0;}
+			16%{left:0;}
+
+			21%{left:40px;}
+			37%{left:40px;}
+
+			42%{left:80px;}
+			58%{left:80px;}
+
+			63%{left:120px;}
+			79%{left:120px;}
+
+			84%{left:160px;}
+			95%{left:160px;}
+
+			95.1%{left:0;}
+			100%{left:0;}
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<h2>轮播图效果</h2>
+		<div class="carousel">
+			<ul>
+				<li><img src="img/g1.jpg" alt=""></li>
+				<li><img src="img/g2.jpg" alt=""></li>
+				<li><img src="img/g3.jpg" alt=""></li>
+				<li><img src="img/g4.jpg" alt=""></li>
+				<li><img src="img/g5.jpg" alt=""></li>
+				<li><img src="img/g1.jpg" alt=""></li>
+			</ul>
+			<nav>
+				<span>1</span>
+				<span>2</span>
+				<span>3</span>
+				<span>4</span>
+				<span>5</span>
+				<span class="active"></span>
+			</nav>
+		</div>
+	</section>
+</body>
+</html

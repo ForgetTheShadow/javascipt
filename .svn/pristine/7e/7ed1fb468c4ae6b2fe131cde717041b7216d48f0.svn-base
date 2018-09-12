@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>随机点名程序（简单版）</title>
+	
+</head>
+<body>
+	<h1>随机点名程序（简单版）</h1>
+	<input type="text" id="username"><button id="btn">随机点名</button>
+	<script>
+		/*
+			随机点名程序（简单版）
+		 */
+		
+		var data = ['袁凯','吴佳彬','刘旺','滕茂营','甘建仁','李春龙','邱蕙玲','杨金添','雷爱勤','郑莉','杨运强','郭建明','袁经发','陈裕','毛涛','李荣生','薛家铭','姚璐','黄泽鑫','叶演城','吴玉灿','张盘桃','周靖','龚伟琪','李后福','李平办','易军进','陈剑龙','钟社明','邓国伟','张旭陈','莫文聪','叶小婵','黎隆武','陈健强','林宇健','萧伟强','方威','汪阳','孟丽娇','李希望','李小龙','陈青苗','陈秀秀','黄佳禹','陈瑞敏','王子初','崔舒强','周子琪','邓伟良','李观志','赵林','宋潇','林迪熙','黄辉永','何子维','李家升','庞福辉','陆国栋','裴正东','张佳祥','韦娜','黎宣平','郑梓峰','周敖冬','林莉','郭启庚','宁椿旋','邹思明','苏玉婷','钟彪'];
+
+		var username = document.getElementById('username');
+		var btn = document.getElementById('btn');
+
+		getName();
+
+		// 点名
+		btn.onclick = getName;
+
+
+		function getName(){
+			// 生成随机索引值
+			var idx = parseInt(Math.random()*data.length);
+			
+			username.value = data[idx];
+		}
+
+	</script>
+</body>
+</html>

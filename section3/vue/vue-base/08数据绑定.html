@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>08数据绑定</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<style>
+		.hide{display: none}
+	</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<h1>08数据绑定</h1>
+		<div id="app">
+			<div class="form-group" v-bind:class="{active:isActive}">
+				<input type="text" class="form-control" v-model="msg">
+			</div>
+			{{msg}} - {{getMsg()}}
+			<h4>倒序：{{reverseMsg()}}</h4>
+			<h4>computed：{{rMsg2}}</h4>
+
+			<p>methods时间：{{getNow()}}</p>
+			<p>computed时间：{{now}}</p>
+
+			<!-- <h5 v-text="username"></h5> -->
+			<div v-html="username"></div>
+
+			<div :class="{hide:show}"><img src="img/160.jpg"></div>
+			<button class="btn btn-info" @click="show=!show">显示隐藏</button>
+		</div>
+
+	</div>
+	<script src="lib/vue.js"></script>
+	<script>
+		/*
+			08数据绑定
+				* 插值表达式：内部一般用于简单操作,发杂的操作建议使用method或computed
+				* v-text
+				* v-html	使用v-html的前提是确保内容可信
+				* v-model
+				* v-bind	操作任意属性
+					* class
+					* style
+				
+			区别：
+				* computed 与 data
+					
+				* computed 与 method
+					* computed有缓存功能（其他数据修改不会重新渲染computed的值）
+					* 建议：无频繁变动的数据使用computed
+		 */
+		
+		let vm = new Vue({
+			el:'#app',
+
+			// data下的属性：值属性
+			data:{
+				msg:'hello tiantian',
+				username:'<strong style="color:#58bc58">lemon</strong>',
+				fontSize:30,
+				isActive:true,
+				show:true
+			},
+
+			// computed下的属性：存储器属性
+			computed:{
+				// 默认为：getter
+				rMsg:function(){
+					return this.msg.split('').reverse().join('');
+				},
+
+				rMsg2:{
+					// getter
+					get(){
+						return this.msg.split('').reverse().join('');
+					},
+
+					// setter
+					set(val){
+						this.msg = val;
+					}
+				},
+				now(){
+					return Date.now();
+				}
+			},
+			methods:{
+				getMsg(){
+					console.log('getMsg');
+					return this.msg
+				},
+
+				reverseMsg(){
+					return this.msg.split('').reverse().join('');
+				},
+
+				// 获取当前时间
+				getNow(){
+					return Date.now();
+				}
+			}
+		})
+		
+	</script>
+</body>
+</html>

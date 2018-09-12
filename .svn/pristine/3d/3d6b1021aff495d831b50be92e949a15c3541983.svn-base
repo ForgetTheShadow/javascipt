@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04自定义构造函数</title>
+	<script>
+		/*
+			04自定义构造函数
+
+				1. 用于单个对象
+					* 字面量
+					* 构造函数Object
+
+					缺点：
+						1. 产生大量的重复代码
+						2. 维护麻烦
+				2. 用于多个对象
+					* 工厂函数（封装）
+				
+					缺点：
+						* 无法识别对象是由谁生成的
+
+					* 自定义构造函数	（重点）
+						* 首字母大写
+						* 执行过程
+
+					* 实际开发：自定义构造函数 + 原型对象
+		 */
+		
+		 	// 构造函数
+			function Student(name,age,gender){
+				// 配合this使用：通过new调用构造函数中的this指向实例
+
+				/*
+					new的执行过程
+						1. 创建一个Object对象					var obj = {}
+						2. 将构造函数的this指向这个对象		Student.bind(obj);
+						3. 执行构造函数中的代码
+						4. 返回Object对象					return obj
+				 */
+
+				this.name = name;
+				this.age = age;
+				this.gender = gender;
+
+
+				// 属性可能不一样，方法每个对象都一样
+				this.say = function(){
+					// 方法中的this指向实例
+					console.log(this);
+				}
+				this.coding = function(){
+
+				}
+				this.eat = function(){
+
+				}
+				
+				// console.log(this);
+			}
+
+			// 实例化：得到一个对象
+			// var s1 = new Student();//等效于：var s1 = {}
+			var s2 = new Student('laoxie',18,'男');
+			// var s3 = Student('laoxie',18,'男');
+			var s4 = new Student('lemon',32,'女');
+			var s5 = new Student('tiantian',22,'男');
+
+			s2.say();
+
+
+	</script>
+</head>
+<body>
+	<h1>04自定义构造函数</h1>
+</body>
+</html>

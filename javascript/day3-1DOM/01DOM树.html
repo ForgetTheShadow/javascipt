@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01DOM树</title>
+	<script>
+		window.onload = function(){
+			/*
+				节点Node
+					* 元素节点(Element)
+					* 文本节点(Text)
+					* 属性节点(Attribute)
+
+				节点类型判断：nodeType
+					* Element  : 1
+					* Attribute: 2
+					* Text     : 3
+			 */
+			
+			var list = document.getElementById('list');
+
+			console.log(list.nodeType)
+			
+		}
+	</script>
+</head>
+<body>
+	<h1>01DOM树</h1>
+	<div id="list">
+		<a href="#">Google</a>
+		<a href="#" id="baidu">百度</a>
+		<a href="#">Yahoo</a>
+	</div>
+</body>
+</html>

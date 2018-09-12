@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20数组ES5方法之filter</title>
+	<script>
+		/*
+			20数组ES5方法之filter
+				* 得到执行fn后返回true时对应的数组元素，利用这个方法可对数组元素进行过滤筛选
+					* 返回true，数组元素保留下来
+					* 返回false，去掉数组元素
+		 */
+		
+		// 题目：找出所有小于10的数并组成新的数组
+
+		var arr = [10,15,2,32,5,4,20,8,48,54,6];
+
+		var res = arr.filter(function(item){
+			// 会把所有的数组元素遍历一遍
+			// 每遍历一个数组元素，执行一次这个函数
+			return item==10;
+		});
+
+		console.log(res);
+	</script>
+</head>
+<body>
+	<h1>20数组ES5方法之filter</h1>
+</body>
+</html>

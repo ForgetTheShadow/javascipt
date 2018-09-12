@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07计算两个文本框的值</title>
+	<style>
+		#num1{}
+	</style>
+	
+</head>
+<body>
+	<h1>07计算两个文本框的值</h1>
+	<input type="text" id="num1">
+	<input type="text" id="num2">
+	<button onclick="add()">+</button>
+	<button onclick="sub()">-</button>
+	<button onclick="mul()">&times;</button>
+	<button onclick="div()">&div;</button>
+	<button onclick="rem()">%</button>
+	<div id="output"></div>
+	<script>
+		/*
+			07计算两个文本框的值(加减乘除取余)
+
+			* 获取输入的数字
+				1）获取元素
+					* 通过id获取元素：document.getElementById()
+				2）获取元素的值
+					* 元素的value属性（得到String）
+
+
+			知识点：
+				* 函数声明
+					* 格式：function 函数名(){}
+				* 函数执行
+					* 格式：函数名()
+
+				* string->number
+					* Number(a)
+					* a*1
+					* parseInt()
+
+				* 输出
+					* alert()
+					* console.log()
+					* 输出到元素
+						* 双标签元素：元素.innerHTML
+						* 表单元素: 元素.value
+		 */
+		
+		// 获取页面上已经存在的元素
+		// 逐行解析：
+		//  * 代码执行：上->下
+		// 的：.
+		var num1 = document.getElementById('num1');
+		var num2 = document.getElementById('num2');
+		var output = document.getElementById('output');
+
+
+		// 加法
+		function add(){
+			// 在此获取输入框的值
+			var _num1 = Number(num1.value);
+			var _num2 = num2.value*1;
+
+			output.innerHTML = _num1+_num2;
+		}
+
+
+		// 减法
+		function sub(){
+			// 在此获取输入框的值
+			var _num1 = num1.value;
+			var _num2 = num2.value
+
+			output.innerHTML = _num1-_num2;
+		}
+
+
+		// 减法
+		function mul(){
+			// 在此获取输入框的值
+			var _num1 = num1.value;
+			var _num2 = num2.value
+
+			output.innerHTML = _num1*_num2;
+		}
+
+		// 除法
+		function div(){
+			// 在此获取输入框的值
+			var _num1 = num1.value;
+			var _num2 = num2.value
+
+			output.innerHTML = _num1/_num2;
+		}
+
+
+		// 取余
+		function rem(){
+			// 在此获取输入框的值
+			var _num1 = num1.value;
+			var _num2 = num2.value
+
+			output.innerHTML = _num1%_num2;
+		}
+	</script>
+</body>
+</html>

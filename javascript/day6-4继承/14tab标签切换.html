@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>14tab标签切换</title>
+	<style>
+		.tab{border:5px solid #ddd;width:350px;}
+		.tab .header{border-bottom:2px solid #ddd;overflow: hidden;}
+		.tab .header span{float:left;padding:5px 15px;border-right:1px solid #ddd;}
+		.tab .header span.active{background-color:#58bc58;color:#fff;font-weight:bold;}
+		.tab .content{height:350px;overflow: hidden;}
+		.tab .content div{padding:15px;}
+		.tab .content img{display: block;}
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded',function(){
+			var tab = document.querySelector('.tab');
+			var items = tab.querySelectorAll('.header span');
+			var contents = tab.querySelectorAll('.content div');
+
+			for(var i=0;i<items.length;i++){
+				// (function(i){
+					items[i].onclick = (function(i){
+						// 把i限定到匿名函数所在作用域
+						return function(){
+							for(var j=0;j<items.length;j++){
+								// 清除其他，高亮当前
+								items[j].className = '';
+								//隐藏其他图片，显示当前图片
+								contents[j].style.display = 'none';
+							}
+
+							items[i].className = 'active';
+							contents[i].style.display = 'block';
+						}
+					})(i);
+				// })(i);
+			}
+		})
+	</script>
+</head>
+<body>
+	<h1>14tab标签切换</h1>
+	<div class="tab">
+		<div class="header">
+			<span>非洲</span>
+			<span>南美</span>
+			<span>俄罗斯</span>
+			<span>台湾</span>
+			<span>大陆</span>
+		</div>
+		<div class="content">
+			<div><img src="img/g1.jpg"></div>
+			<div><img src="img/g2.jpg"></div>
+			<div><img src="img/g3.jpg"></div>
+			<div><img src="img/g4.jpg"></div>
+			<div><img src="img/g5.jpg"></div>
+		</div>
+	</div>
+</body>
+</html>

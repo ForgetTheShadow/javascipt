@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>利用事件委托实现新添加的按钮响应点击事件</title>
+	<script>
+		/*
+			利用事件委托实现新添加的按钮响应点击事件
+
+				* 利用事件冒泡
+				* 把事件绑定给父级元素
+				* 事件源对象：event.target
+					* 事件源对象在事件传播过程中不会改变
+
+				* 事件委托优点：
+					* 减少事件绑定数量
+					* 让新添加的元素具有行为
+		 */
+		
+		window.onload = function(){
+			var box = document.getElementById('box');
+
+			var btns = box.children;
+
+			// 缺点：新添加的按钮无复制功能
+			// for(var i=0;i<btns.length;i++){
+			// 	btns[i].onclick = function(){
+			// 		// 复制按钮并写入#box
+			// 		box.appendChild(this.cloneNode(true));
+
+
+			// 	}
+			// }
+
+
+			// 高端大气上档次的方法：事件委托
+			box.onclick = function(e){
+				// 利用事件源对象判断点击了哪个元素
+				if(e.target.className === 'btn1'){
+					box.appendChild(e.target.cloneNode(true));
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>利用事件委托实现新添加的按钮响应点击事件</h1>
+	<div id="box">
+		<button class="btn1">点我有惊喜</button>
+		<button class="btn2">点我有惊吓</button>
+	</div>
+</body>
+</html>

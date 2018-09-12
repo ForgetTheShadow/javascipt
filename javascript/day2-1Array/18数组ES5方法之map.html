@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>18数组ES5方法之map</title>
+	<script>
+		/*
+			map(fn)：返回一个数量相等的数组，内容是什么取决于在fn中返回的值
+		 */
+		
+		var arr = [10,15,2,32,5,4,20,8,48,54,6];
+
+		function map(callback){
+			var res = [];
+
+			for(var i=0;i<arr.length;i++){
+
+				res.push(callback(arr[i]))
+			}
+
+			return res
+		}
+
+		var res1 = map(function(item,idx,arr){
+			return item*1.2
+		});//[12,18,2.4...]
+		console.log(res1)
+
+		// ES5实现
+		// 知其然，也要知其所以然
+		var res2 = arr.map(function(item){
+			return item*2
+		});
+		console.log(res2);
+	</script>
+</head>
+<body>
+	<h1>18数组ES5方法之map</h1>
+</body>
+</html>

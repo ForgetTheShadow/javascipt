@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01while循环</title>
+	<script>
+		/*
+			01while循环
+				* 格式:
+					while(条件){
+						条件成立执行这里的代码
+
+						这里的代码执行完毕，继续判断条件是否成立
+
+						避免死循环：让条件不成立
+						变量更新：往条件不成立的方向改变
+					}
+
+
+			* 死循环：尽量避免死循环（重要）
+
+			* 循环语句组成部分：
+				* 变量初始化
+				* 条件判断
+				* 变量更新
+			* 理解：
+				* 循环语句的执行过程
+		 */
+		
+		// 变量初始化
+		var num = 5;
+
+		while(num > 3){
+			console.log(num);
+
+			// 变量更新
+			num--;
+		}
+
+		// num的值最终变成多少
+		console.log('end:',num)
+	</script>
+</head>
+<body>
+	<h1>01while循环</h1>
+</body>
+</html>

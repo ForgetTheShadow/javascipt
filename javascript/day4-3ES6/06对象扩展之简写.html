@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06对象扩展之简写</title>
+	<script>
+		/*
+			06对象扩展之简写
+				* 属性简写
+				* 方法简写
+		 */
+		
+		//@属性简写
+	    let myName = 'laoxie';
+	    let obj1 = {myName};//结果：变量名做为属性名, 变量的值作为属性值
+	    console.log(obj1);//{myName:'laoxie'}
+
+	    //使用变量值作为属性名
+	    let obj2 = {
+	        [myName]:18
+	    }
+	    //结果：{laoxie:18}
+	    console.log(obj2);
+
+	    // 方法简写
+	    let obj3 = {
+	        coding(){
+
+	        }
+	    }
+	</script>
+</head>
+<body>
+	<h1>06对象扩展之简写</h1>
+</body>
+</html>

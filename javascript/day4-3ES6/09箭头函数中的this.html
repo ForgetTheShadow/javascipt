@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>箭头函数中的this</title>
+	<script>
+		/*
+			箭头函数中的this
+				箭头函数没有this
+		 */
+		
+		document.addEventListener('DOMContentLoaded',()=>{
+			var sum = function(x,y){
+				// console.log(this);
+			}
+
+			sum();//window
+
+			document.onclick = sum;//document
+
+
+			setTimeout(sum,2000);//window
+			setTimeout(sum.bind(document.body),2000);//body
+
+
+			// 箭头函数
+			test = (x,y)=>{
+				console.log('arrow function:',this);
+			}
+
+			test();
+			
+		})
+		
+
+	</script>
+</head>
+<body>
+	<h1>箭头函数中的this</h1>
+</body>
+</html>

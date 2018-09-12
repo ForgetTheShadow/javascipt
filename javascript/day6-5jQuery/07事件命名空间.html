@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07事件命名空间</title>
+	<script src="js/jquery-3.2.1.js"></script>
+	<script>
+		/*
+			事件命名空间：给事件添加一个额外的名字，用于细分操作
+			自定义事件：
+
+		 */
+		//laoxie
+		jQuery(function($){
+			let $girl = $('.girl');
+			$girl.on('click mouseover',function(){
+				$girl.width(200);
+			});
+
+			// $girl.on('mouseout',function(){
+			// 	$girl.width(320);
+			// });
+
+
+			// 自定义事件
+			$girl.on('hellomeinv',function(){
+				$girl.css('border-radius','50%');
+			});
+
+			$(document).on('click',function(){
+				console.log(666);
+			})
+		});
+
+		// lemon
+		jQuery(function($){
+			let $girl = $('.girl');
+			$girl.on('click.lemon',function(){
+				$girl.css('border','5px solid #f00');
+			});
+
+			setTimeout(function(){
+				$girl.off('click.lemon');
+			},2000);
+		});
+	</script>
+</head>
+<body>
+	<h1>07事件命名空间</h1>
+	<img src="img/mv3.jpg" class="girl">
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03算术运算</title>
+	<script>
+		/*
+			算术运算
+				* 加		+
+				* 减		-
+				* 乘		*
+				* 除		/
+				* 取余	%
+					* 判断奇数和偶数
+
+
+			输出：
+				* alert()			弹框输出
+				* console.log()		控制台输出,一般用于测试
+		 */
+		
+		var num1 = 10;
+		var num2 = 20;
+
+		var res1 = 10 + 20;//30
+		var res2 = num1 + num2;//30
+		var res3 = num1 - num2;//-10
+		var res4 = num1 * num2;//200
+		var res5 = num1 / num2;//0.5
+		var res6 = 10%3;
+
+		// alert(res1);
+		// alert(res2);
+		// alert(res3);
+
+		// console.log(res1);
+		// console.log(res2);
+		// console.log(res3);
+		console.log(res1,res2,res3,res4,res5);
+		console.log('取余：',res6);
+
+
+		// 判断奇偶
+		var num11 = 26;
+	</script>
+</head>
+<body>
+	<h1>03算术运算</h1>
+</body>
+</html>

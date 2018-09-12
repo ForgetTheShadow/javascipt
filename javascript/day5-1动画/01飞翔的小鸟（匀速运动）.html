@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>匀速运动</title>
+	<style>
+		.bird{position: absolute;left:0;width:200px;}
+	</style>
+	<script>
+		/*
+			匀速运动
+				* 速度保持不变的运动
+
+
+			飞翔小鸟：
+				* 不断改变left值
+				* setInterval()
+		 */
+		
+		document.addEventListener('DOMContentLoaded',()=>{
+		// window.onload = ()=>{
+			let bird = document.querySelector('.bird');
+
+
+			// 速度
+			let speed = 5;
+			// 目标值
+			let target = window.innerWidth-bird.offsetWidth;
+
+			let timer = setInterval(()=>{
+				
+
+				// 在原来的left基础上改变
+				let left = bird.offsetLeft;
+
+				left += speed;
+
+				// 结束条件
+				if(left>=target){
+					clearInterval(timer);
+
+					// 重置目标值
+					left = target;
+				}
+
+				// 设置css样式
+				bird.style.left = left + 'px';
+			},30)
+		// }
+		});
+		
+	</script>
+</head>
+<body>
+	<h1>匀速运动</h1>
+	<img src="img/bird.gif" class="bird">
+</body>
+</html>

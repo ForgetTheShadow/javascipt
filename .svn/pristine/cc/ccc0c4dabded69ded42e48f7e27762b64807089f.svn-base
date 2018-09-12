@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封装生成随机颜色函数</title>
+	
+</head>
+<body>
+	<h1>封装生成随机颜色函数</h1>
+	<button id="btn">随机背景颜色</button>
+	<script src="../common.js"></script>
+	<script>
+		/*
+			封装生成随机颜色函数
+
+			练习：随机背景颜色表格
+		 */
+		
+		
+		document.body.style.backgroundColor = randomColor();
+
+		// 修改body的背景颜色
+		var btn = document.getElementById('btn');
+
+		btn.onclick = function(){
+			// 点击按钮改变body的背景颜色
+
+			// 获取Body
+			// var body = document.getElementById('mybody');
+
+			document.body.style.backgroundColor = randomColor();
+		}
+	</script>
+</body>
+</html>

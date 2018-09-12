@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10关系运算</title>
+	<script>
+		/*
+			10关系运算(得到boolean)
+				* 等于
+					* == ： 等于
+					* === ： 全等/恒等(要求值和数据类型都相等)
+				* 大于
+					* > ： 大于
+					* >=： 大于等于
+				* 小于
+					* < ： 小于
+					* <=： 小于等于
+				* 不等：
+					* !=
+					* !==
+		 */
+		
+		var num1 = 10;
+		var num2 = '10';
+
+		console.log('num1==num2:',num1==num2);
+		console.log('num1===num2:',num1===num2);
+
+		console.log('num1>=10:',num1>=10)
+	</script>
+</head>
+<body>
+	<h1>10关系运算</h1>
+</body>
+</html>

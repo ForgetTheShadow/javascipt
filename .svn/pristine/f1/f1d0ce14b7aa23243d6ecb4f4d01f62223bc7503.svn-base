@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Symbol数据类型</title>
+	<script>
+		/*
+			值类型
+				* Number
+				* String
+				* Boolean
+			引用数据类型
+				* Object
+				* Array
+			特殊数据类型
+				* Null
+				* Undefined
+				
+			Symbol数据类型
+				独一无二的值，一旦创建后就不可更改，是一种类似于字符串的数据类型，但Symbol 值不能与其他类型的值进行运算，否则报错
+
+				* 特性：独一无二,不可更改,不能运算,类似字符串
+				
+				* 用途：
+					* 对象私有属性
+					* 迭代器（了解）
+
+		 */
+		
+		
+		// 定义方式1：定义
+		var s1 = Symbol();
+		var s2 = Symbol();
+		console.log(s1);
+
+		// 定义方式2：带标识的定义方式
+		var s3 = Symbol('lemon');
+		var s4 = Symbol('laoxie');//
+		var s5 = Symbol('lemon');
+		console.log(s3,s4,s5);
+		console.log(s3 == s5);
+
+
+		// 定义方式3：Symbol.for()：登记，查找
+		// * 查找是否存在
+		//   * 存在： 应用
+		//   * 不存在：创建
+		var s6 = Symbol.for('laoxie');//创建
+		var s7 = Symbol.for('laoxie');//引用
+		console.log(s6 === s7);
+		
+
+		// 应用1：私有属性
+		var sAge = Symbol('age');
+		var person = {
+			name:'lemon',
+			age:36,
+			gender:'女',
+			[sAge]:'lemon芳龄30有8'
+		}
+
+
+	</script>
+</head>
+<body>
+	<h1>Symbol数据类型</h1>
+</body>
+</html>

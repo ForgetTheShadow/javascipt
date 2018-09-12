@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08属性特性</title>
+	<script>
+		/*
+			08属性特性：对属性/方法更深层次控制的操作
+				* 可配置性（其他属性特性的总开关） ： configurable
+				* 可写性（是否可修改属性值）		： writable
+				* 可枚举性(是否可遍历)			： enumerable
+				* 值								： value
+		 */
+		
+
+		 /*
+		 	* 传统设置属性的方式
+		 		* 点语法/方括号
+		 		* 属性特性默认为true
+		 	* 属性特性设置方式：Object.defineProperty(object, propertyname, descriptor)
+		 		* 属性特性默认为false
+		  */
+		var person = {
+			name:'lemon',
+			age:32,
+			gender:'女'
+		}
+
+		person.nickname = '儿歌王';
+
+		Object.defineProperty(person,'age',{
+			// 不可写
+			writable:false
+		});
+
+		Object.defineProperty(person,'nickname',{
+			enumerable:false
+		});
+
+		Object.defineProperty(person,'hobby',{
+			value:'唱歌'
+		});
+
+
+		// 同时设置多个属性的属性特性
+		Object.defineProperties(person, {
+			a:{
+				configurable:true,
+				writable:true,
+				value:'我就是a'
+			},
+			
+			body:{
+				value:'我就是body'
+			}
+		})
+
+
+
+		console.log(person);
+
+
+		
+		for(var key in person){
+			console.log(key)
+		}
+
+	</script>
+</head>
+<body>
+	<h1>08属性特性</h1>
+</body>
+</html>

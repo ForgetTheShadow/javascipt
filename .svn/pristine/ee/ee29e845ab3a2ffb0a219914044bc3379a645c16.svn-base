@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>首页</title>
+	<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.css">
+	<link rel="stylesheet" href="lib/jquery-lxzoom/jquery.lxzoom.css">
+</head>
+<body>
+	<h1>首页</h1>
+	<!-- 痛苦的根源（依赖关系，script标签的数量） -->
+	<!-- <script src="lib/jquery-3.2.1.js"></script>
+	<script src="lib/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+	<script src="lib/jquery-lxzoom/jquery.lxzoom.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/reg.js"></script>
+	<script src="js/login.js"></script>
+	<script src="js/home.js"></script> -->
+
+	<!-- 
+	步骤：
+		1）加载并执行requires.js
+		2）异步加载data-main中的文件
+		3）加载完成后执行里面的代码
+	 -->
+	<script src="js/require.js" data-main="js/home"></script>
+</body>
+</html>

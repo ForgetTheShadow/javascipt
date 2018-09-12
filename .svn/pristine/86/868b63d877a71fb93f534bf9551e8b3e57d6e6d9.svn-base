@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES5的严格模式</title>
+	<script>
+		/*
+			ES5的严格模式
+
+			ES3 -> ES4 -> ES5(过渡版本) -> ES6 -> ES7 -> ES8
+				* 提供有用的方法，简化用户操作
+				* 严格模式
+					* 全局
+					* 局部
+
+				限制：
+					* 不使用var声明变量严格模式中将不通过
+		 */
+		
+
+		// 'use strict';//使用严格模式
+
+		(function(){
+			'use strict';
+
+			var myname = 'xxx';
+
+			arguments[0] = 10;
+
+			// console.log(arguments.callee)
+		})();
+	</script>
+</head>
+<body>
+	<h1>ES5的严格模式</h1>
+</body>
+</html>

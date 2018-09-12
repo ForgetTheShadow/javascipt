@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03保存图片拖拽位置</title>
+	<style>
+		.girl{
+			position:absolute;padding:50px;text-align:center;border:5px solid #f90;
+		}
+		.girl img{display:block;width:200px;}
+	</style>
+	<script>
+		/*
+			03保存图片拖拽位置
+				* 保存：设置cookie,保存left,top值到cookie中
+				* 读取：刷新页面，读取cookie，应用到元素的样式
+
+
+				* 实现拖拽位置保存3天
+		 */
+		
+		window.onload = function(){
+			var girl = document.getElementsByClassName('girl')[0];
+
+			girl.onmousedown = function(e){
+				// 获取按下时的位置
+				// var ox = e.offsetX;
+				// var oy = e.offsetY;
+
+				// 按下时已知条件
+				// * clientX/clientY
+				// * girl.offsetLeft/girl.offsetY
+				var ox = e.clientX - girl.offsetLeft;
+				var oy = e.clientY - girl.offsetTop;
+
+				// 嵌套mousemove事件
+				document.onmousemove = function(evt){
+					girl.style.left = evt.pageX - ox + 'px';
+					girl.style.top = evt.pageY - oy + 'px';
+
+					// 阻止浏览器默认行为：图片的拖拽
+					// if(evt.preventDefault){
+					// 	evt.preventDefault();
+						
+					// }else{
+					// 	evt.returnValue = false;
+					// }
+
+					evt.preventDefault ? evt.preventDefault() : evt.returnValue = false;
+				}
+			}
+
+			// 结束拖拽
+			document.onmouseup = function(){
+				document.onmousemove = null;
+
+				// 松开鼠标，保存left,top
+				// 写入cookie
+				document.cookie = 'left='+girl.style.left;
+				document.cookie = 'top='+girl.style.top;
+			}
+
+			// 保持拖拽位置
+			// 页面刷新，读取cookie(获取left,top)
+			var cookies = document.cookie;//得到String（myname=laoxie; left=289px; top=111px）
+
+			// String -> Array
+			cookies = cookies.split('; ');//["myname=laoxie", "left=289px", "top=111px"]
+
+			cookies.forEach(function(item){
+				// 拆分name/value
+				var arr = item.split('=');
+
+				// 找到top,left，应用样式
+				if(arr[0] === 'left' || arr[0] === 'top'){
+					girl.style[arr[0]] = arr[1];
+				}
+			})
+		}
+	</script>
+</head>
+<body>
+	<h1>03保存图片拖拽位置</h1>
+	<div class="girl">
+		<img src="img/g1.jpg">
+	</div>
+</body>
+</html>

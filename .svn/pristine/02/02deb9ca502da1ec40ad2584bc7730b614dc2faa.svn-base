@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        html,body{height: 100%;background: skyblue;}
+        section p{
+            font-size:100px;color:#fff;opacity:0.5;text-align:center;
+            letter-spacing: 40px;transition:all 5s;}
+
+        section:hover p{letter-spacing:5px;opacity: 1;}
+    </style>
+</head>
+<body>
+    <section>
+        <p>4亿网友共同信赖</p>
+    </section>
+</body>
+</html>

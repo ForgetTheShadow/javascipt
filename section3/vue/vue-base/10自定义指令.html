@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>10自定义指令</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+	<div class="container">
+		<h1>10自定义指令</h1>
+		<div id="app">
+			<p v-content="username">自定义指令</p>
+		</div>
+
+		<div class="box">
+			<button v-content>编辑</button>
+
+			<div class="form-group">
+				<input type="text" class="form-control" v-focus>
+			</div>
+		</div>
+	</div>
+	<script src="lib/vue.js"></script>
+	<script>
+		/*
+			10自定义指令
+				* 指令格式: v-指令名
+
+				* 分类
+					* 全局指令
+						可以在任意实例中使用
+						Vue.directive(name,options)
+					* 局部指令
+						只能在当前实例中使用
+
+
+				总结:当需要在Vue代码中操作DOM节点时,推荐使用指令实现
+
+		 */
+		
+		// 全局指令
+		Vue.directive('content',function(el,binding ){
+			// el:使用指令的元素
+			console.log(el,binding);
+
+			// 设计指令的功能
+		});
+
+
+		// 自动获得焦点的指令
+		Vue.directive('focus',{
+			bind(el){
+				console.log(el)
+			},
+
+			// 在使用指令的元素插入到页面后执行
+			inserted(el){
+				console.log(el)
+				el.focus();
+			}
+		})
+		
+		let vm1 = new Vue({
+			data:{
+				username:'laoxie'
+			},
+			el:'#app',
+		});
+
+
+		let vm2 = new Vue({
+			el:'.box',
+
+
+			// 自定义局部指令
+			directives:{
+				// 格式: 指令名:配置选项
+				// 等效于:
+				// focus:{
+				// 	bind(){
+				// 		
+				// 	}
+				// }
+
+				focus:{
+					bind:function(){},
+					inserted:function(el,binding){
+
+					}
+				}
+			}
+		})
+
+		
+		
+		
+	</script>
+</body>
+</html>

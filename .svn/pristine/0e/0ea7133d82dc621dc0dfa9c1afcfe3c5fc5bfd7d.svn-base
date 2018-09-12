@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>地球公转（圆周）</title>
+	<style>
+		.sun{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100px;height:100px;border-radius: 50%;background-color: #f00;
+			box-shadow:0 0 0 200px #fc0,0 0 0 205px #f00;
+
+		}
+
+		.earth{position:absolute;width:50px;height:50px;border-radius: 50%;background-color: #58bc58;}
+	</style>
+	<script>
+		/*
+			地球公转（圆周）
+				* 不断改变left,top
+		 */
+		
+		document.addEventListener('DOMContentLoaded',()=>{
+			let sun = document.querySelector('.sun');
+			let earth = document.querySelector('.earth');
+
+			// 圆心位置
+			let center = {x:window.innerWidth/2,y:window.innerHeight/2};
+
+			// 半径:宽度/2+阴影宽度
+			let r = 50+205;
+
+			// 速度就是角度
+			let deg = 0;
+
+			setInterval(()=>{
+				// 速度变化
+				deg += 5;
+
+				// 避免角度大于360
+				deg = deg%360;
+
+				// 求弧度
+				let rad = deg*Math.PI/180;
+
+				// 求直角边
+				let a = r*Math.cos(rad);
+				let b = r*Math.sin(rad);
+
+
+				// 求left,top
+				let left = center.x + a - earth.offsetWidth/2;
+				let top = center.y + b - earth.offsetHeight/2;
+
+				// 设置样式
+				earth.style.left = left + 'px';
+				earth.style.top = top + 'px';
+			},30);
+		})
+	</script>
+</head>
+<body>
+	<h1>地球公转（圆周）</h1>
+	<div class="sun"></div>
+	<div class="earth"></div>
+</body>
+</html>

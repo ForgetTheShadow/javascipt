@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04边框图片</title>
+	<style>
+		/*
+			04边框图片border-image
+				* 格式：border-image:source slice width outset repeat （默认值：none 100% 1 0 stretch）
+				*
+				*
+			
+			* 应用
+				* 按钮自适应背景图片
+		 */
+		
+		.box{width:200px;height:100px;border:20px solid #f60;}
+
+		/*.btn{width:360px;height:150px;border:none;background:url(img/button.png);color:#fff;font-size:20px;}*/
+		.btn{border:20px solid #ddd;border-image:url(img/button.png) 10 fill;}
+		.btn1{width:360px;height:150px;}
+		.btn2{width:80px;height:60px;}
+		.btn3{width:80px;height:300px;}
+
+		.button{width:200px;height:100px;border:20px solid #ddd;border-image:url(img/border-image.png) 28 repeat;}
+	</style>
+</head>
+<body>
+	<h1>04边框图片</h1>
+
+	<div class="box"></div>
+
+	<br><br><br>
+	<button class="btn btn1">点我有惊喜</button>
+	<button class="btn btn2">点赞</button>
+	<button class="btn btn3">点我有惊喜</button>
+
+	<div class="button"></div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01小狗觅食</title>
+	<script>
+		/*
+			编程思想：
+				* 面向过程：注重步骤（主角为自己）
+					
+				* 面向对象：注重对象（主角为对象，我是指挥官）
+					1. 创建对象
+					2. 描述对象（难点）
+					3. 指挥对象
+		 */
+		
+
+		// @面向过程
+		function smell(){
+			console.log('smell');
+		}
+
+		function tiantian(){
+			console.log('tiantian');
+		}
+
+		function bite(){
+			console.log('bite');
+		}
+
+		// 第一步：闻一闻
+		smell();
+
+		// 第二步：舔一舔
+		tiantian();
+
+		// 第三步：咬一咬
+		bite();
+
+
+		// @面向对象
+
+		// 1.创建对象
+		var wangcai = new Object();
+
+		// 2.描述对象
+		wangcai.name = '旺财';
+		wangcai.smell = function(){console.log('闻一闻')};
+		wangcai.lick = function(){console.log('舔一舔')};
+		wangcai.bite = function(){console.log('咬一咬')};
+
+		wangcai.smell();
+		wangcai.lick();
+		wangcai.bite()
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

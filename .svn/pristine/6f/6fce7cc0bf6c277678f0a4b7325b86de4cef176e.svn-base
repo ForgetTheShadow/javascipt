@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11猜数字游戏</title>
+
+</head>
+<body>
+	<h1>11猜数字游戏</h1>
+	<p>现在已生成一个1-100的数字，<strong>猜中有奖</strong></p>
+	<input type="text" id="number"><button onclick="guess()">猜</button>
+	<script>
+		/*
+			猜数字游戏
+				* 得到1-100的随机整数
+
+			知识点：
+				* Math.random()	 得到0~1（不包括1）的随机数
+				* 条件判断
+					if格式：if(条件){}
+		 */
+		
+		var number = document.getElementById('number');
+
+		
+		var randomNum = parseInt(Math.random()*100)+1;//1-100
+
+		// console.log(randomNum);
+
+		// 声明一个函数，用于点击按钮时获取输入的值
+		function guess(){
+			// 获取输入的值
+			var num = number.value*1;
+
+			// 判断num与randomNum的关系
+
+			// 大于
+			if(num > randomNum){
+				alert('大了');
+			}
+
+			// 小于
+			if(num < randomNum){
+				alert('小了')
+			}
+
+			// 等于
+			if(num === randomNum){
+				alert('恭喜你，猜对了，可惜没奖');
+			}
+		}
+	</script>
+</body>
+</html>

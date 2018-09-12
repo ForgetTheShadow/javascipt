@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>过滤不文明用语</title>
+	<style>
+		ul{padding:0;margin:0;list-style:none;}
+		.container{width:600px;margin:20px auto;}
+		.container li{border-bottom:1px dotted #ddd;padding:10px;margin:10px 0;}
+		textarea{display:block;width:100%;height:60px;}
+	</style>
+	
+</head>
+<body>
+	<div class="container">
+		<h1>过滤敏感字符</h1>
+		<ul id="msglist"></ul>
+		<textarea id="msg"></textarea>
+		<button id="btn">提交</button>
+	</div>
+	<script>
+			/*
+				发送消息
+					* 绑定onclick事件
+					* 获取输入的内容
+					* 写入页面#msglist
+				过滤敏感字符:replace
+					* 大小写
+					* 重复敏感字符
+			 */
+			var msglist = document.getElementById('msglist');
+			var msg = document.getElementById('msg');
+			var btn = document.getElementById('btn');
+
+			// 定义data变量，用于存放输入信息
+			var data = [];
+
+
+			// 定义mingan变量，用于存放所有敏感字符
+			var mingan = 'fuck,妈蛋,操,法轮功,反清复明,金三胖,去死,MMP'.split(',');
+
+			btn.onclick = function(){
+				// 获取输入的内容
+				var _msg = msg.value;//fuck,Fuck,FUCK
+
+				// 过滤敏感字符
+				mingan.forEach(function(item){
+					// 以敏感字符定义正则表达式
+					var reg = new RegExp(item,'gi');
+
+					_msg = _msg.replace(reg,'**');
+				});
+
+				data.push(_msg);
+
+				var html = data.map(function(item){
+					return '<li>'+item+'</li>';
+				}).join('');
+
+				msglist.innerHTML = html;
+
+				// 清空输入框并自动获得焦点
+				msg.value = '';
+				msg.focus();
+			}
+	</script>
+</body>
+</html>

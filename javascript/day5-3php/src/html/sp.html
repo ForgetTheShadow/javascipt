@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded',()=>{
+            let box = document.querySelector('.box');
+
+            let xhr = new XMLHttpRequest();
+            // onload加载完成
+            xhr.onload = function(){
+                let data = JSON.parse(xhr.responseText);
+                let ul = document.createElement('ul');
+                ul.innerHTML = data.map(item=>{
+                    return `
+                        <li>
+                            <strong>${item.name}</strong>
+                            <p>${item.price}</p>
+                            <img src="${item.imgurl}">
+                        </li>
+                    `
+                }).join('');
+
+                // 把ul写入页面
+                box.appendChild(ul);
+            }
+            xhr.open('get','../goodslist.php');
+            xhr.send();
+
+        });
+
+    </script>
+</head>
+<body>
+    <div class="box">
+        <img src="" alt="" />
+    </div>
+</body>
+</html>

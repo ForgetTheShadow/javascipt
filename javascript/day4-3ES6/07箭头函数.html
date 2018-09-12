@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>箭头函数</title>
+	<script>
+		/*
+			箭头函数(函数的简写）：选择性省略function,(),{},return
+				* 无参数
+				* 一个参数
+				* 多个参数
+				* 函数中包含多行代码时
+				* 函数返回一个对象时
+					* ES6中的规则是，紧随箭头的{被解析为块的开始，而不是对象的开始
+
+
+				箭头函数->普通函数
+				var sum = (a,b)=>c=>a+b*c
+				var sum = (a,b)=>c=>({a,b,c})
+		 */
+		
+
+		// var sum = function(a,b){
+		// 	return function(c){
+		// 		return a+b*c;
+		// 	}
+		// }
+		// var sum = function(a,b){
+		// 	return function(c){
+		// 		return {a,b,c}
+		// 	}
+		// }
+		
+		//1.无参数
+		//传统写法
+		var sum = function(){
+		    return 10 + 10;
+		}
+
+		// 箭头函数
+		var sum = ()=>10+10;
+
+
+		// 2.一个参数
+		//传统函数写法
+		var test = function(x){
+		    return x+2;
+		} 
+
+		// 箭头函数
+		var test = x=>x+2;
+
+		// 3.多个参数
+		// 传统函数写法
+		var arr = [10,20,30,40,50]
+		var total = arr.reduce(function (a, b) {
+		  	return a + b;
+		}, 0);
+
+		// 箭头函数
+		var total = arr.reduce((a,b)=>a+b,0);
+
+		// 4.函数中包含多行代码时用代码块括起来
+		// 传统写法
+		document.onclick = function (e) {
+			e = e || window.event;
+			var keCode = e.which || e.keyCode;
+			console.log(keyCode);
+		};
+
+		// 箭头函数
+		document.onclick = e=>{
+			e = e || window.event;
+			var keCode = e.which || e.keyCode;
+			console.log(keyCode);
+		}
+
+		// 5.函数返回一个对象时
+		// 传统写法
+		var createPerson = function(name,age,gender){
+		    return {name:name,age:age,gender:gender}
+		}
+
+		// 箭头函数写法
+		var createPerson = (name,age,gender)=>({name,age,gender});
+	</script>
+</head>
+<body>
+	<h1>箭头函数</h1>
+</body>
+</html>

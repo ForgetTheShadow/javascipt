@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02元素节点的获取</title>
+	<script>
+		window.onload =function(){
+			/*
+				获取元素节点：
+					* document.getElementById():通过id名获取元素节点
+						* 返回一个元素/null
+						* 必须从document节点往下获取
+						* 速度最快
+					* getElementsByClassName():通过类名获取元素节点
+						* 返回类数组/[]
+					* getElementsByTagName():通过标签名获取
+						* 返回类数组/[]
+					* document.getElementsByName():通过name属性
+						* 返回类数组/[]
+						* 必须从document节点往下获取
+						* 一般用于表单
+			 */
+			
+			var goodslist = document.getElementsByClassName('goodslist')[0];//[node]
+
+			// 获取li
+			var lis = goodslist.getElementsByTagName('li');//[li,li,li]
+			console.log(lis);
+			
+			goodslist.style.border = '1px solid #f00'
+
+			console.log(goodslist)
+
+		}
+	</script>
+</head>
+<body>
+	<h1>02元素节点的获取</h1>
+	<div class="goodslist">
+		<ul>
+			<li>
+				<img src="img/g1.jpg" alt="">
+			</li>
+			<li>
+				<img src="img/g2.jpg" alt="">
+			</li>
+			<li>
+				<img src="img/g3.jpg" alt="">
+			</li>
+		</ul>
+	</div>
+	<div class="page">
+		<span>1</span>
+		<span>2</span>
+		<span>3</span>
+	</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>输入月份，显示当月的天数</title>
+	<style>
+		.green{color:#58bc58;}
+	</style>
+</head>
+<body>
+	<h1>输入月份，显示当月的天数</h1>
+	<input type="text" id="month"><button onclick="showDay()">天数</button>
+	<div id="output"></div>
+	<script>
+		/*
+			输入月份，显示当月的天数
+				* 不考虑闰年
+
+				* if多分支
+				* switch语句
+
+				月份					天数
+				1,3,5,7,8,10,12		31
+				2					28
+				4,6,9,11			30
+		 */
+		
+		// 获取元素
+		var month = document.getElementById('month');
+		var output = document.getElementById('output');
+
+		// 声明一个函数，用于显示输入月份的天数
+		function showDay(){
+			// 获取输入的月份
+			var _month = month.value;
+
+			if(_month == 1 || _month==3 || _month==5 || _month==7 || _month==8 || _month==10 || _month==12){
+				output.innerHTML = _month + '月份有31天';
+			}else if(_month == 2){
+				output.innerHTML = _month + '月份有28天';
+			}else if(_month == 4 || _month==6 || _month==9 || _month==11){
+				output.innerHTML = _month + '月份有30天';
+			}else{
+				output.innerHTML = '<span class="green">上帝，你的月份输入有误</span>';
+			}
+		}
+	</script>
+</body>
+</html>

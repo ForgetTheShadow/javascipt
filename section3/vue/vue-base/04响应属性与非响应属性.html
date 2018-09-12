@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>04响应属性与非响应属性</title>
+	
+</head>
+<body>
+	<h1>04响应属性与非响应属性</h1>
+	<div id="app">
+		<h1>{{page}}</h1>
+		{{goods}}
+	</div>
+	<script src="lib/vue.js"></script>
+	<script>
+		/*
+			04响应属性与非响应属性
+				* Vue.set(target,key,val)：给对象添加响应式的属性（设置getter&setter），并渲染视图
+					* 别名：vm.$set(target,key,val)
+		 */
+		
+		let vm = new Vue({
+			el:'#app',
+			data:{
+				goods:{
+					name:'iphoneX',
+					price:8998,
+					imgurl:'img/iphonx.jpg',
+					nickname:'肾X'
+				},
+				page:'商品详情'
+			}
+		});
+		
+		
+	</script>
+</body>
+</html>

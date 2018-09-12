@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>06表格操作</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<style>
+		th label{margin:0;}
+		td img{width:50px;height:50px;}
+	</style>
+</head>
+<body>
+	<h1>06表格操作</h1>
+	<div id="app">
+		<table class="table">
+			<thead>
+				<tr>
+					<th><label><input type="checkbox">全选</label></th>
+					<th>#</th>
+					<th>商品名称</th>
+					<th>商品分类</th>
+					<th>商品图片</th>
+					<th>原价</th>
+					<th>折扣价</th>
+					<th>星级评价</th>
+					<th>评论数量</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr v-for="(goods,idx) in goodslist">
+					<td><input type="checkbox"></td>
+					<td>{{idx+1}}</td>
+					<td><a v-bind:href="goods.url">{{goods.title}}</a></td>
+					<td>{{goods.category}}</td>
+					<td><img v-bind:src="goods.imgurl"></td>
+					<td>{{goods.price}}</td>
+					<td>{{(goods.price*goods.off).toFixed(2)}}</td>
+					<td>{{goods.star}}</td>
+					<td>{{goods.commentCount}}</td>
+					<td>
+						<div class="btn-group btn-group-sm">
+							<button class="btn btn-primary" @click="copy(idx)">复制</button>
+							<button class="btn btn-light" v-on:click="remove(idx)">删除</button>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script src="lib/vue.js"></script>
+	<script>
+		/*
+			06表格操作
+		 */
+		let goodslist = [{
+				"id":"G001",
+				"title":"Thermos 膳魔师 Funtainer系列水杯 12盎司（340g） 粉红色",
+				"category":"shoes",
+				"imgurl":"img/161.jpg",
+				"url":"#",
+				"price":899,
+				"off":0.2,
+				"star":4,
+				"commentCount":10002
+			},
+			{
+				"id":"G002",
+				"title":"Thermos 膳魔师 Funtainer系列水杯 12盎司（340g） 粉红色",
+				"category":"shoes",
+				"imgurl":"img/162.jpg",
+				"url":"#",
+				"price":698,
+				"off":0.2,
+				"star":4,
+				"commentCount":10002
+			},
+			{
+				"id":"G003",
+				"title":"Thermos 膳魔师 Funtainer系列水杯 12盎司（340g） 粉红色",
+				"category":"shoes",
+				"imgurl":"img/163.jpg",
+				"url":"#",
+				"price":398,
+				"off":0.2,
+				"star":4,
+				"commentCount":10002
+			},
+			{
+				"id":"G004",
+				"title":"Thermos 膳魔师 Funtainer系列水杯 12盎司（340g） 粉红色",
+				"category":"shoes",
+				"imgurl":"img/164.jpg",
+				"url":"#",
+				"price":998,
+				"off":0.2,
+				"star":4,
+				"commentCount":10002
+			},
+			{
+				"id":"G005",
+				"title":"Thermos 膳魔师 Funtainer系列水杯 12盎司（340g） 粉红色",
+				"category":"shoes",
+				"imgurl":"img/165.jpg",
+				"url":"#",
+				"price":198,
+				"off":0.2,
+				"star":4,
+				"commentCount":10002
+			},
+			{
+				"id":"G006",
+				"title":"Thermos 膳魔师 Funtainer系列水杯 12盎司（340g） 粉红色",
+				"category":"shoes",
+				"imgurl":"img/166.jpg",
+				"url":"#",
+				"price":6998,
+				"off":0.2,
+				"star":4,
+				"commentCount":10002
+			},
+			{
+				"id":"G007",
+				"title":"Thermos 膳魔师 Funtainer系列水杯 12盎司（340g） 粉红色",
+				"category":"shoes",
+				"imgurl":"img/167.jpg",
+				"url":"#",
+				"price":3998,
+				"off":0.2,
+				"star":4,
+				"commentCount":10002
+			},
+			{
+				"id":"G008",
+				"title":"Thermos 膳魔师 Funtainer系列水杯 12盎司（340g） 粉红色",
+				"category":"shoes",
+				"imgurl":"img/168.jpg",
+				"url":"#",
+				"price":698,
+				"off":0.2,
+				"star":4,
+				"commentCount":10002
+			},
+			{
+				"id":"G009",
+				"title":"Thermos 膳魔师 Funtainer系列水杯 12盎司（340g） 粉红色",
+				"category":"shoes",
+				"imgurl":"img/169.jpg",
+				"url":"#",
+				"price":1998,
+				"off":0.2,
+				"star":4,
+				"commentCount":10002
+			},
+			{
+				"id":"G0010",
+				"title":"Thermos 膳魔师 Funtainer系列水杯 12盎司（340g） 粉红色",
+				"category":"shoes",
+				"imgurl":"img/160.jpg",
+				"url":"#",
+				"price":2998,
+				"off":0.2,
+				"star":4,
+				"commentCount":10002
+			}
+		];
+
+
+		
+		let vm = new Vue({
+			el:'#app',
+			data:{
+				goodslist
+			},
+
+			methods:{
+				// 删除行
+				remove(idx){
+					this.goodslist.splice(idx,1);
+				},
+
+				// 复制行
+				copy(idx){
+					this.goodslist.push(this.goodslist[idx]);
+				}
+			}
+		})
+		
+	</script>
+</body>
+</html>

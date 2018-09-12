@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04字符串拼接</title>
+	<script>
+		/*
+			+
+				* 加法
+				* 字符串拼接（只要加号有一侧是字符串）
+		 */
+		var num1 = 10;
+		var num2 = '20';
+
+		console.log(num1+num2);//30
+	</script>
+</head>
+<body>
+	<h1>04字符串拼接</h1>
+</body>
+</html>

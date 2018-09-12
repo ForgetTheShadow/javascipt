@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>五星评分</title>
+    <style type="text/css">
+    #star {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        width: 300px;
+        height: 28px;
+    }
+    
+    #star li {
+        float: left;
+        background: url(img/star.gif) no-repeat 0 0;
+        width: 27px;
+        height: 28px;
+    }
+    
+    #star .active{background-position:0 -29px;}
+    
+    </style>
+    <script>
+        /*
+            评分效果
+                * 鼠标移入
+                    * 高亮当前及之前的星星
+                    * 去除当前后的星星高亮
+                * 鼠标移出
+                * 鼠标点击
+                    * 评分
+         */
+        document.addEventListener('DOMContentLoaded',function(){
+            var star = document.querySelector('#star');
+            var info = document.querySelector('#info');
+            var lis = star.children;
+
+            var len = lis.length;
+
+            // 声明变量，用于存放分数（0-4）
+            var score=0;
+            var arr_txt = ['差评','一般','良好','满意','非常满意'];
+
+            // 鼠标移入
+            star.onmouseover = e=>{
+                if(e.target.tagName.toLowerCase() === 'li'){
+                    // 确定当前li：遍历所有，找出与e.target一样的li
+                    var currentIdx;
+                    for(var i=0;i<len;i++){
+                        if(lis[i] === e.target){
+                            currentIdx = i;
+                        }
+                    }
+
+                    // 高亮<=currentIdx的li
+                    // 去除高亮>currentIdx的li
+                    for(var i=0;i<len;i++){
+                        if(i<=currentIdx){
+                            lis[i].className = 'active'
+                        }else{
+                            lis[i].className = '';
+                        }
+                    }
+                }
+            }
+
+            // 鼠标点击：评分
+            star.onclick = e=>{
+                if(e.target.tagName.toLowerCase() === 'li'){
+                    
+                    for(var i=0;i<len;i++){
+                        if(lis[i] === e.target){
+                            score = i;
+                        }
+                    }
+
+                    // 显示对应文本
+                    info.innerText = arr_txt[score];
+                }
+            }
+
+            // 鼠标移开
+            star.onmouseout = ()=>{
+                for(var i=0;i<len;i++){
+                    if(i<=score){
+                        lis[i].className = 'active'
+                    }else{
+                        lis[i].className = '';
+                    }
+                }
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <ul id="star">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div id="info"></div>
+</body>
+
+</html>

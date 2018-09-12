@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>09事件绑定</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<style>
+		.box{
+			padding:20px;background-color: #f90;width:300px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>09事件绑定</h1>
+		<div id="app">
+			<div class="box" @click.self="test">
+				<button class="btn btn-success">点我有惊喜</button>
+			</div>
+			<input type="text" class="form-control" @keydown.laoxie="move">
+		</div>
+	</div>
+	<script src="lib/vue.js"></script>
+	<script>
+		/*
+			09事件绑定
+				* 格式: v-on:事件名.修饰符
+				* 修饰符
+					* self
+					* stop
+
+					* 按键修饰符: 键码
+						* 键码别名:left,up,right,down
+
+				* 自定义修饰符
+					Vue.config.keyCodes.laoxie = 13;
+
+		 */
+		
+		// 自定义修饰符
+		Vue.config.keyCodes.laoxie = 13;
+		
+		let vm = new Vue({
+			el:'#app',
+			methods:{
+				test(){
+					console.log(666)
+				},
+				move(e){
+					console.log(e)
+				}
+			}
+		})
+		
+	</script>
+</body>
+</html>

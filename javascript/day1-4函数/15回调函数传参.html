@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>15回调函数传参</title>
+	<script>
+		/*
+			回调函数callback：把函数作为参数传递
+				* 搞清楚执行过程(利用断点了解)
+				* 断点：暂停代码的执行
+		 */
+		
+		function go(callback){
+			// var callback = 匿名函数
+			console.log('go start');
+
+			if(typeof callback === 'function'){
+				callback(100,200);
+				
+			}
+
+			console.log('go end');
+
+		}
+
+		// 回调函数
+		go(function(a,b){
+			// var a=100,b=200
+			// 执行匿名函数会执行这里的代码
+		})
+
+		
+	</script>
+</head>
+<body>
+	<h1>15回调函数传参</h1>
+</body>
+</html>

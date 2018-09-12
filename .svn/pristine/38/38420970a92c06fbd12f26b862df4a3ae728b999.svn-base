@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片淡入淡出</title>
+	<style>
+		/*
+			无缝滚动关键
+				1）复制第一张图片到最后
+				2）keyfrems的85~100%位置为复制图片的top值
+				3）分页动画80%后立即回到0%的left位置（可设置80.1%）
+		 */
+		ul{list-style: none;margin:0;padding:0;}
+		
+		.carousel{position:relative;width:320px;height:320px;overflow: hidden;}
+		.carousel ul{
+			position: absolute;
+			/*图片动画*/
+			animation:showPic 15s infinite;
+		}
+		.carousel img{display: block}
+
+		.carousel nav{position: absolute;right:10px;bottom:10px;overflow:hidden;}
+		.carousel nav span{float:left;width:30px;height:5px;margin:0 5px;overflow:hidden;background-color: #ccc;border:1px solid #999;box-sizing: border-box;}
+		.carousel nav .active{position:absolute;left:0;top:0px;background-color: #f90;border-color:#f60;}
+
+
+		/*关键帧动画定义*/
+		@keyframes showPic{
+			0%{top:0;}
+			20%{top:-320px;}
+			40%{top:-640px;}
+			60%{top:-960px;}
+			80%{top:-1280px;}
+			100%{top:0px;}
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<h2>轮播图效果</h2>
+		<div class="carousel">
+			<ul style="top:-640px">
+				<li><img src="img/g1.jpg" alt=""></li>
+				<li><img src="img/g2.jpg" alt=""></li>
+				<li><img src="img/g3.jpg" alt=""></li>
+				<li><img src="img/g4.jpg" alt=""></li>
+				<li><img src="img/g5.jpg" alt=""></li>
+				<!-- <li><img src="img/g1.jpg" alt=""></li> -->
+			</ul>
+			<nav>
+				<span>1</span>
+				<span>2</span>
+				<span>3</span>
+				<span>4</span>
+				<span>5</span>
+				<span class="active"></span>
+			</nav>
+		</div>
+	</section>
+</body>
+</html>

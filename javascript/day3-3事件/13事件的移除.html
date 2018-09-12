@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>13事件的移除</title>
+	<style>
+		#box{width:250px;height:250px;background: #f60 url(img/big_4.jpg) no-repeat;background-size:cover;text-align: center;line-height:250px;font-size:30px;}
+	</style>
+	<script>
+		/*
+			13事件的移除
+				removeEventListener(click,fn, true)传入的所有参数必须与事件监听器中一致(包括函数)，否则不能移除事件
+		 */
+		window.onload = function(){
+			var box = document.getElementById('box');
+			var btn1 = document.getElementById('btn1');
+			var btn2 = document.getElementById('btn2');
+
+			box.onclick = function(){
+				this.innerHTML = '霆锋';
+			}
+
+			var overHandler = function(){
+				this.innerHTML = '稀哥';
+			}
+
+			box.addEventListener('mouseover',overHandler,true);
+			box.addEventListener('mouseout',function(){
+				this.innerHTML = '稀饭';
+			});
+
+			// 节点绑定方式的移除
+			btn1.onclick = function(){
+				box.innerHTML = '';
+				box.onclick = null;
+			}
+
+
+			btn2.onclick = function(){
+				box.removeEventListener('mouseover',overHandler,true)
+			}
+
+
+		}
+
+	</script>
+</head>
+<body>
+	<h1>13事件的移除</h1>
+	<div id="box"></div>
+	<button id="btn1">节点移除</button>
+	<button id="btn2">监听器移除</button>
+</body>
+</html>

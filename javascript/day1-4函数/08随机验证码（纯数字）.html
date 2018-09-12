@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08随机验证码（纯数字）</title>
+	<style>
+		#showCode{border:1px solid #f60;background-color: #fc0;padding:0 5px;}
+	</style>
+</head>
+<body>
+	<h1>编写生成4位数字验证码的函数，并显示在页面，点击重新生成验证码</h1>
+	<div><label for="username">用户名：</label><input type="text" id="username"></div>
+	<div><label for="password">密码：</label><input type="text" id="password"></div>
+	<div><label for="code">验证码：</label><input type="text" id="code"><span id="showCode"></span></div>
+	<button id="btn">登录</button>
+	<script>
+		/*
+			编写生成4位数字验证码的函数，并显示在页面，点击重新生成验证码
+		 */
+		
+		var code = document.getElementById('code');
+		var showCode = document.getElementById('showCode');
+		var btn = document.getElementById('btn');
+
+		// 页面初始化，生成一个随机验证码
+		createCode();
+
+		// 点击重新生成验证码
+		showCode.onclick = createCode;
+
+		// 点击登录，判断验证码是否输入正确
+		btn.onclick = function(){
+			// 获取输入的值
+			var _code = code.value;
+
+			if(_code != showCode.innerHTML){
+				code.style.border='1px solid #ddd';
+				alert('验证码错误');
+			}else{
+				code.style.border='1px solid #58bc58';
+			}
+		}
+
+		// 随机验证码
+		function createCode(){
+			// 利用字符串拼接实现4位验证码
+			var res = '';
+
+			for(var i=0;i<4;i++){
+				var num = parseInt(Math.random()*10);
+
+				// 拼接
+				res += num;
+			}
+
+			// 把随机验证码写入#showCode
+			showCode.innerHTML = res;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>07表单操作</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+	<div class="container">
+		<h1>07表单操作</h1>
+		<div id="app">
+			<!-- 双向数据绑定 -->
+			<div class="form-group">
+				<label for="username">用户名：</label>
+				<input type="text" v-model="username" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="username">消息：</label>
+				<textarea class="form-control" v-model="msg"></textarea>
+			</div>
+
+			<label><input type="radio" v-model="gender" value="男">男</label>
+			<label><input type="radio" v-model="gender" value="女">女</label>
+
+			<div class="form-group">
+				<label><input type="checkbox" v-model="hobby">女</label>
+			</div>
+
+			{{username}} - {{hobby}}
+		</div>
+	</div>
+	<script src="lib/vue.js"></script>
+	<script>
+		/*
+			07表单操作
+				* v-model 双向数据绑定 
+
+				* 复选框
+					 * true-value="laoxie" 
+					 * false-value="lemon"
+		 */
+		
+
+
+		
+		let vm = new Vue({
+			el:'#app',
+			data:{
+				username:'laoxie',
+				msg:'如果你不能拼爹，那就只能拼命',
+				gender:'男',
+
+				// 复选框初始值为数组: v-model与value属性绑定
+				// hobby:[]
+
+				// 复选框初始值为其他数据类型: v-model与checked属性绑定（true,false）
+				hobby:''
+			}
+		})
+		
+	</script>
+</body>
+</html>

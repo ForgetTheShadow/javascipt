@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组操作</title>
+	<script>
+		/*
+			数组操作
+				* 增:添加数组元素
+					* 索引值:arr[arr.length-1]
+					* 方法
+						* push(a)：在最后添加
+						* unshift(a)：在第一个添加
+				* 删:删除现有数组元素
+					* 数组方法：
+						* pop()	删除最后一个
+						* shift() 删除第一个
+				* 改:修改已经存在的数组元素
+				* 查：获取对应的数组元素
+					* 不存在（超出索引值）：得到undefined
+				* 遍历：把所有数组元素查一遍
+					* for
+					* length
+
+				* 索引值：从0开始的正整数
+
+				数组方法：
+					* 删除
+						* pop()
+						* shift()
+					* 添加
+						* push()
+						* unshift()
+					* 删除/增加/替换（任意位置）
+						* splice(idx,qty,...items)
+							* idx：起始索引位置
+							* qty：要删除的数量
+							* items：插入的元素（可以是多个）
+		 */
+		
+		// 定义一个数组
+		var arr = [10,20];
+
+		// 增：利用索引值添加数组元素
+		arr[2] = 30;
+
+		// 改：
+		arr[0] = 11;
+
+		// 查：读取
+		console.log('arr[1]:',arr[1]);
+
+		// 遍历：for循环
+		console.log('--------遍历----------')
+		for(var i=0;i<arr.length;i++){
+			console.log(arr[i]);
+		}
+		console.log('-----------end-----------')
+
+		console.log(arr);
+
+
+		// 数组方法的使用
+		var username = ['dk','laoxie','lemon','tiantian','yy'];
+
+		// @删除
+		// 删除第一个
+		username.shift();
+
+		// 删除最后一个
+		username.pop();
+
+		console.log(username);
+
+		// @添加(添加多个)
+		// 在开始添加
+		username.unshift('丹丹');
+
+		// 在最后添加
+		username[username.length] = '小谢'
+		username.push('xiaoxie','xx');
+
+		console.log(username);
+
+		// @任意位置添加，删除，替换
+		// splice()
+		// 在2的位置添加：冰冰
+		username.splice(2,0,'冰冰','颖颖','露露');
+
+		// 删除:露露
+		username.splice(4,1);
+
+		// 替换：laoxie替换成rongrong
+		// 先删除，后添加
+		username.splice(1,1,'rongrong');
+
+		console.log(username);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

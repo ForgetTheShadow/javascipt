@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>当屌丝遇到女神：</title>
+	<style>
+		html{
+			height: 100%;
+		}
+
+		body {
+			margin: 0;
+			padding: 100px;
+			background: #ffa5a5;
+			background: linear-gradient(to bottom, #ffa5a5 0%,#ffd3d3 100%);
+		}
+
+		.heart {
+			width: 200px;
+			height: 200px;
+			margin: 100px auto;
+			position: relative;
+			background: linear-gradient(-45deg, #B80734 0%, #d5093c 40%);
+			transform:rotate(45deg);
+			animation:jump 0.5s infinite;
+		}
+
+		.heart::before,.heart::after{
+			content:'';
+			position: absolute;left:-100px;top:0;width: 200px;height: 200px;border-radius:50%;
+			background: linear-gradient(-90deg, #F50A45 0%, #d5093c 40%);
+			transform:rotate(-90deg);
+		}
+		.heart::after{left:0;top:-100px;}
+
+
+        @keyframes jump {
+            0% {
+                transform: rotate(45deg) scale(1);
+                box-shadow: 0 0 40px #d5093c;
+            }
+
+            100% {
+                transform: rotate(45deg) scale(0.8);
+                box-shadow: 0 0 40px #d5093c;
+            }
+        }
+        
+		
+	</style>
+</head>
+<body>
+	<h1>当屌丝遇到女神：</h1>
+	女神颜值：
+	<input type="range" id="beautiful">
+	<div class="heart"></div>
+</body>
+</html>

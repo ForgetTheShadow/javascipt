@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08元素操作</title>
+	<script>
+		window.onload = function(){
+			/*
+				08元素操作
+					* 属性
+						* html属性：在html中修改
+						* 节点属性：在js中修改
+					* 内容
+					* 样式
+					* 盒模型
+
+
+					标准属性：
+						* 全局属性
+						* 私有属性
+					自定义属性
+						* 标签没有的属性
+			 */
+			
+			// 得到元素节点
+			var goodslist = document.getElementsByClassName('goodslist')[0];//[div]
+
+			// 修改属性
+			goodslist.title = '商品列表';
+			goodslist.nickname = 'lemon';
+			goodslist.style.fontSize = '10px';
+
+			// 在html中添加的属性，是否可以在节点中显示
+			// 标准属性：行
+			// 自定属性：不行
+			console.log(goodslist.className,goodslist.myidx);
+
+
+			// 在js中添加的节点属性，是否会反映到html结构
+
+
+			
+		}
+	</script>
+</head>
+<body>
+	<h1>08元素操作</h1>
+	<div class="goodslist" myidx="10">
+		
+	</div>
+</body>
+</html>

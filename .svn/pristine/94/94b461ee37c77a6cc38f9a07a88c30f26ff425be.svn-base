@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封装一个函数afterDate(date,n)，得到日期date的n天后的日期</title>
+	<script>
+		/*
+			封装一个函数afterDate(date,n)，得到日期date的n天后的日期
+		 */
+		
+		/**
+		 * [日期date的n天后的日期]
+		 * @param  {String} date [日期字符串]
+		 * @param  {Number} num  [多少天后]
+		 * @return {String}      [返回num天后的日期字符串]
+		 */
+		function afterDate(date,num){
+			// 以指定日期创建时间
+			var d = new Date(date);
+
+			d.setDate(d.getDate()+num);
+
+			return d.toLocaleDateString().replace(/\//g,'-');
+		}
+
+		// 先用
+		afterDate('2018-7-13',10);//得到10天后的日期
+	</script>
+</head>
+<body>
+	<h1>封装一个函数afterDate(date,n)，得到日期date的n天后的日期</h1>
+</body>
+</html>

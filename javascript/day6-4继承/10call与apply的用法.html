@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10call与apply的用法</title>
+	<script>
+		/*
+			call()
+			apply()
+			bind()
+
+
+			面试题：bind,call,apply的异同
+
+			* 相同点
+				* 都属于Function的方法
+				* 都能改变this指向
+
+			* 不同点
+				* fn.bind()；不执行fn
+				* fn.call():执行fn， 接收不定数量参数
+				* fn.apply():执行fn，只接收一个参数，且为数组
+		 */
+		
+		document.addEventListener('DOMContentLoaded',function(){
+			let btns = document.getElementsByTagName('button');//类数组
+
+			// btns.forEach(function(){
+			// 	console.log(666)
+			// })
+
+			Array.prototype.forEach.call(btns,function(item,idx){
+				console.log(item);
+			});
+
+			var res = Array.prototype.map.call(btns,function(item){
+				return item.innerText
+			});
+
+			console.log(res);
+
+
+			var arr = [10,11,5,22,4,67,22,41,3,9];
+
+			// 找出最大值
+			// var res2 = Math.max(arr);//失败：得到NaN
+
+			// var res2 = Math.max.call(null,10,11,5,22,4,67,22,41,3,9)
+			var res2 = Math.max.apply(null,arr);
+
+			console.log(res2)
+		})
+	</script>
+</head>
+<body>
+	<h1>10call与apply的用法</h1>
+
+	<button>按钮1</button>
+	<button>按钮2</button>
+	<button>按钮3</button>
+	<button>按钮4</button>
+	<button>按钮5</button>
+</body>
+</html>

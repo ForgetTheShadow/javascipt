@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06data自定义属性操作</title>
+	<script>
+		/*
+			06data自定义属性操作
+				dataset：获取/设置 data-自定义属性的集合，是一个对象
+		 */
+		
+		document.addEventListener('DOMContentLoaded',function(){
+			var goods = document.querySelector('.goods');
+
+			// goods.getAttribute('data-guid');
+
+			console.log(goods.dataset);
+			console.log(goods.dataset.guid,goods.dataset.price)
+		})
+	</script>
+</head>
+<body>
+	<h1>06data自定义属性操作</h1>
+	<div id="goods" class="goods" data-guid="g001" data-price="998" data-first-name="yeye"></div>
+</body>
+</html>

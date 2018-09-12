@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>14回调函数</title>
+	<script>
+		/*
+			回调函数：把函数作为参数传递
+				* 搞清楚执行过程(利用断点了解)
+				* 断点：暂停代码的执行
+		 */
+		
+		function sum(a){
+			// var a = 10
+			// var a = 'laoxie';
+
+			if(typeof a === 'number'){
+				return a;
+			}else if(typeof a === 'string'){
+				return a + 666;
+			}else if(typeof a === 'boolean'){
+				return 'yes';
+			}
+		}
+
+		sum(10);
+		sum('laoxie');
+		sum(true);
+
+		// 回调函数
+
+		var get = function(){
+			console.log('回调 start')
+			console.log('hello,everyone my name is huidiao');
+			console.log('回调 end')
+		}
+
+
+		var show = function(a){
+			// var a = get;
+
+			// console.log(typeof a);
+
+			// 执行回调函数
+			a();
+
+			console.log('show end');
+		}
+
+		// 把函数作为参数传递（get称为：回调函数）
+		show(get);
+		// show(100)
+	</script>
+</head>
+<body>
+	<h1>14回调函数</h1>
+</body>
+</html>

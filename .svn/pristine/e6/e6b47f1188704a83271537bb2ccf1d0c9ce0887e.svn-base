@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02字符串的操作</title>
+	<script>
+		/*
+			02字符串的操作
+				* 查找替换
+				* 截取
+					* slice(start,end)		支持负数
+					* substring(start,end)
+					* substr(start,length)
+				* 分割(拆分)
+					* split(分隔符)
+				* 大小写转换
+		 */
+		
+		// 截取：
+		var ci = '有些人走着走着就散了,有些事想着想着就淡了';
+
+		console.log('slice:',ci.slice(2,5));//人走着
+		console.log('substring:',ci.substring(2,5));//人走着
+		console.log('substr:',ci.substr(2,5));//人走着
+
+
+		// 拆分：String->Array
+		var str2 = 'lemon,laoxie,tiantian,yy';
+		var arr2 = str2.split(',');
+		console.log(arr2);
+
+		// 大小写转换
+		var username = 'Lemon is 32 Years Old';
+
+		
+	</script>
+</head>
+<body>
+	<h1>02字符串的操作</h1>
+</body>
+</html>

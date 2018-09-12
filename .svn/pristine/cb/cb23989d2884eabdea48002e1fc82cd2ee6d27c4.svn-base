@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封装一个显示隐藏页面元素的函数</title>
+	
+</head>
+<body>
+	<h1>封装一个显示隐藏页面元素的函数</h1>
+	<div id="box">
+		<img src="img/mm003.jpg">
+	</div>
+	<button id="btn">显示/隐藏</button>
+	<script>
+		/*
+			封装一个显示隐藏页面元素的函数
+
+			知识点：
+				* 在js中修改样式（内联样式）
+					格式：元素.style.css属性 = 值
+		 */
+		var btn = document.getElementById('btn');
+		var box = document.getElementById('box');
+		
+
+		btn.onclick = display;
+	
+		// 声明一个变量，用于判断#box元素是否显示
+		var isShow = true;
+
+		function display(){
+			// if(isShow){
+			// 	box.style.display = 'none';
+
+			// 	// 修改显示状态
+			// 	isShow = false;
+			// }else{
+			// 	box.style.display = 'block';
+
+			// 	// 修改显示状态
+			// 	isShow = true;
+			// }
+
+			// 简化代码
+			box.style.display = isShow ? 'none' : 'block';
+			isShow = !isShow;
+		}
+	</script>
+</body>
+</html>

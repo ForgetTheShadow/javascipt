@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>14ES5静态与索引方法</title>
+	<script>
+		/*
+			静态方法
+				* Array.isArray() 判断是否为数组，返回true/false
+			索引方法：
+				* indexOf/lastIndexOf(keyword [,startIndex])
+					* 方法返回keyword所在数组中的索引值，如果不存在keyword，则返回-1
+					* startIndex:起始查找位置，默认0
+				* 用途：判断数组arr中是否存在某个值
+					* arr.indexOf(keyword) != -1
+					* arr.indexOf(keyword) >= 0
+		 */
+		
+		Array.isArray([]);//true
+		Array.isArray(100);//false
+		Array.isArray({});//false
+
+		// 判断数组中是否包含某个值
+		var arr = [10,20,60,22,32,11,'laoxie'];
+
+		// 传统方法
+		/**
+		 * [判断数组中是否包含某个值]
+		 * @param  {Array}  a   [数组]
+		 * @param  {Every}  val [判断是否存在val这个值]
+		 * @return {Boolean}     [返回true,false]
+		 */
+		function has(a,val){
+			for(var i=0;i<a.length;i++){
+				if(a[i] === val){
+					return true
+				}
+			}
+
+			return false;
+		}
+
+		has(arr,'laoxie');//true
+		has(arr,'lemon');//false
+
+
+		// ES5的方法
+		// 
+		arr.indexOf('laoxie');
+
+		var arr2 = ['lemon','laoxie',666,'tiantian','laoxie','laoxie666']
+
+		arr2.indexOf('laoxie');//1
+		arr2.indexOf('laoxie',2);//4
+		arr2.lastIndexOf('laoxie');//4
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

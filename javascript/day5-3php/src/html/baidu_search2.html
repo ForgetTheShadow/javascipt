@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        ul,li{list-style:none;padding:0;margin:0;}
+        ul{
+            width: 300px;
+        }
+        li{
+            border:1px solid #fc0;
+            padding:5px;
+
+        }
+
+    </style>
+    
+    <script> 
+        document.addEventListener('DOMContentLoaded',()=>{
+            let keyword = document.querySelector('#keyword');
+            let list = document.querySelector('#list');
+
+            let timer,script
+
+            // 定义全局函数
+            // 处理数据
+            window.getData = function(data){
+                console.log(data);
+
+                list.innerHTML = data.s.map(item=>{
+                    return `<li>${item}</li>`;
+                }).join(' ');
+
+                // 删除script便签
+                document.body.removeChild(script);
+            }
+            
+            keyword.oninput = ()=>{
+                var _keyword = keyword.value;//html： h->ht->htm->html
+
+                clearTimeout(timer);
+                timer = setTimeout(function(){
+                    // 生成script标签
+                    script = document.createElement('script');
+                    script.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?json=1&cb=getData&wd='+_keyword;
+
+                    // 写入页面：开始请求
+                    document.body.appendChild(script);
+
+                },800);
+            }
+
+        });
+
+    </script>
+</head>
+<body>
+    <h1>百度搜索</h1>
+    <input type="search" id="keyword">
+    <button>百度一下</button>
+    <ul id="list"></ul>
+    <!-- <iframe src="http://qq.com" frameborder="0"></iframe> -->
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>12频繁的DOM节点操作对性能的影响</title>
+	
+</head>
+<body>
+	<h1>12频繁的DOM节点操作对性能的影响</h1>
+	<div class="box"></div>
+	<script>
+		/*
+			12频繁的DOM节点操作对性能的影响
+				* 5-10倍
+		 */
+		
+		// document.addEventListener('DOMContentLoaded',function(){
+			console.time('getTime');
+			for(var i=0;i<1000;i++){
+				var box = document.querySelector('.box');
+				// var box = document.createElement('div');
+				// box.className = 'box';
+				// var btn = document.createElement('button');
+				// box.appendChild(btn);
+				// btn.innerText = '按钮';
+				// btn.className = 'btn';
+				box.innerHTML += i + ', ';
+				
+			}
+			console.timeEnd('getTime');
+
+			// 优化：减少节点操作数量
+			console.time('getTime2');
+			var box = document.querySelector('.box');
+			// var box = document.createElement('div');
+			// box.className = 'box';
+			var content = ''
+			for(var i=0;i<1000;i++){
+				content += i + ', '
+			}
+			box.innerHTML = content;
+			console.timeEnd('getTime2');
+		// });
+	</script>
+</body>
+</html>

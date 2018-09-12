@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06数据类型转换</title>
+	<script>
+		/*
+			* 数据类型：
+				* 值类型
+					* Number
+						* NaN（not a number）：算术运算无法得到数字时，就会返回NaN
+							* 不代表任何值，也不等于任何值，甚至自己都不等于自己
+							* 任何数据与它运算都返回NaN
+							* isNaN(a)：用来判断a到底是不是非数字,返回布尔值
+					* String
+						* 空字符串
+					* Boolean	布尔值
+						* true	真/是/1
+						* false 假/否/0
+
+				* 特殊数据类型
+					* Undefined
+						* undefined 
+					* Null
+						* null
+
+			* 数据类型转换
+				* 显性转换（主动转换：写代码实现）
+				* 隐式转换（被动转换：内部自己转换）：当运算无法进行下去时，内部尝试隐式转换
+
+			* 数据类型判断
+				typeof
+		 */
+		
+		var num1 = 100;
+		var num2 = '20';
+
+		// @String->Number
+		var res1 = num1 + Number(num2);
+		console.log(res1)
+
+		// 得到NaN
+		console.log(Number('laoxie'));//NaN
+		console.log(100-'a');//100-Number('a') -> 100 - NaN -> NaN
+
+
+		// @Number->String
+		var str1 = 666;
+		var res2 = String(str1);
+		console.log(typeof res2);
+
+
+		// @Number -> Boolean
+		// 	* NaN,0 -> false
+		// 	* 替他数字 -> true
+		// @String -> Boolean
+		// 	* 空字符串'' -> false
+		// 	* 其他字符串 -> true
+		// 
+		var a = 10;
+		Boolean(a);//true
+
+		var a = NaN;
+		Boolean(a);
+
+		var b = '';//空字符串
+
+
+		// 声明变量不赋值：得到undefined
+		var myName;
+		console.log(myName);
+	</script>
+</head>
+<body>
+	<h1>数据类型转换</h1>
+</body>
+</html>

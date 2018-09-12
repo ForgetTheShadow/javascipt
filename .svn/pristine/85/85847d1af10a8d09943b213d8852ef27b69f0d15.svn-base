@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01window对象</title>
+	<script>
+		/*
+			document
+			console
+
+			alert()
+			parseInt
+
+			String
+			Number
+			Bollean
+			Array
+			Object
+			Date
+			RegExp
+			Math
+			...
+
+			以上方法特点：直接使用
+
+
+			全局作用域（window对象）
+				* 尽量减少全局变量的声明，减少冲突，减少全局环境污染
+					* 解决方案：1、匿名函数执行，2、window.onload
+				* 全局作用域下不能使用的属性
+					* top
+					* status
+					* name
+				* window可在代码中省略
+					* 不建议省略的情况
+						* 事件: window.onload
+						* 属性：window.innerWidth
+				* 禁止不使用var声明变量
+				* 过var在全局作用域下声明的变量用delete无法删除（后续版本会报错）
+		 */
+		
+		// 减少全局环境污染
+		// 方案一：匿名函数的执行
+		
+		(function(){
+			// 在全局作用域下定义变量：myname
+			var myname = 'laoxie'
+			
+			console.log('匿名函数')
+		})();
+
+		// 方案二：页面加载事件window.onload
+		// 页面所有内容（包括代码、文件、图片...）加载完成后执行
+		window.onload = function(){
+			var myname = 'laoxie';
+
+			// alert();//window.alert()
+			parseInt();//window.parseInt()
+			document;//window.document
+
+			window.innerWidth
+
+			// 不使用var声明变量（禁止）
+			// 自动称为全局变量
+			nickname = 'lemon';
+
+			console.log('window.onload')
+		}
+
+		// 过var在全局作用域下声明的变量用delete无法删除
+		var num = 100;
+		console.log(num);
+	</script>
+</head>
+<body>
+	<h1>window对象</h1>
+</body>
+</html>

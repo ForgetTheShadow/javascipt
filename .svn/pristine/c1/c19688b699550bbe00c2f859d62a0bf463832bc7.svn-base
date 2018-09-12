@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11插件之bootstrap</title>
+	<!-- 第3步：引入相关文件（样式、语言包） -->
+	<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.css">
+	<style>
+		.box > div{border:1px solid #ddd;box-sizing: border-box;}
+	</style>
+	<!-- 第1步：引入jquery -->
+	<script src="js/jquery-3.2.1.js"></script>
+	<!-- 第2步：引入插件 -->
+	<script src="lib/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+
+	<!-- 第4步：编写jquery代码 -->
+	<script>
+		jQuery(function($){
+			/*
+				
+
+				Bootstrap共性
+					* 颜色：
+						* primary
+						* tsuccess
+						* danger
+						* warning
+						* info
+					* 尺寸
+						* lg
+						* md （默认）
+						* sm
+						* xs
+			 */
+		});
+	</script>
+</head>
+<body>
+	<div class="container">
+		<h1>11插件之bootstrap</h1>
+		<table class="table table-striped table-bordered table-hover">
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>单元格01</td>
+					<td>单元格02</td>
+					<td>单元格03</td>
+					<td>单元格04</td>
+					<td>单元格05</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>单元格01</td>
+					<td>单元格02</td>
+					<td>单元格03</td>
+					<td>单元格04</td>
+					<td>单元格05</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>单元格01</td>
+					<td>单元格02</td>
+					<td>单元格03</td>
+					<td>单元格04</td>
+					<td>单元格05</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>单元格01</td>
+					<td>单元格02</td>
+					<td>单元格03</td>
+					<td>单元格04</td>
+					<td>单元格05</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>单元格01</td>
+					<td>单元格02</td>
+					<td>单元格03</td>
+					<td>单元格04</td>
+					<td>单元格05</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+		<h2>表单</h2>
+		<div class="form">
+			<div class="form-group has-success has-feedback">
+				<label for="username">用户名：</label>
+				<input type="text" id="username" name="username" class="form-control">
+				 <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+			</div>
+			<div class="form-group has-error has-feedback">
+				<label for="password">密码：</label>
+				<input type="password" id="password" name="password" class="form-control">
+				<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+  				<span class="help-block">用户名或密码输入有误</span>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-success">注册</button>
+			</div>
+		</div>
+
+		
+	</div>
+		<div class="box row">
+			<div class="box1 col-xs-6 col-md-4 col-lg-8">1</div>
+			<div class="box2 col-xs-4 col-md-4 col-lg-2">2</div>
+			<div class="box3 col-xs-2 col-md-4 col-lg-2">3</div>
+		</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12闭包</title>
+	<script>
+		/*
+			12闭包
+				* 函数嵌套函数
+				* 变量访问规则
+				* 垃圾回收机制（自动）
+					* 删除无引用数据
+		 */
+		
+		// 外部函数：事件处理函数
+		document.onclick = function(e){
+			var num = 10;
+
+			// 内部函数：show
+			function show(){
+				console.log(num);
+			}
+
+			show()
+		}
+
+
+		// 函数执行完毕，垃圾回收机制会自动清除内部的变量
+		function out(){
+			var num = 100;
+
+			console.log(num);
+
+			// return num;//是把100返回出来
+
+		}
+
+		// var res = out();//100
+
+		// 这里的修改不会影响函数内部num
+		// res++;
+
+		// 不能访问函数内部变量
+		// console.log(num);
+
+
+		// 闭包
+		function outer(){
+			var num = 100;
+
+			function inner(){
+				num++;
+				console.log(num);
+			}
+
+			// 将函数返回到外部，inner就称为闭包函数
+			return inner;
+		}
+
+		var res2 = outer();//res2就是inner
+
+		// 在函数外修改了函数内的变量
+		res2();
+		res2();
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

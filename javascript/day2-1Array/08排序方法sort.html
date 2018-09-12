@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08排序方法sort</title>
+	<script>
+		/*
+			排序方法sort
+				* 默认以字符串排序（转换成ASCII码进行对比）
+				* 传入回调函数
+					* 教sort方法如何排序
+
+			目的：得到一个从小到达排列的数组
+		 */
+		
+		var arr = [10,2,8,55,32,18,9,11,30,16,19,20];
+
+		// 快速得到结果
+		arr.sort(function(a,b){
+			// 教sort排列a,b
+			// 如何排列a,b，靠返回值决定
+			//  * 正数
+			//  * 负数
+			//  * 0
+			// if(a>b){
+			// 	return 1;
+			// }else if(a<b){
+			// 	return -1
+			// }else if(a===b){
+			// 	return 0
+			// }
+
+			return a-b;
+		});
+
+		console.log(arr);
+	</script>
+</head>
+<body>
+	<h1>08排序方法sort</h1>
+</body>
+</html>

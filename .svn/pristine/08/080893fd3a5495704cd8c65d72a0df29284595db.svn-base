@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>生成器函数 Generators</title>
+	<script>
+		/*
+			生成器函数 Generators
+				* 执行生成器函数，不会立刻执行里面的代码，而是得到一个暂停对象
+				* next()方法
+					* 执行next()后得到一个yield或return返回值组成的对象（包含value,done属性）
+						格式：{value:xx,done:false}
+						* value:返回值
+						* done：函数执行是否结束
+
+
+				* return 终止函数执行
+				* yield 暂停函数执行
+
+
+				* 重点：搞懂执行过程
+
+
+				应用：
+					* 新手向导
+					* 游戏任务
+					* ....
+		 */
+		
+ 		// 生成器函数
+		function* sum(){
+			console.log(1);
+			yield 'laoxie';
+			console.log(2);
+			yield 'lemon';
+			console.log(3);
+			yield 'tiantian';
+			console.log(4);
+			return 'xiaoxie';
+			yield 'yy';
+			console.log(5);
+
+		}
+
+		// 执行生成器函数，得到一个暂停对象
+		var gen = sum(5);
+		console.log(gen);
+
+
+
+		function * show(n){
+			if(n === 1){
+				// console.log('去新手村找王铁匠');
+				yield '去新手村找王铁匠';
+			}else if(n===2){
+				// console.log('去楼兰城找李寡妇');
+				yield '去楼兰城找李寡妇'
+			}
+		}
+
+
+		var mygen = show(1);
+
+		// btn.onclick = function(){
+		// 	mygen.next();
+		// }
+
+	</script>
+</head>
+<body>
+	<h1>生成器函数 Generators</h1>
+</body>
+</html>

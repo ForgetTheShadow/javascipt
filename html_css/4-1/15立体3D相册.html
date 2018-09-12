@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07_3D相册</title>
+	<style>
+		.album{
+			position:relative;margin:100px auto;width:600px;
+			transform-style:preserve-3d;
+			perspective:800px;
+			transform:perspective(900px) rotateX(45deg);
+		}
+		.album img{position:absolute;top:0;left:50%;}
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded',function(){
+			var eAlbum = document.querySelector('.album');
+			var eImg = document.querySelectorAll('.album img');
+			var angle = 360/eImg.length;
+			for(var i=0;i<eImg.length;i++){
+				// 计算弧度
+				var radian = angle/2*Math.PI/180;
+
+				// 利用三角函数计算移动的距离
+				// 公式：x = (图片宽度/2)/Math.tan(弧度)
+				var x = 133/2/Math.tan(radian);
+				eImg[i].style.transform = 'rotateY('+i*angle+'deg) ';
+			}
+
+			// 拖拽效果
+			var angleX = 45;
+			var angleY = 0;
+			document.onmousedown = function(e){
+				var startX = e.clientX;
+				var startY = e.clientY;
+				document.onmousemove = function(evt){
+					var endX = evt.clientX;
+					var endY = evt.clientY;
+					angleX -= (endY - startY)*0.2;
+					angleY += (endX - startX)*0.1;
+					eAlbum.style.transform = 'perspective(1600px) rotateX('+angleX+'deg)  rotateY('+angleY+'deg)';
+					startX = endX;
+					startY = endY;
+
+					evt.preventDefault();
+				}
+			}
+			document.onmouseup = function(){
+				document.onmousemove = null;
+			}
+		});
+	</script>
+</head>
+<body>
+	<div class="album">
+		<img src="img/1.jpg" alt="">
+		<img src="img/2.jpg" alt="">
+		<img src="img/3.jpg" alt="">
+		<img src="img/4.jpg" alt="">
+		<img src="img/5.jpg" alt="">
+		<img src="img/6.jpg" alt="">
+		<img src="img/7.jpg" alt="">
+		<img src="img/8.jpg" alt="">
+		<img src="img/9.jpg" alt="">
+		<img src="img/10.jpg" alt="">
+		<img src="img/11.jpg" alt="">
+	</div>
+</body>
+</html>

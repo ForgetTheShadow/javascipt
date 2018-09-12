@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>7天免登录</title>
+	<style type="text/css">
+		    body{
+			    background-color:rgb(177, 208,224); font: normal 12px Trebuchet MS; color:#000;
+		    }
+		    form{ 
+			    width:220px; padding:10px;
+			    background-color:#DDEEF6; 
+			    box-shadow: 0px 0px 10px 0px #888888;
+			    border:1px solid #DDEEF6;
+			    border-radius:6px;
+			    margin: auto;
+		    }
+		    .roundedCorners-textbox{ 
+				border:1px solid #999; width:160px;
+		    }
+			.checkbox {
+				margin-left: 30px;
+				border:1px solid #999; width:20px;
+			}
+	</style>
+</head>
+<script src="js/common.js"></script>
+<script>
+	window.onload = function(){
+		/*
+			7天免登录
+				* expires
+				* location.href
+
+		 */
+		var btnSubmit = document.getElementById('btnSubmit');
+		var checkbox = document.getElementsByClassName('checkbox')[0];
+		var username = document.getElementById('username');
+		var password = document.getElementById('password');
+
+		var accessUser = ['laoxie','lemon','yy'];
+
+		// 提交跳转
+		btnSubmit.onclick = function(e){
+			// 获取用户名和密码
+			var _username = username.value;
+			var _psw = password.value;
+
+			// 用户名或密码不正确
+			if(accessUser.indexOf(_username)===-1 || _psw != '123456'){
+				alert('用户名或密码不正确');
+
+				// e.preventDefault();
+				// return;
+
+				// 等效于
+				return false;// e.returnValue = false
+			}
+
+
+			// 登录成功
+			// * 跳转
+			// * 保存cookie（前提：勾选7天免登陆）
+			// 判断复选框是否勾选
+			if(checkbox.checked){
+				// cookie保留7天
+
+				// 得到当前时间
+				var date = new Date();
+
+				// 在当前的基础上+7天
+				date.setDate(date.getDate()+7);
+
+				document.cookie = 'username=' + _username + ';expires=' + date.toUTCString();
+				document.cookie = 'password=' + _psw + ';expires=' + date.toUTCString();;
+			}
+		}
+
+
+		var currentUser;
+		var currentPassword
+
+		// 自动登录
+		// * 获取cookie
+		// * 判断有效性
+		var cookies = document.cookie;
+		cookies = cookies.split('; ');
+
+		// 循环找出想要的cookie
+		cookies.forEach(function(item){
+			// 拆分name,value
+			var arr = item.split('=');
+
+			if(arr[0] === 'username'){
+				currentUser = arr[1];
+			}else if(arr[0] === 'password'){
+				currentPassword = arr[1];
+			}
+		});
+
+		// console.log(currentUser,currentPassword)
+
+		// 判断有效性
+		if(accessUser.indexOf(currentUser)>=0 && currentPassword === '123456'){
+			location.href = '04success.html';
+		}	
+	}
+</script>
+<body>
+	<form action="04success.html" method="get">	
+		<label>账号</label>
+		<input id="username" name="username" type="text" /><br /><br />
+		<label>密码</label>
+		<input id="password" name="password" type="text" /><br /><br />	
+    	<label><input type="checkbox" class="checkbox" />
+		7天免登录</label>
+    	<br/><br/>
+		<input type="submit" value="确定" id="btnSubmit" />
+		<input type="reset" value="清空" />
+	</form>	
+</body>
+</html>

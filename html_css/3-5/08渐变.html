@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08渐变</title>
+	<style>
+		/*
+			CSS3渐变	
+				* 线性渐变linear-gradient
+					* 默认方向：top->bottom
+				* 径向渐变radial-gradient
+					* 格式：radial-gradient(shape size at position, start-color, ..., last-color);
+				* 重复背景渐变
+					* repeating-linear-gradient
+					* repeating-radial-gradient
+
+
+			度：deg
+			* PS:默认颜色平均分配到容器中;
+			* 指定某个颜色占比： #ff0 5%
+		 */
+		.box{width:200px;height:100px;margin:10px;border:10px solid #f00;}
+
+		/*.linear{background:linear-gradient(45deg,#ff0 5%,#f00 2%,#f00 6%,#58bc58 30%,yellow)}*/
+		.linear{background:repeating-linear-gradient(45deg,#fff 0%,#fff 5%,#000 5%,#000 10%);}
+
+		.radial{height:200px;border-radius:50%;background:radial-gradient(#f00 0%,#f00 50%,#ff0 55%,#ff0);}
+		.sun{border:none;height:200px;border-radius:0;background:radial-gradient(at 10%,#f00 0%,#f00 40%,#ff0 50%,rgba(255,255,0,0.5) 60%,#00f);}
+	</style>
+</head>
+<body>
+	<h1>08渐变</h1>
+	<div class="box linear"></div>
+	<div class="box radial"></div>
+	<div class="box sun"></div>
+</body>
+</html>

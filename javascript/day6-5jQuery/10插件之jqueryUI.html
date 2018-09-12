@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10插件之jqueryUI</title>
+	<!-- 第3步：引入相关文件（样式、语言包） -->
+	<link rel="stylesheet" href="lib/jquery-ui-1.12.1/jquery-ui.css">
+	<style>
+		.girl{width:100px;}
+		.box{width:500px;height:200px;border:2px solid #f60;}
+	</style>
+	<!-- 第1步：引入jquery -->
+	<script src="js/jquery-3.2.1.js"></script>
+	<!-- 第2步：引入插件 -->
+	<script src="lib/jquery-ui-1.12.1/jquery-ui.js"></script>
+
+	<!-- 第4步：编写jquery代码 -->
+	<script>
+		jQuery(function($){
+			$('.girl').draggable({
+				// axis: "x",
+				containment:'.box'
+			});
+
+			$('.box').resizable({
+				animate: true
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1>10插件之jqueryUI</h1>
+	<img src="img/mv3.jpg" class="girl">
+	<div class="box"></div>
+</body>
+</html>

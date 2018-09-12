@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01正则表达式的定义与参数</title>
+	<script>
+		/*
+			定义：
+				* 字面量
+					/laoxie/ig
+				* 构造函数
+					new RegExp('laoxie','ig')
+
+			参数：
+				* i：忽略大小写
+				* g：全局匹配
+				* m：多行
+		 */
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

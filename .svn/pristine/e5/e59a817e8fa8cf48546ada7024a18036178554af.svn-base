@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片的淡入淡出</title>
+	<style>
+		.girl{opacity: 0.5}
+	</style>
+	<script>
+		/*
+			图片的淡入淡出
+				* 移入mouseover
+					* opacity:1
+				* 移出mouseout
+					* opacity:0.5
+
+
+			问题：多张图片时存在的问题
+		 */
+		
+		document.addEventListener('DOMContentLoaded',function(){
+			let girl = document.querySelector('.girl');
+
+			let timer
+
+			girl.onmouseover = ()=>{
+				// 鼠标移出时，清除mouseout的定时器
+				clearInterval(timer);
+
+				// 目标值
+				let target = 1;
+
+				timer = setInterval(()=>{
+					// 获取当前值
+					let opacity = getComputedStyle(girl).opacity*1;
+
+					// 计算缓冲速度
+					let speed = (target-opacity)/10;
+
+					// 限定最小速度
+					speed = speed<0.05 ? 0.05 : speed.toFixed(2)*1;
+
+					opacity += speed;
+
+					// 结束判断
+					if(opacity>=target){
+						clearInterval(timer);
+						opacity = target;
+					}
+
+					girl.style.opacity = opacity;
+
+				},30);
+			}
+
+			girl.onmouseout = ()=>{
+				// 鼠标移出时，清除mouseover的定时器
+				clearInterval(timer);
+
+				// 目标值
+				let target = 0.5;
+
+				timer = setInterval(()=>{
+					// 获取当前值
+					let opacity = getComputedStyle(girl).opacity*1;
+
+					// 计算缓冲速度
+					let speed = (target-opacity)/10;
+
+					// 限定最小速度
+					speed = speed>-0.05 ? -0.05 : speed.toFixed(2)*1;
+
+					opacity += speed;
+
+					// 结束判断
+					if(opacity<=target){
+						clearInterval(timer);
+						opacity = target;
+					}
+
+					girl.style.opacity = opacity;
+
+				},30);
+			}
+		});
+	</script>
+</head>
+<body>
+	<h1>图片的淡入淡出</h1>
+	<img src="img/g3.jpg" class="girl">
+</body>
+</html>

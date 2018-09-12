@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03走动的时间</title>
+	
+</head>
+<body>
+	<h1>03走动的时间</h1>
+	<div id="time"></div>
+	<script>
+		/*
+			知识点：
+				* setInterval(fn,30)：每隔30毫秒执行一次fn这个函数,返回一个id标识
+		 */
+		
+		var time = document.getElementById('time');
+		
+		function showTime(){
+			//运行此行代码时的时间
+			//包含：年月日，时分秒，星期
+			var now = new Date();
+
+			// 年月日
+			var year = now.getFullYear();
+			var month = now.getMonth()+1;//'一,二,三,四,五,六,七,八,九,十,十一,十二'.split(',')
+			var date = now.getDate();
+
+			// 时分秒
+			var hour = now.getHours();
+			var min = now.getMinutes();
+			var sec = now.getSeconds();
+
+			// 补0操作
+			hour = hour<10 ? '0'+hour : hour;
+			min = min<10 ? '0'+min : min;
+			sec = sec<10 ? '0'+sec : sec;
+
+			// 星期
+			var week = now.getDay();//0-6
+
+			var str = '日一二三四五六';
+			
+			// 组合想要的格式
+			// document.write(year + '-' + month + '-' + date  + ' ' + hour + ':' + min + ':' + sec + ' 星期' + str[week]);
+			
+			time.innerHTML = year + '-' + month + '-' + date  + ' ' + hour + ':' + min + ':' + sec + ' 星期' + str[week]
+		}
+
+		showTime();
+
+		// showTime每隔1s执行一次，不会停止
+		setInterval(showTime,1000);
+	</script>
+</body>
+</html>

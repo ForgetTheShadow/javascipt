@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>递归实现斐波那契数列</title>
+	<script>
+		/*
+			递归实现斐波那契数列
+				斐波那契数列(兔子数列)
+
+				3个月成年
+
+				月份： 1		2	3	4	5	6	7	8	9	10	11	12
+					-----------------------------------------------------
+				数量： 1		1	2	3	5	8	13	21	34	55	89	144
+
+
+				推导公式：fib(m) = fib(m-1) + fib(m-2)
+		 */
+		
+		function fib(month){
+			// 找出不符合规律的月份，作为跳出条件
+			if(month<=2){
+				return 1;
+			}
+			return fib(month-1) + fib(month-2);
+		}
+		
+
+		fib(10);//55
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

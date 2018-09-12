@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>一个引号引发的公司倒闭</title>
+	<script>
+		/*
+			一个引号引发的公司倒闭
+				* 
+		 */
+		
+		var lemon = 500;
+		var laoxie = 580;
+		var tiantian = '1050';
+		var dk = 2000;
+		var yy = 300;
+
+		var total = lemon + laoxie + tiantian + dk;
+
+		console.log('每月工资总额：',total);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

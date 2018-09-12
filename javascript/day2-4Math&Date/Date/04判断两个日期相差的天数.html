@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>判断两个日期相差的天数</title>
+	
+</head>
+<body>
+	<h1>判断两个日期相差的天数</h1>
+	<input type="date" id="start">
+	<input type="date" id="end">
+	<button id="btn">相差天数</button>
+	<div id="output"></div>
+	<script>
+		/*
+			思路：
+				1）时间->毫秒
+				2）毫秒相减，计算差值
+				3）毫秒->天数
+
+
+			知识点：
+				* getTime() 得到距1970-1-1零时的毫秒数
+				* ES5：
+					* Date.parse()//返回指定日期距1970-1-1零时的毫秒数
+					* Date.now()//返回执行这行代码时距1970-1-1零时的毫秒数
+		 */
+		// 获取元素
+		var start = document.getElementById('start');
+		var end = document.getElementById('end');
+		var btn = document.getElementById('btn');
+		var output = document.getElementById('output');
+
+		btn.onclick = function(){
+			// 获取输入的值
+			var _start = start.value;
+			var _end = end.value;
+
+			/*// 指定日期创建时间
+			var endDate = new Date(_end);
+			var startDate = new Date(_start);
+
+			// 转毫秒数，并计算差值
+			var offset = endDate.getTime()-startDate.getTime();
+			console.log(offset)*/
+			var offset = Date.parse(_end) - Date.parse(_start);
+
+			// 毫秒->天数
+			var days = Math.ceil(offset/1000/60/60/24);
+
+			output.innerHTML = _start +'至'+ _end + '还差：' + days
+
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习如何描述一个对象</title>
+	<script>
+		/*
+			练习如何描述一个对象
+
+				* 面向对象步骤
+					1. 创建对象
+					2. 描述对象（难点）
+						* 属性：有什么
+						* 方法：能做什么
+							* 单一原则：一个方法只做一件事情
+					3. 操作对象
+				
+				* 描述一个人
+					* 女神
+				* 描述购物车
+				* QQ聊天窗口（练习）
+		 */
+		
+		 // 描述一个人
+
+		 // 创建对象
+		 let goddess = {}
+
+		 // 描述对象
+		 // * 属性
+		 // * 方法
+		 goddess.name = '关晓彤';
+		 goddess.age = 21;
+		 goddess.tui = 110;
+		 goddess.boyfriend = '鹿晗';
+
+
+		 // 方法
+		 goddess.yanxi = function(){
+		 	console.log('我是戏精');
+		 }
+		 goddess.dancing = function(){
+		 	console.log('我会跳舞');
+		 }
+
+		 // 操作对象
+		 goddess.yanxi();
+	
+
+
+		/*
+			购物车
+		 */
+		// 创建对象
+		var car = {}
+
+		// 描述
+		// 属性
+		car.goodslist = [{},{},{},{}]
+		car.step = '我的购物车';
+		car.total = 4111.00;
+		car.btnCheckout = '.btn-checkout';
+
+
+		// 方法
+		// 初始化方法
+		car.init = function(){
+			// 节点获取/生成
+			// 事件绑定
+		}
+
+		// 渲染页面
+		car.render = function(){
+
+		}
+
+		// 删除商品
+		car.remove = function(id){
+
+		}
+
+		// 清空购物车
+		car.clear = function(){
+			for(var i=0;i<car.goodslist.length;i++){
+				car.remove(idx)
+			}
+		}
+
+		// 结算
+		car.checkout = function(){}
+
+		// 修改商品数量
+		car.changeQty = function(id){}
+
+		
+		// 操作对象
+		car.init();
+	</script>
+</head>
+<body>
+	<h1>练习如何描述一个对象</h1>
+</body>
+</html>

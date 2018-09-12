@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08愤怒的小鸟</title>
+	<style>
+		body{margin:0;overflow:hidden;}
+		#bird{position:absolute;left:0;top:0;width:200px;}
+
+		.d-right{transform: rotateY(180deg);}
+		.d-top{transform: rotateZ(45deg);}
+		.d-bottom{transform: rotateZ(-45deg);}
+	</style>
+	<script>
+		/*
+			08愤怒的小鸟
+
+			思考：边缘反弹
+		 */
+		window.onload = function(){
+			// var bird = document.getElementsByClassName('bird')[0];
+			var bird = document.getElementById('bird');
+
+			document.onkeydown = function(e){
+				// event对象的兼容
+				e = e || window.event;
+
+				// 按键兼容写法
+				var key = e.keyCode || e.which;
+
+				// 移动速度
+				var speed = 10;
+
+				// var left = getComputedStyle(bird).left;//100px,得到一个带单位的字符串
+
+				// 获取当前小鸟的top,left值
+				var left = bird.offsetLeft;
+				var top = bird.offsetTop;
+
+				// 判断按下哪个键
+				switch(key){
+					// 左
+					case 37:
+						// left = left - speed;
+						left -= speed;
+						bird.className = '';
+						break;
+					// 右
+					case 39:
+						left += speed;
+						bird.className = 'd-right';
+						break;
+					// 上
+					case 38:
+						top -= speed;
+						bird.className = 'd-top';
+						break;
+					// 下
+					case 40:
+						top += speed;
+						bird.className = 'd-bottom';
+						break;
+				}
+
+				// 边缘判断
+				// 水平方向
+				if(left > window.innerWidth){
+					left = - bird.offsetWidth;
+				}else if(left < -bird.offsetWidth){
+					left =  window.innerWidth;
+				}
+
+				// 垂直方向
+				if(top > window.innerHeight){
+					top = -bird.offsetHeight;
+				}else if(top < -bird.offsetHeight){
+					top = window.innerHeight
+				}
+
+				bird.style.left = left + 'px';
+				bird.style.top = top + 'px';
+			}
+		}
+	</script>
+</head>
+<body>
+	<img src="img/bird.jpg" id="bird">
+</body>
+</html>

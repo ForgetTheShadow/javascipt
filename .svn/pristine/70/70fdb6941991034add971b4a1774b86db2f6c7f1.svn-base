@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>为抵抗洪水，战士连续作战89小时，编程计算共多少天零多少小时？</title>
+	
+</head>
+<body>
+	<h1>为抵抗洪水，战士连续作战89小时，编程计算共多少天零多少小时？</h1>
+	<script>
+		/*
+			为抵抗洪水，战士连续作战89小时，编程计算共多少天零多少小时？
+
+
+			取整
+				* parseInt()
+
+
+			输出：
+				* alert()
+				* console.log()
+				* innerHTML/value
+				* document.write()
+		 */
+		
+		var total = 89;//小时
+
+		var days = parseInt(total/24);
+
+		var hours = total%24;
+
+		document.write('为抵抗洪水，战士连续作战89小时，共'+days+'天'+hours+'小时')
+	</script>
+</body>
+</html>

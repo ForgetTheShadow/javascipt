@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03对象的创建</title>
+	<script>
+		/*
+			03对象的创建
+
+				1. 用于单个对象
+					* 字面量
+					* 构造函数Object
+
+					缺点：
+						1. 产生大量的重复代码
+						2. 维护麻烦
+				2. 用于多个对象
+					* 工厂函数（封装）
+				
+					缺点：
+						* 无法识别对象是由谁生成的
+
+					* 自定义构造函数	（重点）
+		 */
+		
+
+		 /*
+		 	@字面量/构造函数
+		 */
+		var zjx = {name:'老张',age:20,gender:'男',say(){
+
+		}}
+		var laoxie = {name:'laoxie',age:18,gender:'男',say(){
+
+		}}
+		var yuyue = {name:'月月',age:23,gender:'女',say(){
+
+		}}
+		var xzq = {name:'xiaoxia',age:18,gender:'女',say(){
+
+		}}
+
+		/*
+			工厂函数
+		 */
+		
+		function createStudent(name,age,gender){
+			return {
+				name,
+				age,
+				gender,
+				say(){
+
+				},
+				coding(){
+
+				}
+			}
+		 }
+
+		var zjx = createStudent('张佳祥',28,'男');
+		var lx = createStudent('laoxie',18,'男');
+		var yueyue = createStudent('小月月',23,'女');
+		var xzq = createStudent('夏夏',18,'女');
+
+
+
+	</script>
+</head>
+<body>
+	<h1>03对象的创建</h1>
+</body>
+</html>

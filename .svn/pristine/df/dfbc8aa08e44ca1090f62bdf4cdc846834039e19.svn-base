@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10跑步机效果</title>
+    <style>
+        .run{
+            width:180px;
+            height:300px;
+            background:url(img/charector.png) no-repeat;
+
+            /*动画的应用*/
+            /*animation: run 1s steps(1) infinite;*/
+            animation: run 1s step-end infinite;
+        }
+
+        /*关键帧动画定义*/
+        @keyframes run{
+            0%,100%{background-position: 0 0;}
+            15%{background-position: -180px 0;}
+            30%{background-position: -360px 0;}
+            45%{background-position: -540px 0;}
+            60%{background-position: -720px 0;}
+            75%{background-position: -900px 0;}
+            90%{background-position: -1080px 0;}
+
+        }
+    </style>
+</head>
+<body>
+    <h1>10跑步机效果</h1>
+    <div class="run"></div>
+    <audio src=""></audio>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>篮球自由落体效果（加速运动）</title>
+	<style>
+		body{background-color: #000;}
+		.bb{position:absolute;top:0;left:0;height:100px;}
+	</style>
+	<script>
+		/*
+			03篮球自由落体效果（抛物线运动）
+				* 速度不断增加
+
+
+				* 练习：实现反弹效果
+		 */
+		document.addEventListener('DOMContentLoaded',()=>{
+			let bb = document.querySelector('.bb');
+
+			// 初始速度
+			let vspeed = 0;
+			let hspeed = 50;
+
+			let timer = setInterval(()=>{
+				// 获取当前top值
+				let top = bb.offsetTop;
+
+				// 获取当前left
+				let left = bb.offsetLeft;
+
+				vspeed+=5;
+
+				top += vspeed;
+				left += hspeed;
+
+				// 终点判断
+				if(top >= window.innerHeight-bb.offsetHeight){
+					clearInterval(timer);
+
+					// 重置目标值
+					top = window.innerHeight-bb.offsetHeight;
+				}
+
+				bb.style.top = top + 'px';
+				bb.style.left = left + 'px';
+			},30)
+		})
+	</script>
+</head>
+<body>
+	<h1>03篮球自由落体效果（抛物线运动）</h1>
+	<img src="img/basketball.jpg" class="bb">
+</body>
+</html>

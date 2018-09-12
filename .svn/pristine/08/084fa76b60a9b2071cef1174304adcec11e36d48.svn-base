@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06页面之间数据传递</title>
+	<style>
+		ul{list-style: none;padding:0;margin:0;}
+		#goodslist{padding:20px;}
+		#goodslist img{width:200px;}
+		#goodslist ul{overflow: hidden;}
+		#goodslist li{float:left;border-right:1px dotted #ddd;padding-right:20px;margin-right:20px;}
+
+		.price span{color:#f00;}
+		.price span::before{
+			content:'￥';
+		}
+	</style>
+</head>
+<body>
+	<h1>06页面之间数据传递</h1>
+	<ul id="goodslist">
+	</ul>
+	<script>
+		/*
+			06页面之间数据传递
+				1) 点击商品，获取对应商品信息
+				2) 利用url传递到goods.html
+					* Object -> String
+		 */
+		
+		var data = [{
+	        id:'001',
+	        name:'iphone7 plugs',
+	        imgurl:'img/ip7.jpg',
+	        price:5899.00,
+	        sale:5888.00,
+	        color:'土豪金'
+	    },{
+	        id:'002',
+	        name:'Note7',
+	        imgurl:'img/note7.jpg',
+	        price:3899.00,
+	        sale:998.00,
+	        color:'黑色'
+	    },{
+	        id:'003',
+	        name:'荣耀7',
+	        imgurl:'img/honor7.jpg',
+	        price:1999.00,
+	        sale:1899.00,
+	        color:'白色'
+	    }];
+
+	    // 获取元素
+	    var goodslist = document.getElementById('goodslist');
+
+	    goodslist.innerHTML = data.map(function(goods,idx){
+	    	return '<li data-guid="'+goods.id +'">' +
+	    		'<a href="#"><img src="'+goods.imgurl +'">' +
+	    		'<h4>'+goods.name +'</h4></a>' +
+	    		'<p class="color">颜色：'+goods.color +'</p>' + 
+	    		'<p class="price">原价：<del>'+goods.price.toFixed(2) +'</del></p>' + 
+	    		'<p class="price">现价：<span>'+goods.sale.toFixed(2) +'</span></p>' + 
+	    	'</li>'
+	    }).join('\n');
+
+
+	    // 获取a标签
+	    var links = goodslist.getElementsByTagName('a');console.log(links)
+
+	    for(var i=0;i<links.length;i++){
+	    	links[i].idx = i;
+	    	links[i].onclick = function(){
+	    		// 通过索引值获取商品信息
+	    		var goods = data[this.idx];
+
+	    		// Object->String（id=001&name=ip7&price=...）
+	    		var params = '';
+	    		for(var key in goods){
+	    			params += key + '=' + goods[key] + '&'
+	    		}
+
+	    		// 去除多余的&
+	    		params = params.slice(0,-1);
+
+	    		// 修改href属性
+	    		// this.href = '06goods.html?'+params
+
+	    		// 在js中跳到06goods.html
+	    		location.href = '06goods.html?' + params;
+
+	    		console.log(params);
+	    	}
+	    }
+
+	    
+	    
+	</script>
+</body>
+</html>

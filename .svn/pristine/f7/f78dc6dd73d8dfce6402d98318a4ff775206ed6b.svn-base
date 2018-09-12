@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>05动画</title>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script>
+        /*
+            动画
+                * show()/hide()：显示隐藏
+                * slideDown()/slideUp()：下拉收缩
+                * fadeIn()/fadeOut()
+                * animate({},duration,callback)
+
+                预设速度：200('fast')  400('normal')  600('slow')
+
+            代码优化：
+         */
+        
+        jQuery(function($){
+            let $img = $('.img');
+            $('.btn').on('click',function(){
+                // if($img.is(':visible')){
+                //     // 隐藏
+                //     // $img.hide(3000);
+                //     // $img.slideUp(2000);
+                //     $img.fadeOut(100);
+                    
+                // }else{
+                //     // 显示
+                //     // $img.show(3000);
+                //     // $img.slideDown(2000);
+                //     $img.fadeIn(1000);
+                // }
+
+                // $img.slideToggle();
+                $img.fadeToggle('slow');
+            });
+
+
+            // 自定义动画
+            $('.big').on('click',function(){
+                $('.content').animate({fontSize:50},2000);
+            });
+            $('.small').on('click',function(){
+                $('.content').animate({fontSize:10});
+            });
+        })
+
+    </script>
+</head>
+<body>
+    <h1>05动画</h1>
+    <button class="btn">显示/隐藏</button>
+    <div class="img">
+        <img src="img/mv5.jpg">
+    </div>
+    
+    <button class="big">大</button>
+    <button class="small">小</button>
+    <div class="content">
+        中新网8月13日电 据工业和信息化部网站消息，工信部今日发布《工业和信息化部办公厅关于开展工业互联网网络发展情况调查摸底工作的通知》(以下简称《通知》)。《通知》指出，为全面掌握工业互联网网络发展情况，加快推动工业互联网网络体系建设，现组织开展工业互联网网络发展情况调查摸底工作。
+    </div>
+</body>
+</html>

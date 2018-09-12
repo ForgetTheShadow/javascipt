@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组复制与传输</title>
+	<script>
+		/*
+			数组复制与传输
+		 */
+		
+		// 值类型复制
+		var username = 'laoxie';
+		var myuser = username;
+
+		// 验证复制是否成功（成功）
+		myuser += 666;
+
+
+		// 引用数据类型复制
+		var arr = ['lemon','yy','tiantian'];
+		var myarr = arr;
+
+		// 验证复制是否成功（不成功）
+		myarr.push('xiaoxie');
+
+
+		// 复制数组（成功）
+		var data = ['宝强','乃亮','羽凡'];
+
+		// 方式一：创建空数组，然后逐个写入
+		var copyData1 = [];
+		for(var i=0;i<data.length;i++){
+			copyData1[i] = data[i];
+		}
+
+		// 方式二：slice(0)
+		var copyData2 = data.slice(0);
+		copyData2.push('呼伦贝尔');
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

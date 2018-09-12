@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07继承方式之ES6继承法</title>
+	<script>
+		/*
+			07继承方式之ES6继承法
+				* class
+				* extends
+				* super()
+
+				* 类
+		 */
+		
+		// 类
+		 class Person{
+		 	// 构造函数
+		 	constructor(name,age,gender){
+		 		this.name = name;
+		 		this.age = age;
+		 		this.gender = gender;
+		 	}
+
+		 	// 写在原型对象中的方法（推荐）
+		 	sleep(){
+		 		console.log('sleep',this);
+		 	}
+
+
+		 	coding(){
+		 		console.log('coding');
+		 	}
+		 }
+
+
+		 Person.prototype.say = function(){
+		 		console.log('say')
+		 }
+
+
+		 // 
+
+
+
+		 // 实例化
+		var p1 = new Person('laoxie',18,'男');
+	
+
+		// 遍历属性
+		for(var key in p1){
+			console.log(key)
+		}
+
+
+
+		// 继承
+		class Man extends Person{
+			// 重置构造函数
+			constructor(name,age){
+				super(name,age);//等效于Person.call(this,name,age,'男');
+				this.gender = '男';
+
+				// 必须在super后才可使用this
+			}
+
+			// 打球
+			playball(){
+				console.log('playball');
+			}
+
+			playboy(){
+				console.log('playboy');
+			}
+
+			coding(){
+				console.log('I love Coding');
+			}
+		}
+
+		var m1 = new Man('tiantian',23);
+		console.log(m1)
+	</script>
+</head>
+<body>
+	<h1>07继承方式之ES6继承法</h1>
+</body>
+</html>

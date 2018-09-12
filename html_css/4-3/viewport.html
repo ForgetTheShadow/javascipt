@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>viewport的理解</title>
+	<!-- 把宽度设置为设备宽度（以ideal-viewport显示页面） -->
+	<meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1,initial-scale=1.0">
+
+	<style>
+		html,body{height:100%;margin:0;}
+		ul{list-style: none;margin:0;padding:0;}
+		.container{height:100%;display: flex;flex-direction: column;}
+		.container header{height:80px;background-color: #f90;}
+		.main{flex:1;background-color: #efefef;}
+		.container footer{height:45px;line-height:43px;border-top:1px solid #ddd;box-sizing: border-box;text-align:center;overflow:hidden;
+			
+		}
+		.container footer ul{display: flex;}
+		.container footer ul li{flex:1;border-left:1px solid #bbb;border-right:1px solid #efefef;}
+		.container footer ul li:first-child{border-left:none;}
+		.container footer ul li:last-child{border-right:none;}
+		.container footer ul li:hover{background:linear-gradient(to right,#efefef,#cfcfcf);}
+
+		@media screen and (max-width:300px){
+			.container footer ul li:nth-child(2){display: none;}
+		}
+
+		@media (max-width:200px){
+			.container footer ul li:nth-child(4){display: none;}
+		}
+
+		@media screen and (orientation:landscape){
+			.container{flex-direction: row}
+			.container header{height:auto;}
+			.container footer{height:auto;}
+			.container footer ul{height:100%;flex-direction: column;}
+
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<input type="search"><button>搜索</button>
+		</header>
+		<div class="main"></div>
+		<footer>
+			<ul>
+				<li>首页</li>
+				<li>物流</li>
+				<li>购物车</li>
+				<li>我的淘宝</li>
+				<li>更多...</li>
+			</ul>
+		</footer>
+	</div>
+</body>
+</html>

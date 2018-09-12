@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01jQuery的原理</title>
+	<style>
+		img{width:100px;}
+	</style>
+	<!-- 引入 -->
+	<script src="js/jquery-3.2.1.js"></script>
+	<script>
+		/*
+			jquery的使用
+		 */
+		
+		// window.onload = function(){}
+		// document.addEventListener('DOMContentLoaded',function(){
+
+		// });
+
+		jQuery(document).ready(function(){
+			// 这里的代码在DOM节点渲染完成执行
+			// 等效于：DOMContentLoaded与onreadystatechange中的interactive
+
+			
+		});
+		
+
+		// 最终格式
+		jQuery($=>{
+			// 实例
+			// 习惯：jQuery实例变量名首字符为$
+
+
+			// jQuery实例（jQuery对象） 和 节点
+
+
+			// 编写jquery代码只需两步
+			// 	* 选择元素
+			// 	* 操作元素
+
+			// 1.获取
+			var $h1 = $('h1');//[h1] 
+			var $imgs = $('.goodslist img');//[img,img,img]
+
+			var num = 100;
+			
+			// 2.操作
+			$h1.css('color','#58bc58');
+			// 等效于：$h1[0].style.color = '#58bc58';
+
+
+			console.log($imgs)
+		});
+	</script>
+</head>
+<body>
+	<h1>01jQuery的原理</h1>
+	<div class="goodslist">
+		<ul>
+			<li>
+				<img src="img/g1.jpg">
+			</li>
+			<li>
+				<img src="img/g2.jpg">
+			</li>
+			<li>
+				<img src="img/g3.jpg">
+			</li>
+		</ul>
+	</div>
+	
+</body>
+</html>

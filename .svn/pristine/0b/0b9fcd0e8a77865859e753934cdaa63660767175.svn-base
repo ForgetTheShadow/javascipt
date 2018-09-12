@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07以每行四个数的形式输出1900年到现在所有的闰年</title>
+	<script>
+		/*
+			07以每行四个数的形式输出1900年到现在所有的闰年
+
+			已知条件：
+				* 循环次数：2018-1900 => 118
+				* 闰年判断条件
+		 */
+		
+		// 声明一个变量，用于记录闰年数量
+		var qty=0;
+		
+		for(var year=1900;year<=2018;year++){
+			// 判断是否为闰年
+			if(year%4===0 && year%100!=0 || year%400===0){
+				qty++;
+
+				document.write(year + ', ');
+
+				// 选择性输出br
+				if(qty%4 === 0){
+					document.write('<br/>');
+
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>07以每行四个数的形式输出1900年到现在所有的闰年</h1>
+</body>
+</html>

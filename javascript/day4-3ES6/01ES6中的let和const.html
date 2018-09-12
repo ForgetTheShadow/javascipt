@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01ES6中的let和const</title>
+	<script>
+		/*
+			01ES6中的let和const
+
+				* 变量声明
+					* 全局/局部作用域
+					* 代码块{}
+
+				let:变量声明
+					* let不允许相同作用域内多次声明同一变量
+					* 变量声明不会提前
+					* 块级作用域
+
+				const:常量声明
+					* let不允许相同作用域内多次声明同一变量
+					* 变量声明不会提前
+					* 块级作用域
+					* 声明后无法修改值
+
+					约定：全部大写
+		 */
+		
+		document.addEventListener('DOMContentLoaded',function(){
+			'use strict';
+
+			var btns = document.querySelectorAll('button');
+
+			console.log(num1);//var声明提前：undefined
+
+			var num1 = 10;
+
+			// 相等于在此处声明：var i
+			// for(var i=0;i<btns.length;i++){
+			// 	btns[i].onclick = function(){
+			// 		console.log('var',i);
+			// 	}
+			// }
+
+			// console.log(i);
+
+			// console.log(num2);//let声明不提前：num2 is not defined
+			// 声明一个变量
+			let num2 = 10;
+			// let num2 = 20; //报错：let在同一作用域下不能出现相同变量
+
+			for(let i=0;i<btns.length;i++){
+				// 相当于在此处声明:let i
+				btns[i].onclick = function(){
+					console.log('let:',i);
+				}
+			}
+
+			// console.log(i);//报错：i is not defined
+
+
+			// 常量
+			const MY_NAME = 'laoxie';
+
+			// MY_NAME = 'lemon';//报错：常量不可修改
+			
+		})
+	</script>
+</head>
+<body>
+	<h1>01ES6中的let和const</h1>
+	<button>按钮1</button>
+	<button>按钮2</button>
+	<button>按钮3</button>
+	<button>按钮4</button>
+	<button>按钮5</button>
+</body>
+</html>

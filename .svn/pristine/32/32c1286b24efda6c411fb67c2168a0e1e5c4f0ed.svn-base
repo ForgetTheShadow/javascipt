@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05类名操作class列表属性</title>
+	<style>
+		.dspn{display: none;}
+	</style>
+	<script>
+		/*
+			05类名操作class列表属性
+				* className
+				* classList对象
+					* length : class类名的个数
+					* add() : 添加class方法
+					* remove() : 删除class方法
+					* toggle() : 切换class方法
+					* contains():是否含有某个类,返回布尔值
+		 */
+		
+
+		document.addEventListener('DOMContentLoaded',function(){
+			var datalist = document.querySelector('#datalist');
+
+			// className
+			// datalist.className = 'box';
+
+
+			// classList
+			datalist.classList.add('laoxie','lemon')
+			console.log(datalist.classList.length);
+
+			var btn = document.querySelector('.btn');
+			var goods = document.querySelector('.goods');
+
+			btn.onclick = function(){
+				// if(goods.classList.contains('dspn')){
+				// 	goods.classList.remove('dspn')
+				// }else{
+				// 	goods.classList.add('dspn');
+				// }
+
+				goods.classList.toggle('dspn');
+			}
+		});
+	</script>
+</head>
+<body>
+	<h1>05类名操作class列表属性</h1>
+	<div id="datalist" class="content box">
+		
+	</div>
+
+
+	<button class="btn">显示隐藏</button>
+	<div class="goods">
+		<img src="img/shirt_1_big.jpg">
+	</div>
+</body>
+</html>

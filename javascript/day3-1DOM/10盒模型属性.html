@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10盒模型属性</title>
+	<style>
+		.box{position:relative;width:600px;height:300px;padding:50px;background-color: #fc0}
+		.content{width:100px;height:100px;background-color: #f00;}
+	</style>
+	<script>
+		window.onload = function(){
+			/*
+				10盒模型属性
+					* 组成：margin + border + padding + content + top + left
+
+					* offset
+						* offsetWidth	当前元素的宽度（border + padding + content）
+						* offsetHeight	当前元素的高度（border + padding + content）
+						* offsetTop		当前元素离<定位父级>元素顶部的距离
+						* offsetLeft	当前元素离<定位父级>元素左边的距离。
+					* client
+					* scroll
+			 */
+			
+			var box = document.getElementsByClassName('box')[0];
+			var content = document.getElementsByClassName('content')[0];
+
+			console.log(box.offsetWidth);
+
+			// offsetTop,ofsetLeft
+			console.log(content.offsetLeft,content.offsetTop);
+		}
+
+	</script>
+</head>
+<body>
+	<h1>10盒模型属性</h1>
+	<div class="box">
+		<div class="content"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07单个容器多背景图片</title>
+	<style>
+
+		.box{
+			margin:5px;padding:20px;width:600px;height:400px;border:20px solid rgba(255,0,0,0.5);color:#ff0;
+			background-size:30%;
+			background: /*url(img/g2.jpg) no-repeat,*/
+						/*url(img/border-image.png) right top no-repeat,*/
+						url(img/button.png) left top/auto repeat-x,
+						url(img/button.png) left top/auto repeat-y,
+						url(img/button.png) right bottom/auto repeat-x,
+						url(img/button.png) right bottom/auto repeat-y;
+
+
+						
+
+		}
+
+	</style>
+</head>
+<body>
+	<h1>07单个容器多背景图片</h1>
+	<div class="box">lemon</div>
+</body>
+</html>

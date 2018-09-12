@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>21数组ES5方法之some&every</title>
+	<script>
+		/*
+			some(fn)      boolean
+				* 任一次fn返回 true，则结果true
+				* 所有都为false,结果才为false
+			every(fn)     boolean
+				* 所有fn都返回true，结果才为true
+				* 有一个为false,结果为false
+		 */
+		
+		var arr = [10,11,20,21,30,5,8];
+			   // [fa,fa,fa,fa,fa,t,fa] -> true
+
+		var res1 = arr.some(function(item){
+			return item<=5;
+		});
+
+		// [fa,fa,fa,fa,fa,tr,fa] => false
+		// [tr,tr,tr,tr,tr,tr,tr] => true
+		// [tr,tr,tr,tr,tr,fa,tr] => false
+		var res2 = arr.every(function(item){
+			return item>5;
+		});
+
+		console.log(res1,res2);
+
+
+		// 判断数组中是否包含20
+		var res = arr.some(function(item){
+			return item===20;
+		})
+		if(res){
+
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

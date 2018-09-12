@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>手风琴</title>
+	<style>
+	h1{text-align:center;}
+	.accordion{width:600px;margin:0 auto;}
+	.accordion h4{margin:0;padding:0 15px;height:30px;line-height:30px;border-bottom:1px solid rgba(255,255,255,.2);background-color:#2196F3;}
+	.accordion .content{padding:15px;border:1px solid #ddd;height:80px;}
+	.meinv{position: relative;}
+	</style>
+	<script src="js/jquery-3.2.1.js"></script>
+	<script>
+		/*
+			动画队列
+				* 多个动画方法作用于同一元素，动画产生排队效果
+
+			清除动画队列：
+				* stop()			停止正在执行的动画
+				* stop(true)		停止正在执行的动画，并清除队列
+				* stop(true,true)	停止正在执行的动画,且跳到当前动画目标值，并清除队列
+		 */
+		$(function(){
+			$('.content').hide();
+			$('.accordion h4').on('mouseover',function(){
+				$(this).next('.content').stop(true,true).slideDown(200).siblings('.content').stop(true,true).slideUp(600);
+			});
+
+
+			// 动画队列
+			$('.btn').on('click',function(){
+				$('.meinv').animate({width:200,opacity:0.5},1000).delay(3000).animate({left:200},1000)
+			});
+
+			$('.btnAdd').on('click',function(){
+				$('.meinv').animate({top:100},1000);
+			});
+
+			$('.btnStop').on('click',function(){
+				$('.meinv').stop(true,true);
+			})
+		})
+	</script>
+</head>
+<body>
+	<h1>手风琴</h1>
+	<div class="accordion">
+		<h4>标题1</h4>
+		<div class="content">内容1</div>
+		<h4>标题2</h4>
+		<div class="content">内容2</div>
+		<h4>标题3</h4>
+		<div class="content">内容3</div>
+		<h4>标题4</h4>
+		<div class="content">内容4</div>
+		<h4>标题5</h4>
+		<div class="content">内容5</div>
+	</div>
+
+
+	<div><button class="btn">动画</button><button class="btnAdd">添加动画</button><button class="btnStop">停止动画</button></div>
+	<img src="img/mv3.jpg" class="meinv">
+</body>
+</html>

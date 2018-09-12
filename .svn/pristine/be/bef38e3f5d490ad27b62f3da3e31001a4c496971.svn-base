@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>11利用Vue实现todolist所有功能</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+	<div class="container">
+		<h1>11利用Vue实现todolist所有功能</h1>
+		<div id="app">
+			
+		</div>
+	</div>
+	<script src="lib/vue.js"></script>
+
+	<!-- 1.操作方便, 2.语法高亮 -->
+	<template id="myTemp">
+		<div>
+			<div class="input-group">
+				<input type="text" class="form-control" v-model="content">
+				<div class="input-group-append">
+					<button class="btn btn-success" @click="add">添加待办事务</button>
+				</div>
+			</div>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th><label><input type="checkbox">选择</label></th>
+						<th>#</th>
+						<th>待办事务</th>
+						<th>时间</th>
+						<th>重要</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="(todo,idx) in todolist" :class="{'table-dark':todo.done,'table-danger':todo.zhongyao}">
+						<td><input type="checkbox"></td>
+						<td>{{idx+1}}</td>
+						<td>{{todo.content}}</td>
+						<td>{{todo.date | formatDate}}</td>
+						<td>{{todo.zhongyao ? '重要' : ''}}</td>
+						<td>
+							<div class="btn-group btn-group-sm">
+								<button class="btn btn-outline-success" @click="finish(idx)">完成</button>
+								<button class="btn btn-outline-primary" @click="important(idx)">重要</button>
+								<button class="btn btn-outline-danger" @click="remove(idx)">删除</button>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</template>
+	<script>
+		/*
+			11利用Vue实现todolist所有功能
+				* 增
+				* 删
+				* 改
+				* 查
+		 */
+		
+		// 过滤器:日期格式化
+		Vue.filter('formatDate', function (value) {
+			let date = new Date(value);
+			return date.toLocaleDateString();
+		});
+
+		 let vm = new Vue({
+		 	el:'#app',//如果不配置el选项,则Vue的实例一直处在未挂载状态
+		 	data:{
+		 		todolist:[{
+		 			content:'你不能拼爹，所以只能拼命',
+		 			date:'2018-9-11',
+		 			zhongyao:false,
+		 			done:false
+		 		}],
+		 		content:''
+		 	},
+
+		 	template:'#myTemp',
+
+		 	methods:{
+		 		// 添加待办事务
+		 		add(){
+		 			// this.$set(this.todolist,this.todolist.length,{})
+
+		 			this.todolist.unshift({
+		 				content:this.content,
+		 				date:Date.now(),
+		 				zhongyao:false,
+		 				done:false
+		 			});
+		 		},
+
+		 		// 删除
+		 		remove(idx){
+		 			this.todolist.splice(idx,1);
+		 		},
+
+		 		finish(idx){
+		 			this.todolist[idx].done = true;
+		 		},
+
+		 		// 重要
+		 		important(idx){
+		 			this.todolist[idx].zhongyao = true;
+		 		}
+		 	}
+		 });
+
+		 // 手动挂载
+		 // vm.$mount('#app');
+		
+		
+		
+	</script>
+</body>
+</html>

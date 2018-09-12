@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06动态生成表格并实现隔行变色</title>
+	<style>
+		table{border:1px solid #ddd;border-collapse: collapse;width:100%;}
+		td{border:1px solid #ddd;padding:3px 5px;}
+
+		.odd{background-color: #efefef;}
+	</style>
+	<script>
+		window.onload = function(){
+			// 获取元素
+			var row = document.getElementById('row');
+			var col = document.getElementById('col');
+			var output = document.getElementById('output');
+			var btn = output.previousElementSibling;
+
+
+			// 点击生成表格
+			btn.onclick = function(){
+				// 获取输入的行列(string)
+				var _row = row.value;
+				var _col = col.value;
+
+				// 创建表格
+				var table = document.createElement('table');//table节点，table对象
+				var tbody = document.createElement('tbody');
+
+				for(var i=0;i<_row;i++){
+					// 插入行，返回tr对象
+					var tr = table.insertRow(i);
+					// 插入行号
+					tr.insertCell(0).innerText = i+1;
+
+					for(var j=1;j<_col;j++){
+						// 插入列，返回td对象
+						var td = tr.insertCell(j);
+						td.innerText = '单元格' + i + j
+					}
+
+
+
+					var lastTd = tr.insertCell(j);
+					lastTd.innerHTML = '<button class="btnDel">删除</button><button class="btnCopy">复制</button>'
+				}
+
+				// tbody写入table
+				table.appendChild(tbody);
+
+				// 添加前先清空#output
+				output.innerHTML = '';
+
+				// table写入页面#output
+				output.appendChild(table);
+				console.log(table.rows )
+
+				// 生成表格后，才能获取按钮
+				var btnDels = table.getElementsByClassName('btnDel');
+				var btnCopies = table.getElementsByClassName('btnCopy');
+				for(var i=0;i<btnDels.length;i++){
+					btnDels[i].onclick = function(){
+						// 获取当前行
+						var currentTr = this.parentNode.parentNode;
+
+						currentTr.parentNode.removeChild(currentTr);
+					}
+
+					// 复制
+					btnCopies[i].onclick = function(){
+						// 获取当前行
+						var currentTr = this.parentNode.parentNode;
+						var copyTr = currentTr.cloneNode(true)
+					
+						// 把复制的tr写入表格
+						currentTr.parentNode.appendChild(copyTr);
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>06动态生成表格并实现隔行变色</h1>
+	<label for="row">行：</label><input type="text" id="row">
+	<label for="col">列：</label><input type="text" id="col">
+	<button class="btn">生成表格</button>
+	<div id="output"></div>
+</body>
+</html>

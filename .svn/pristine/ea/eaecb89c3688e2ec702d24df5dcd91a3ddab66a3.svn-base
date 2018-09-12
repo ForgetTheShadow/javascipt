@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11插件之bootstrap</title>
+	<!-- 第3步：引入相关文件（样式、语言包） -->
+	<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.css">
+	<style>
+		.box > div{border:1px solid #ddd;box-sizing: border-box;}
+	</style>
+	<!-- 第1步：引入jquery -->
+	<script src="js/jquery-3.2.1.js"></script>
+	<!-- 第2步：引入插件 -->
+	<script src="lib/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+
+	<!-- 第4步：编写jquery代码 -->
+	<script>
+		jQuery(function($){
+			/*
+				
+
+				Bootstrap共性
+					* 颜色：
+						* primary
+						* success
+						* danger
+						* warning
+						* info
+					* 尺寸
+						* lg
+						* md （默认）
+						* sm
+						* xs
+			 */
+		});
+	</script>
+</head>
+<body>
+	<div class="container">
+		<h1>11插件之bootstrap</h1>
+		
+		<div class="search input-group">
+			<input type="search" class="form-control">
+			<span class="input-group-btn">
+				<button class="btn btn-warning"><i class="glyphicon glyphicon-search"></i>搜索</button>
+			</span>
+		</div>
+	
+	<br>
+	<br>
+
+		<button class="btn btn-success" type="button">
+		  Messages <span class="badge">99+</span>
+		</button>
+</body>
+</html>

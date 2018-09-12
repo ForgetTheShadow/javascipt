@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02表盘刻度</title>
+	<style>
+		#watch{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:300px;height:300px;border:2px solid #58bc58;border-radius: 50%;box-sizing: border-box;}
+		#watch span{position:absolute;left:0;top:0;width:10px;height:10px;background-color: #f90;border-radius:50%;}
+	</style>
+	
+</head>
+<body>
+	<div id="watch">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+	<script>
+		/*
+			知识点：
+				* 页面可视区域宽高：window.innerWidth/window.innerHeight
+				* 根据标签名获取元素：getElementsByTagName()  得到一个数组
+		 */
+		var watch = document.getElementById('watch');//得到一个元素
+		var items = watch.getElementsByTagName('span');//得到一个数组
+
+		// 页面中心（圆心位置）
+		// 页面宽高的一半
+		var x = window.innerWidth/2;
+		var y = window.innerHeight/2;
+
+		// 半径
+		var r = 150;
+
+		for(var i=0;i<items.length;i++){
+			// 求角度
+			var deg = 6*i;
+
+			// 求弧度
+			var rad = deg*Math.PI/180;
+
+			// 求直角边
+			var a = r * Math.cos(rad);
+			var b = r * Math.sin(rad);
+
+			// 求top,left
+			var myleft = r + a;
+			var mytop = r + b;
+
+			// 设置样式
+			items[i].style.left = myleft-7  + 'px';
+			items[i].style.top = mytop-7  + 'px';
+		}
+	</script>
+</body>
+</html>

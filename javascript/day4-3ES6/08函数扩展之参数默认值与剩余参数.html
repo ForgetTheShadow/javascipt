@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08函数扩展之参数默认值与剩余参数</title>
+	<script>
+		/*
+			08函数扩展之参数默认值与剩余参数
+				* 参数默认值
+		 */
+		
+		// 参数默认值
+		var sum = (x=1,y=2) => x + y;
+
+
+		sum(10,20); // 得到 30
+		sum();
+
+
+		// 剩余参数...：数组
+		var test = (x, ...a) => console.log(a);
+		test(1,2,3); // 输出 [2, 3]
+	</script>
+</head>
+<body>
+	<h1>08函数扩展之参数默认值与剩余参数</h1>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数的定义</title>
+	
+</head>
+<body>
+	<h1>函数的定义与执行</h1>
+	<button onclick="show()">点我(不推荐)</button>
+	<button id="btn">事件驱动</button>
+	<script>
+		/*
+			函数的定义
+				* 声明式：利用关键字function定义
+				* 赋值式：与变量声明一致，给变量赋值一个匿名函数
+
+		
+			匿名函数：没有名字的函数
+
+			函数的执行
+				* 手动执行（主动）:主动写一句代码执行
+					* 格式：函数名()
+				* 事件驱动（被动）：
+		 */
+		
+		// 声明式
+		function show(){
+			console.log('laoxie');
+		}
+
+		// 赋值式
+		var say = function(){
+			console.log('lemon is 32 years old');
+		}
+
+		// 函数的执行
+		// 立即执行：主动执行
+		show();
+		show();
+		show();
+		show();
+		show();
+		show();
+		show();
+		show();
+
+
+		// 事件驱动：被动执行
+		var btn = document.getElementById('btn');
+		// btn.onclick = say;
+		btn.onclick = function(){
+			console.log('tiantian is very tian');
+		}
+
+
+	</script>
+</body>
+</html>

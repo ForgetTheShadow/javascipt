@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>迭代（遍历）方法</title>
+	<script>
+		/*
+			迭代（遍历）方法：方法会把数组元素遍历一遍
+				* forEach(fn)	无返回值，用来替代for循环，比for循环更简单（但不能随意break）
+				* map(fn)		返回fn返回值组成的数组
+				* filter(fn)	返回fn返回值为true组成的数组
+				* some(fn)		返回boolean
+				* every(fn) 	返回boolean
+					
+				* fn
+					* item 数组元素
+					* idx  索引值
+					* arr  数组本身
+		 */
+		
+		var arr = ['laoxie','lemon','tiantian','yy'];
+
+		for(var i=0;i<arr.length;i++){
+			arr[i];
+		}
+
+		arr.forEach(function(item,idx,arr){
+			// 这里的代码会执行多少次：数组的长度
+			// 每次传入的参数：item,idx,arr
+			console.log(item,idx)
+		});
+
+
+		// 模拟forEach()方法
+		function foreach(callback){
+			for(var i=0;i<arr.length;i++){
+				callback(arr[i],i,arr);
+			}
+		}
+
+		foreach(function(item,idx,arr){
+
+		})
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

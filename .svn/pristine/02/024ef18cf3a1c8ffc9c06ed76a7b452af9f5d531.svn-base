@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>for循环</title>
+	<script>
+		/*
+			for循环
+				* 格式：
+					for(变量初始化;条件判断;变量更新){
+						//1.变量初始化
+						//2.进入条件判断，成立执行这里的代码
+						//3.变量更新
+						//4.进入第2步
+					}
+
+				* 循环执行过程
+		 */
+		
+		for(var num=1;num<=5;num++){
+			console.log(num);//1,2,3,4,5
+		}
+
+		// 等效于
+		// var num=1;
+		// for(;num<=5;){
+		// 	console.log(num);
+		// 	num++
+		// }
+
+		// 循环结束后，num的值为：6
+		console.log('end:',num)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

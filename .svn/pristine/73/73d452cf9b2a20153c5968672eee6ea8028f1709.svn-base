@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义右键菜单</title>
+	<style>
+		ul{list-style: none;padding:0;margin:0;}
+		.contextMenu{display:none;position:absolute;top:0;left:0;padding:2px;width:220px;border:1px solid #ddd;}
+		.contextMenu li{position:relative;padding-left:10px;border-bottom:1px dotted #ddd;line-height:2.2;}
+		.contextMenu li:hover{background-color:#efefef;}
+		.contextMenu li:last-child{border:none;}
+		.contextMenu li span{position:absolute;right:5px;top:0;color:#999;}
+	</style>
+	<script>
+		window.onload = function(){
+			/*
+				event对象：
+					clientX	鼠标指针相对于浏览器可视区域的水平坐标。
+					clientY	鼠标指针相对于浏览器可视区域的垂直坐标。  
+					screenX	鼠标指针相对于电脑屏幕的水平坐标。 
+					screenY	鼠标指针相对于电脑屏幕的垂直坐标。 
+
+				知识点：
+					* 右键菜单事件：oncontextmenu
+						* 右键菜单弹出时触发
+
+					* 事件传播
+						* 冒泡
+						* 捕获
+						* 停止冒泡：event.stopPropagation();
+					* 默认行为：
+						* 阻止浏览器默认行为：e.preventDefault()
+
+				思考：
+					* 根据空间选择右键的位置
+
+			 */
+			var contextMenu = document.getElementsByClassName('contextMenu')[0];
+
+			// 失败
+			// document.onmouseup = function(e){
+			// 	if(e.button === 2){
+			// 		// 定位右键菜单
+			// 		contextMenu.style.left = e.pageX + 'px';
+			// 		contextMenu.style.top = e.pageY + 'px';
+
+			// 		contextMenu.style.display = 'block';
+
+			// 		e.preventDefault();
+			// 	}
+			// }
+
+			document.oncontextmenu = function(e){
+				// 按鼠标右键才执行这里的代码
+				contextMenu.style.left = e.pageX + 'px';
+				contextMenu.style.top = e.pageY + 'px';
+
+				contextMenu.style.display = 'block';
+
+				// 阻止右键菜单弹出
+				e.preventDefault();
+			}
+
+			// 点击空白位置隐藏右键菜单
+			document.onmouseup = function(){
+				contextMenu.style.display = 'none';
+			}
+
+			// 停止事件冒泡
+			contextMenu.onmouseup = function(e){
+				e.stopPropagation();
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="contextMenu">
+		<ul>
+			<li>复制<span>Ctrl+C</span></li>
+			<li>粘贴<span>Ctrl+V</span></li>
+			<li>剪切<span>Ctrl+X</span></li>
+			<li>删除<span>Del</span></li>
+			<li>保存<span>Ctrl+S</span></li>
+		</ul>
+	</div>
+</body>
+</html>

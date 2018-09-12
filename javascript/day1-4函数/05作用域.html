@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05作用域</title>
+	<script>
+		/*
+			05作用域
+				* 全局作用域:函数外
+					* 在全局作用域下声明的变量为：全局变量
+				* 局部作用域: 函数内
+					* 在局部作用域下声明的变量为：局部变量
+
+			变量访问规则：就近原则
+				* 当前作用域 -> 上级作用域 -> ... -> 全局作用域
+				* 如在某一作用域中找到，则停止查找
+				* 如到全局作用域还没找到，则报xxx is not defined
+
+			作用域链（了解）：当前作用域到全局作用域的链条
+		 */
+		// 全局作用域：
+		// 全局变量
+		var num = 10;
+
+		function sum(){
+			console.log(num);//undefined,10
+
+			// 局部作用域：
+			// 局部变量
+			var username = 'lemon';
+			var num = 20;
+
+			console.log(num);//20,10
+
+			
+		}
+
+		function show(){
+			var num = 15;
+		}
+
+
+		sum();//
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

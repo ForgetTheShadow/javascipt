@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>14立方体效果</title>
+	<style>
+		.box{position: relative;transform-style: preserve-3d;transform: rotateX(-30deg);perspective: 10000px;width: 200px;
+			height: 200px;margin:50px auto;}
+		.box > div{position: absolute;left:0;top:0;width:200px;height:200px;text-align:center;line-height:200px;background-color: rgba(255,0,0,0.8);opacity:0.8;}
+
+		.box .front{background-color:#ff0;transform:translateZ(100px);}
+		.box .back{background-color:#f0f;transform:rotateY(180deg) translateZ(100px);}
+		.box .left{background-color:#58bc58;transform:rotateY(-90deg) translateZ(100px);}
+		.box .right{background-color:pink;transform:rotateY(90deg) translateZ(100px);}
+
+		.box .top{background-color:skyblue;transform: rotateX(90deg) translateZ(100px)}
+		.box .bottom{background-color:#f60;transform: rotateX(-90deg) translateZ(100px)}
+	</style>
+</head>
+<body>
+	<h1>14立方体效果</h1>
+	<div class="box">
+		<div class="front">front</div>
+		<div class="back">back</div>
+		<div class="left">left</div>
+		<div class="right">right</div>
+		<div class="top">top</div>
+		<div class="bottom">bottom</div>
+	</div>
+	<script>
+	 document.addEventListener('DOMContentLoaded',function () {
+            var eBox = document.querySelector('.box');
+
+            // 拖拽效果
+			var angleX = -30;
+			var angleY = 30;
+			document.onmousedown = function(e){
+				var startX = e.clientX;
+				var startY = e.clientY;
+				document.onmousemove = function(evt){
+					var endX = evt.clientX;
+					var endY = evt.clientY;
+					angleX -= (endY - startY)*0.2;
+					angleY += (endX - startX)*0.1;
+					eBox.style.transform = 'perspective(1600px) rotateX('+angleX+'deg)  rotateY('+angleY+'deg)';
+					startX = endX;
+					startY = endY;
+
+					evt.preventDefault();
+				}
+			}
+			document.onmouseup = function(){
+				document.onmousemove = null;
+			}
+                
+        });
+    </script>
+</body>
+</html>

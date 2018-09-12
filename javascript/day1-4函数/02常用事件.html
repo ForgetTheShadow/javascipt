@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02常用事件</title>
+	<style>
+		#box{width:200px;height:100px;background-color: #f00;}
+	</style>
+	
+</head>
+<body>
+	<h1>02常用事件</h1>
+	<div id="box"></div>
+
+	<label for="price">价格：</label> <span id="price">998.00</span><br/>
+	<label for="qty">数量：</label><input type="number" min="0" max="5" id="qty">
+	<div id="total"></div>
+	<script>
+		/*
+			函数执行
+				* 手动执行（主动）
+					* 格式：函数名()
+				* 事件驱动（被动）
+					* 元素.onclick = 函数名
+					* 元素.onclick = 匿名函数
+			
+			常用事件
+				* onclick:点击事件
+				* ondblclick：双击事件(快速两次单击)
+				* onmouseover：鼠标移入事件(移入那一瞬间执行)
+				* onmouseout:鼠标移开事件（移开那一瞬间执行）
+				* onkeyup：键盘按键弹起事件
+				* onchange：内容改变事件（一般用于表单元素,修改并失去焦点后执行）
+				* oninput：修改时执行
+		 */
+		
+		var box = document.getElementById('box');
+		var price = document.getElementById('price');
+		var qty = document.getElementById('qty');
+		var total = document.getElementById('total');
+
+// show();
+		box.onclick = function(){
+			console.log('lemon click');
+		}
+
+		box.ondblclick = function(){
+			console.log('laoxie 666');
+		}
+
+		box.onmouseover = function(){
+			console.log('over')
+		}
+
+		box.onmouseout = function(){
+			console.log('out')
+		}
+
+		// 改变数量，自动计算总价
+		qty.oninput = function(){
+			// 计算总价：数量*价格
+			// 并写入#total
+			total.innerHTML = qty.value*price.innerHTML
+		}
+	</script>
+</body>
+</html>

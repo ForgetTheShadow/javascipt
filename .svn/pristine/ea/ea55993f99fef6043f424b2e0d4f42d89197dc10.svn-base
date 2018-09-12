@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>09响应式布局-媒体查询</title>
+	<style>
+		html,body{margin:0;padding:0;height:100%;}
+		.container{
+			height:100%;
+			display: flex;
+			flex-direction: column;
+		}
+		.header{height:60px;background-color: #999}
+		.main{flex:1;display: flex}
+		.nav{width:200px;background-color: pink;}
+		.section{background-color: skyblue;flex:3;}
+		.aside{width:100px;background-color: yellow;flex:1 0 auto;}
+		.footer{height:100px;background-color: #58bc58;}
+
+		/*媒体查询Media query*/
+		/*<=700px 显示2列布局*/
+		@media (max-width:700px){
+			.aside{display: none;}
+		}
+
+		@media (max-width:300px){
+			.nav{display: none}
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<header class="header">header</header>
+		<main class="main">
+			<nav class="nav">nav</nav>
+			<section class="section">section</section>
+			<aside class="aside">aside</aside>
+		</main>
+		<footer class="footer">footer</footer>
+	</div>
+</body>
+</html>

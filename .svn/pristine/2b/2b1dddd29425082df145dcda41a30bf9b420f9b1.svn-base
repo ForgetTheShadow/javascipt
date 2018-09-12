@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,maximum-scale=1, minimum-scale=1,user-scalable=no">
+	<title>相对单位</title>
+	<style>
+		/*
+			相对单位：
+				* em: 相对于自身元素字体大小;
+				* rem: root em相对与根元素的字体大小;
+
+
+				* vw	viewport width	
+				* vh	viewport height
+				
+				vw/vh把设备分成100份
+
+				rem布局：不同的设备下自动调整大小
+					* 利用js达到调整的效果
+					* 动态改变html的font-size属性
+						* 可视区域宽度
+						* 像素密度
+						* 320*2
+
+
+		 */
+		body,html{margin:0;height:100%;font-size:100px;}
+		body{font-size:0.16rem;}
+		.container{
+			display: flex;flex-direction: column;height:100%;
+		}
+		h1{margin:0;height:0.8rem;line-height:0.8rem;text-align:center;background-color: #f90;color:#fff;}
+		.box{
+			margin:0.2rem 0;padding:0.2rem;flex:1;
+		}
+		.box img{width:1.5rem;}
+
+		footer{/*height:0.5rem;*/height:10vh;background-color: #58bc58;}
+	</style>
+	<script>
+		/*
+			修改html标签的font-size属性
+				* 根据分辨率（可视区域宽度+像素密度）
+					* 可视区域宽度：window.innerWidth
+					* 像素密度：window.devicePixelRatio
+		 */
+		
+		// 获取html元素
+		// 修改css属性（修改内联样式）
+		document.documentElement.style.fontSize = window.innerWidth*window.devicePixelRatio/10 + 'px';
+	</script>
+</head>
+<body>
+	<div class="container">
+		<h1>相对单位</h1>
+		<div class="box">
+			<p>秋名山上行人稀</p>
+			<p>偶有车手比高低</p>
+			<p>如今车道依稀在</p>
+			<p>不见当年老司机</p>
+			<img src="img/mm003.jpg">
+		</div>
+		<footer></footer>
+	</div>
+</body>
+</html>

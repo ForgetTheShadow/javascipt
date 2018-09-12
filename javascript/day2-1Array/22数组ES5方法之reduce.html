@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>22数组ES5方法之reduce</title>
+	<script>
+		/*
+			22数组ES5方法之(了解)
+				* reduce(fn,initVal)
+				* reduceRight(fn,initVal)
+					* fn
+						* prev:前一次返回值
+						* item:当前数组元素
+						* idx : 索引值
+						* arr : 数组本身
+					* initVal
+						* 默认为数组第一项，item从数组第二项开始
+						* 给定初始值，item从数组第一项开始
+		 */
+		
+		// 题目：求数组元素的和
+
+		var arr = [10,11,20,21,30,5,8];
+		
+		console.log(arr);
+
+		var res = arr.reduce(function(prev,item,idx,arr){
+			// prev:前一次返回值
+			console.log(prev,item)
+
+			return prev+item;
+		},0);
+
+		console.log(res)
+	</script>
+</head>
+<body>
+	<h1>22数组ES5方法之reduce</h1>
+</body>
+</html>

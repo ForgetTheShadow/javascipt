@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01字符串定义</title>
+	<script>
+		/*
+			String字符串
+				* 定义
+					* 字面量
+					* 构造函数
+				* 属性
+					* length (只读)	//数组可读写
+
+				* 读取某个字符(只读)
+					* [idx]			ES5实现
+					* charAt(idx) 	
+
+		 */
+		
+		 // 字面量
+		var str1 = '城市套路深，我想回农村';
+
+		// 构造函数
+		var str2 = new String('city taolu shen, I want to go to nongcun');
+
+		// 获取str1中的：套
+		str1[2] = 'tao';//失败：只读
+		console.log(str1[2]);
+		console.log(str1.charAt(3));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

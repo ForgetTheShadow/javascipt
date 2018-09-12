@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01继承的原理</title>
+	<script>
+		/*
+			01继承的原理
+
+				* 属性访问规则
+					1. 先在当前对象查找，找到则返回
+					2. 到对象的原型对象查找，找到则返回
+					3. 到原型对象的原型对象查找，依此类推，直到Object的原型对象（终点），找到则返回
+					4. 到终点(Object.prototype)还是无法找到，则返回undefined
+
+		 */
+		
+	</script>
+</head>
+<body>
+	<h1>01继承的原理</h1>
+</body>
+</html>

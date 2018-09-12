@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>13Map映射</title>
+	<script>
+		/*
+			13Map映射
+
+			Set集合，类似于数组
+			Map映射，类似于对象
+
+			映射:
+				* 键值对
+				* key/value
+
+			方法：
+				* set(key, value)	设置
+				* get(key)			获取
+				* has(key)
+				* delete(key)
+				* clear()
+
+
+				* keys() 获取所有键
+				* values() 获取所有值
+				* entries() 获取所有键值对，返回类数组
+				* forEach()：遍历 Map 的所有成员。
+
+
+		 */
+		document.addEventListener('DOMContentLoaded',()=>{
+			var o = {title:'xxx'}
+			var obj = {
+				name:'laoxie',
+				[o]:'o',
+				[new Date()]:'北京时间'
+			}
+			console.log(obj);
+
+			for(var key in obj){
+				console.log(typeof key)
+			}
+
+			// 把对象显示到页面
+			document.body.innerHTML = obj;//obj自动转字符串：[object Object]
+			
+
+
+			// Map定义
+			var myMap = new Map();
+
+
+			// 给map映射添加key/value
+			myMap.set('name','lemon');
+			myMap.set('age',18);
+			// myMap.set(new Date(),'北京时间');//key为时间对象，value为字符串
+			myMap.set(o,'对象作为key');//key为对象，value为字符串
+			
+			console.log(myMap);
+
+			// 获取：通过key，获取value
+			var val = myMap.get(o);
+			console.log(val);
+
+
+			// Map映射的遍历
+			// keys();
+			console.log('keys()',myMap.keys())
+			console.log('values()',myMap.values())
+
+			myMap.forEach(function(value,key,map){
+				// value:值
+				// key:键
+				// map:myMap的引用
+				// console.log(value,key,a)
+			});
+
+
+			console.log('entries()',Array.from(myMap.entries()))
+
+
+			// for..of
+			for(let [key,value] of myMap){//let [key,value] = item
+			    console.log(key,value);
+			}
+		})
+		
+	</script>
+</head>
+<body>
+	<h1>13Map映射</h1>
+</body>
+</html>

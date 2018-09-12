@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07键盘按键检测</title>
+	<script>
+		/*
+			07键盘按键检测
+				* which/keyCode
+				* 记住按键：
+					* 左上右下:37,38,39,40
+					* 空格：32
+					* 回车：13
+					* ESC：27
+				* 功能键（按下为true）
+					* ctrlKey : Ctrl键是否被按下
+					* shiftKey :Shift键是否被按下
+					* altKey :Alt键是否被按下
+		 */
+		
+		document.onkeydown = function(e){
+			// var e
+
+			e = e || window.event;
+
+			// 按键兼容写法
+			var key = e.keyCode || e.which;
+
+			console.log(e)
+		}
+	</script>
+</head>
+<body>
+	<h1>07键盘按键检测</h1>
+</body>
+</html>

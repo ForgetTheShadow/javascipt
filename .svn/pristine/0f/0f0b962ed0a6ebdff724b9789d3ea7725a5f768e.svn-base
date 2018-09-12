@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03内置函数</title>
+	<script>
+		/*
+			内置函数:js内部已经定义好的函数（直接调用，在任意位置使用）
+				* alert()
+				* parseInt()
+				* parseFloat()
+				* String()
+				* Number()
+				* Boolean()
+			
+				* console.log()
+				* document.write()
+				* document.getElementById()
+			
+				* .toString()
+				* .toFixed()
+				* .....
+		 */
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

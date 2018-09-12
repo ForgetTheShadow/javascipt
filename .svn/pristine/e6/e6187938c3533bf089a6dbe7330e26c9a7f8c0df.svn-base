@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>循环语句for..of</title>
+	<script>
+		/*
+			循环语句for..of
+
+
+			for循环与forEach方法的优缺点
+			* for
+				* 优点：可以随意break,continue
+				* 缺点：必须知道循环次数和索引值，才可获取数组元素
+			* forEach()方法
+				* 优点：解决for的缺点
+				* 缺点：就是for的优点
+
+			* for..of
+				* 综合for和forEach()的优点
+
+		 */
+		
+		var arr = ['laoxie','lemon','tiantian','yy'];
+
+		for(let item of arr){
+			if(item === 'lemon'){
+				break;
+			}
+
+			console.log(item);
+		}
+		
+
+		var person = {
+			name:'laoxie',
+			age:18,
+			gender:'男',
+			hobby:['1',2,true]
+		}
+
+		for(let key of person){
+			
+		}
+	</script>
+</head>
+<body>
+	<h1>循环语句for..of</h1>
+</body>
+</html>

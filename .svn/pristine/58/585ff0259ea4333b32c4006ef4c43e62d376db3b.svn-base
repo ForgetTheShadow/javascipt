@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01页面加载顺序与事件</title>
+	
+	<script>
+		/*
+			window.onload
+				* 延迟代码执行,获取页面元素节点
+				* 避免全局环境污染
+
+
+			页面加载顺序
+				1. 解析HTML结构
+				2. 加载外部脚本和样式表文件。
+				3. 解析并执行脚本代码。
+					* 匿名函数
+				4. DOM树构建完成（在此处已经可以获取节点）
+					* interactive
+					* DOMcontentLoaded
+				5. 加载图片等外部文件。
+					* complete
+				6. 页面加载完毕 
+					* window.onload
+
+
+			页面加载事件（document事件）
+				* readystatechange
+					* document.readyState属性
+						* interactive
+						* complete
+				* DOMContentLoaded
+					* 注意大小写
+					* 必须使用事件监听器
+		 */
+		
+		// onreadystatechange
+		document.onreadystatechange = function(){
+			// console.log(document.readyState);
+
+			// 此处写代码
+			if(document.readyState === 'interactive'){
+				
+				var btn = document.getElementById('btn');
+				console.log(document.readyState,btn);
+			}
+
+			if(document.readyState === 'complete'){
+				console.log('complete');
+			}
+		}
+
+		// DOMContentLoaded
+		document.addEventListener('DOMContentLoaded',function(){
+			var btn = document.getElementById('btn');
+			console.log('DOMContentLoaded',btn);
+		});
+
+
+		// window.onload
+		window.onload = function(){
+			var btn = document.getElementById('btn');
+			console.log('window.onload:',btn)
+		}
+	</script>
+</head>
+<body>
+	<h1>01页面加载顺序与事件</h1>
+	<button id="btn">点我</button>
+	<!-- <script src=""></script> -->
+	<script>
+		(function(){
+			console.log('匿名函数');
+		})();
+	</script>
+</body>
+</html>

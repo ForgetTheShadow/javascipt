@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03节点操作之创建与插入</title>
+	<script>
+		window.onload = function(){
+			/*
+				节点属性
+					* nodeType
+						* 元素：1
+						* 属性：2
+						* 文本：3
+					* nodeName
+						* 元素：大写标签名
+						* 属性 : 属性名
+						* 文本 : #text
+					* nodeValue
+						* 元素：null
+						* 属性 : 属性值
+						* 文本：文字内容
+				创建：
+					* document.createElement() 创建一个元素节点
+					* document.createTextNode() 创建文本节点（了解）
+					* document.createAttribute() 创建属性节点（几乎不用）
+
+				插入:
+					* parent.appendChild(node)：把node插入parent称为它的子节点
+					* ele.setAttributeNode(attrNode) 在指定元素中插入一个属性节点（几乎不用）
+			 */
+			
+			 // 创建
+			var goodslist = document.createElement('div');
+			goodslist.id = 'goodslist';
+			goodslist.className = 'goodslist';
+			// goodslist.innerHTML = '商品列表';
+
+			// 创建ul
+			var ul = document.createElement('ul');
+
+			for(var i=0;i<100;i++){
+				// 创建li
+				var li = document.createElement('li');
+
+				// // 创建class属性节点
+				// var myclass = document.createAttribute('class');//创建节点class
+				// myclass.nodeValue = 'box';
+				// // 把属性写入li
+				// li.setAttributeNode(myclass);
+				// // console.log(myclass.nodeValue)
+
+				li.className = 'box';
+
+				// // 创建文本节点
+				// var txt = document.createTextNode('商品'+i);
+
+				// // 文本插入li
+				// li.appendChild(txt);
+
+				li.innerHTML = '商品' + i;
+
+				// li插入ul
+				ul.appendChild(li);
+				
+			}
+
+			// ul插入div
+			goodslist.appendChild(ul);
+
+
+			// 把div插入页面(body)
+			document.body.appendChild(goodslist);
+
+			console.log(goodslist)
+		}
+		
+
+	</script>
+</head>
+<body>
+	<h1>03节点操作之创建与插入</h1>
+</body>
+</html>

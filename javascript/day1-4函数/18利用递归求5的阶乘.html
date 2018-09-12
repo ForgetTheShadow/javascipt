@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>利用递归求5的阶乘</title>
+	<script>
+		/*
+			封装一个函数，利用递归求5的阶乘
+				5! = 5*4*3*2*1
+				     5*4!
+				     	4*3!
+				 推导公式：fac(n) = n*fac(n-1)
+		 */
+		
+		function fac(num){
+			// 跳出条件
+			if(num<=1){
+				return 1;
+			}
+
+			// 递归计算阶乘
+			return num*fac(num-1);
+		}
+
+		var res = fac(5);//120
+		console.log(res);
+		// fac(1);//1
+
+		/*
+			执行过程
+			fac(5)
+				5*fac(4)
+					4*fac(3)
+						3*fac(2)
+							2*fac(1)
+								1
+		 */
+	</script>
+</head>
+<body>
+	<h1>封装一个函数，利用递归求5的阶乘</h1>
+</body>
+</html>
