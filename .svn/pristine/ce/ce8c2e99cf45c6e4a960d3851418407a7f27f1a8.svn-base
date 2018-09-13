@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>05组件通讯（数据验证）</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+	<h1>05组件通讯（数据验证）</h1>
+	<div id="app" class="container">
+		<my-component :myname="username" myage="18" mygender="男" myscore="61"></my-component>
+	</div>
+
+
+
+	<script src="lib/vue.js"></script>
+	<script>
+		/*
+			05组件通讯（数据验证）
+				
+					
+		 */
+		
+
+		
+		let vm = new Vue({
+			el:'#app',
+			data:{
+				username:'laoxie'
+			},
+
+			components:{
+				MyComponent:{
+					props:{
+						myname:String,
+						myage:[Number,String],
+						mygender:{
+							type:String,
+							// required: true,//require与default不能同时出现
+							default: 'male'
+						},
+						myscore:{
+							validator(val){
+								return val>=60;
+							}
+						}
+					},
+					template:`
+						<div class="box">
+							{{myname}} - {{myage}} - {{mygender}} - {{myscore}}
+						</div>
+					`
+				}
+			}
+			
+		})
+		
+	</script>
+</body>
+</html>

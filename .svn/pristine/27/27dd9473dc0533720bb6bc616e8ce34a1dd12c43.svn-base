@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>02一个页面组成部分</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<style>
+		.logo img{width:100px;border-radius: 50%;}
+	</style>
+</head>
+<body>
+	<div id="app" class="container">
+		<my-header></my-header>
+		<main>
+			
+		</main>
+		<my-footer></my-footer>
+	</div>
+
+
+	<template id="header">
+		<header>
+			<div class="logo"><img src="img/mv3.jpg"/></div>
+			<my-search></my-search>
+		</header>
+	</template>
+
+	<template id="footer">
+		<footer>
+			<ul class="link">
+				<li v-for="name in links"><a href="#">{{name}}</a></li>
+			</ul>
+		</footer>
+	</template>
+
+	<template id="search">
+		<div class="input-group">
+			<input type="search" class="form-control">
+			<div class="input-group-append">
+				<button class="btn btn-success">搜索</button>
+			</div>
+		</div>
+	</template>
+	<script src="lib/vue.js"></script>
+	<script>
+		/*
+			02一个页面组成部分
+		 */
+		
+
+		
+		let vm = new Vue({
+			el:'#app',
+
+			// 局部组件
+			components:{
+				MyHeader:{
+					template:'#header',
+
+					// MyHeader的局部组件
+					components:{
+						MySearch:{
+							template:'#search'
+						}
+					}
+				},
+
+				MyFooter:{
+					data(){
+						return {
+							links:['百度','QQ','淘宝','网易']
+						}
+					},
+					template:'#footer'
+				}
+				
+			}
+
+		})
+		
+	</script>
+</body>
+</html>

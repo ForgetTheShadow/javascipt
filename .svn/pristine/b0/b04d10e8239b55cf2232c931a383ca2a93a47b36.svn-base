@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>03组件通讯（子to父）</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+	<div id="app" class="container">
+		<p :style="{'font-size':fontSize+'px'}">字体大小：{{fontSize}}</p>
+
+		<btn-large :size="fontSize" v-on:bigger="changeFontSize"></btn-large>
+	</div>
+
+
+
+	<script src="lib/vue.js"></script>
+	<script>
+		/*
+			03组件通讯（子to父）
+				* 父组件 -> 子组件
+					1.在子组件上添加自定义属性，并设置父组件的值
+					2.在子组件中配置props选项，声明自定属性
+
+					以上两步完成后，父组件就自动把值传入子组件
+				* 子组件 -> 父组件
+					* 在子组件标签中自定义事件，事件处理函数为父组件的方法（如：bigger）
+					* 子组件触发自定义事件并传递参数
+						* 触发自定义事件：$emit(事件名,参数1,...参数n)
+
+		
+
+			效果：在子组件中修改字体大小
+
+			
+					
+		 */
+		
+
+		
+		let vm = new Vue({
+			el:'#app',
+			data:{
+				fontSize:16
+			},
+
+			methods:{
+				changeFontSize(val){
+					console.log(666,val);
+
+					// 把子组件传来的值赋值给fontSize
+					this.fontSize = val;
+				}
+			},
+
+			components:{
+				BtnLarge:{
+					props:['size'],
+					data(){
+						return {
+							// 把父组件传入的值作为初始值
+							initSize:this.size
+						}
+					},
+					template:`<button class="btn btn-success" @click="change">变大</button>`,
+					methods:{
+						change(){
+							// 不能直接修改父组件传入的数据，而应该把他作为data,computed属性的初始值
+							// this.size++;
+
+							this.initSize++;
+
+							// 手动触发自定义事件
+							this.$emit('bigger',this.initSize);
+						}
+					}
+				}
+			}
+		})
+		
+	</script>
+</body>
+</html>

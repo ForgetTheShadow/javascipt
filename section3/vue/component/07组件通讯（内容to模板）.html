@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>07组件通讯（内容传输）</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+	<h1>07组件通讯（内容传输）</h1>
+	<div id="app">
+		<mynav>
+			我的导航
+		</mynav>
+
+		<my-button>查询</my-button>
+		<my-button>搜索</my-button>
+		<my-button></my-button>
+
+		<p class="mt-5">-----------------华丽分割线-----------------</p>
+
+		<!-- 页面头部 -->
+		<my-header>
+			<div slot="top">hi xxx，欢迎登录xxx，注册</div>
+			<div slot="bottom"><input type="search"><button>搜索</button></div>
+			<div>导航</div>
+		</my-header>
+
+		<!-- 文章头部 -->
+		<my-header>
+			<div slot="bottom">文章标题</div>
+			<div slot="bottom">文章信息</div>
+			<div slot="top">正文</div>
+		</my-header>
+	</div>
+
+	<template id="nav">
+		<div>
+			<ul>
+				<li>首页</li>
+				<li>发现</li>
+				<li>我的</li>
+			</ul>
+			<!-- 要把组件内容保留下来，必须使用slot -->
+			<slot></slot>
+		</div>
+	</template>
+	<script src="lib/vue.js"></script>
+	<script>
+		/*
+			07组件通讯（内容传输）
+				* 组件所在的区域会被template中的内容替换
+				* 内容传输：
+					* 默认插槽：插槽<slot></slot>用于存放组件内容
+					* 具名插槽：精确显示某一个部分内容
+		 */
+		
+		Vue.component('mynav',{
+			template:'#nav'
+		});
+
+		Vue.component('my-button',{
+			template:'<button class="btn btn-danger"><slot>按钮</slot></button>'
+		});
+
+		Vue.component('my-header',{
+			template:`
+				<div class="header">
+					<slot name="top"></slot>
+					<slot></slot>
+					<slot name="bottom"></slot>
+				</div>
+			`
+		})
+		
+		let vm = new Vue({
+			el:'#app',
+		})
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>动态组件</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<script>
+		/*
+			动态组件
+				* <component></component>
+				* is
+				* 保留某个状态
+		 */
+
+	</script>
+</head>
+<body>
+	<h1>动态组件</h1>
+	<div id="app">
+		<ul class="nav nav-tabs">
+		  <li class="nav-item" v-for="tab in tabs">
+		    <a class="nav-link" href="#" :class="{active:tab==isActive}" @click="isActive=tab">{{tab}}</a>
+		  </li>
+		</ul>
+		<div class="border p-3">
+			<component :is="currentComponent"></component>
+		</div>
+	</div>
+	<script src="lib/vue.js"></script>
+	<script>
+		Vue.component('item-a',{
+			template:'<img src="img/g1.jpg">'
+		});
+		Vue.component('item-b',{
+			template:'<img src="img/g2.jpg">'
+		});
+		Vue.component('item-c',{
+			template:'<img src="img/g3.jpg">'
+		});
+		Vue.component('item-d',{
+			template:'<img src="img/g4.jpg">'
+		});
+
+		let vm = new Vue({
+			el:'#app',
+			data:{
+				isActive:'a',
+				tabs:['a','b','c','d']
+			},
+			computed:{
+				currentComponent(){
+					return 'item-' + this.isActive;
+				}
+			}
+		});
+	</script>
+</body>
+</html>

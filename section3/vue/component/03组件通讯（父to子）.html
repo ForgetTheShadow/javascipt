@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>03组件数据通讯</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<style>
+		.logo img{width:50px;border-radius: 50%;}
+	</style>
+</head>
+<body>
+	<div id="app" class="container">
+		<my-header></my-header>
+
+		<my-nav v-bind:items="navs"></my-nav>
+		<main>
+			
+		</main>
+		<my-footer></my-footer>
+
+		{{navs}}
+	</div>
+
+
+	<template id="header">
+		<header>
+			<div class="logo"><img src="img/mv3.jpg"/></div>
+			<my-search></my-search>
+		</header>
+	</template>
+
+	<template id="footer">
+		<footer>
+			<ul class="link">
+				<li v-for="name in links"><a href="#">{{name}}</a></li>
+			</ul>
+		</footer>
+	</template>
+
+	<template id="search">
+		<div class="input-group">
+			<input type="search" class="form-control">
+			<div class="input-group-append">
+				<button class="btn btn-success">搜索</button>
+			</div>
+		</div>
+	</template>
+
+	<template id="nav">
+		<ul class="nav">
+		  <li class="nav-item" v-for="item in items">
+		    <a class="nav-link" href="#">{{item}}</a>
+		  </li>
+		</ul>
+	</template>
+	<script src="lib/vue.js"></script>
+	<script>
+		/*
+			03组件数据通讯
+				* 父组件 -> 子组件
+					1.在子组件上添加自定义属性，并设置父组件的值
+					2.在子组件中配置props选项，声明自定属性
+
+					以上两步完成后，父组件就自动把值传入子组件
+		 */
+		
+
+		
+		let vm = new Vue({
+			el:'#app',
+
+			data:{
+				navs:['首页','列表','详情','购物车']
+			},
+
+			// 局部组件
+			components:{
+				MyHeader:{
+					template:'#header',
+
+					// MyHeader的局部组件
+					components:{
+						MySearch:{
+							template:'#search'
+						}
+					}
+				},
+
+				MyNav:{
+					// 声明items自定义属性
+					props:['items'],
+					data(){
+						return {
+							// items:''
+						}
+					},
+					template:'#nav'
+				},
+
+				MyFooter:{
+					data(){
+						return {
+							links:['百度','QQ','淘宝','网易']
+						}
+					},
+					template:'#footer'
+				}
+				
+			}
+
+		})
+		
+	</script>
+</body>
+</html>
