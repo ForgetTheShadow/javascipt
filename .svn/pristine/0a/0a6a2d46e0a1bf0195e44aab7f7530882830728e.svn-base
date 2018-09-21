@@ -1,0 +1,86 @@
+<template>
+  <div id="app">
+
+    <router-view/>
+
+    <mt-tabbar>
+      <mt-tabbar v-model="currentTab" fixed>
+            <mt-tab-item :id="tab.id" v-for="(tab,idx) in tabs" :key="idx">
+            <img :src="tab.icon" slot="icon">
+              {{tab.title}}
+            </mt-tab-item>
+        </mt-tabbar>
+    </mt-tabbar>
+  </div>
+</template>
+
+<script>
+    import Vue from 'vue';
+    import Mint from 'mint-ui';
+    Vue.use(Mint);
+
+     // 单独引入样式
+    import 'mint-ui/lib/style.css';
+
+
+    import axios from 'axios';
+    Vue.use(axios);
+
+    // 方便在其他组件中直接使用axios
+    Vue.prototype.$axios = axios;
+
+  export default {
+    data(){
+        return{
+            currentTab:'Home',
+            currentCity:'广州',
+            tabs:[
+                    {
+                        title:'首页',
+                        id:'Home',
+                        icon:'home'
+                    },
+                    {
+                        title:'正在热映',
+                        id:'in_theaters',
+                        icon:'eye'
+                    },
+                    {
+                        title:'即将上映',
+                        id:'coming_soon',
+                        icon:'dial'
+                    },
+                    {
+                        title:'新片榜',
+                        id:'new_movies',
+                        icon:'puzzle-piece'
+                    },
+                    {
+                        title:'TOP250',
+                        id:'top250',
+                        icon:'signpost'
+                    }
+                ]
+        }
+    },
+    methods:{
+        search(){
+            this.$router.push({
+                name:'Search'
+            });
+        }
+    },
+    name: 'App'
+  }
+  </script>
+
+<style>
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    /*margin-top: 60px;*/
+  }
+  </style>

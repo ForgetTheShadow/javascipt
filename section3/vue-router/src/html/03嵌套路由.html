@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>01vue-router基本使用方式</title>
+	<link rel="stylesheet" href="../lib/bootstrap/bootstrap.css">
+</head>
+<body>
+	<h1>01vue-router基本使用方式</h1>
+	<div id="app" class="container">
+		<div class="nav nav-tabs">
+		  	<router-link class="nav-link" :to="tab.link" v-for="tab in tabs" exact-active-class="active">
+		  		{{tab.text}}
+			</router-link>
+			<router-link class="nav-link" to="/user" active-class="active">用户</router-link>
+		</div>
+		<router-view></router-view>
+	</div>
+	<!-- 引入 -->
+	<script src="../lib/vue.js"></script>
+	<script src="../lib/vue-router.js"></script>
+	<script>
+
+		let Home = {
+			template:`<div>
+				<h4>首页内容</h4>
+			</div>`
+		}
+
+		let List = {
+			template:`<div>
+				<h4>列表内容</h4>
+			</div>`
+		}
+
+		let Goods = {
+			template:`<div>
+				<h4>商品详情</h4>
+			</div>`
+		}
+
+		let Cart = {
+			template:`<div>
+				<h4>购物车</h4>
+			</div>`
+		}
+
+		let User = {
+			props:['username','id','myname','nickname','a','b'],
+			data(){
+				return {
+					menus:[
+						{text:'头像修改',link:'touxiang'},
+						{text:'密码修改',link:'password'},
+						{text:'用户信息',link:'info'},
+					]
+				}
+			},
+			template:`<div>
+				<h4>用户管理</h4>
+				<nav class="nav">
+					<router-link class="nav-link" v-for="item in menus" :to="item.link">{{item.text}}</router-link>
+				</nav>
+				<router-view></router-view>
+			</div>`
+		}
+
+
+		let routes = [
+			{
+				path:'/',
+				component:Home
+			},
+			{
+				path:'/list',
+				component:List
+			},
+			{
+				path:'/goods',
+				component:Goods
+			},
+			{
+				path:'/cart',
+				component:Cart
+			},
+
+			// 动态路由
+			{
+				path:'/user',
+				component:User,
+
+				// 自动绑定$route.params下的所有属性
+				props:true,
+
+
+				// 子路由的匹配方式：
+				// /user/子路由
+				children:[
+					{
+						path:'/touxiang',
+						component:{
+							template:`<div>
+								这就是头像，改吧
+							</div>`
+						}
+					},
+					{
+						path:'/password',
+						component:{
+							template:`<div>
+								密码修改
+							</div>`
+						}
+					},
+					{
+						path:'/info',
+						component:{
+							template:`<div>
+								我的信息
+							</div>`
+						}
+					}
+				]
+					
+			}	
+		];
+
+		
+		// 实例化路由对象
+		let router = new VueRouter({
+			// 路由配置信息
+			routes
+		});
+
+
+		let vm = new Vue({
+			el:'#app',
+			data:{
+				tabs:[{
+					text:'Home',
+					link:'/'
+				},{
+					text:'List',
+					link:'list'
+				},{
+					text:'Goods',
+					link:'goods'
+				},{
+					text:'Cart',
+					link:'cart'
+				}]
+			},
+			router
+		})
+	</script>
+</body>
+</html>

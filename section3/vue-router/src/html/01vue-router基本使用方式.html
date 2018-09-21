@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>01vue-router基本使用方式</title>
+	<link rel="stylesheet" href="../lib/bootstrap/bootstrap.css">
+</head>
+<body>
+	<h1>01vue-router基本使用方式</h1>
+	<div id="app" class="container">
+		<div class="nav nav-tabs">
+		  	<router-link class="nav-link" :to="tab.link" v-for="tab in tabs" exact-active-class="active">
+		  		{{tab.text}}
+			</router-link>
+		</div>
+		<router-view></router-view>
+	</div>
+	<!-- 引入 -->
+	<script src="../lib/vue.js"></script>
+	<script src="../lib/vue-router.js"></script>
+	<script>
+
+		let Home = {
+			template:`<div>
+				<h4>首页内容</h4>
+			</div>`
+		}
+
+		let List = {
+			template:`<div>
+				<h4>列表内容</h4>
+			</div>`
+		}
+
+		let Goods = {
+			template:`<div>
+				<h4>商品详情</h4>
+			</div>`
+		}
+
+		let Cart = {
+			template:`<div>
+				<h4>购物车</h4>
+			</div>`
+		}
+
+
+
+		let routes = [
+			{
+				path:'/',
+				component:Home
+			},
+			{
+				path:'/list',
+				component:List
+			},
+			{
+				path:'/goods',
+				component:Goods
+			},
+			{
+				path:'/cart',
+				component:Cart
+			}
+		];
+
+		
+		// 实例化路由对象
+		let router = new VueRouter({
+			// 路由配置信息
+			routes
+		});
+
+
+		let vm = new Vue({
+			el:'#app',
+			data:{
+				tabs:[{
+					text:'Home',
+					link:'/'
+				},{
+					text:'List',
+					link:'list'
+				},{
+					text:'Goods',
+					link:'goods'
+				},{
+					text:'Cart',
+					link:'cart'
+				}]
+			},
+			router
+		})
+	</script>
+</body>
+</html>
